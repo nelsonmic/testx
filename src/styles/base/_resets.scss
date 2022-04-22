@@ -1,0 +1,58 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  html, body {
+    height: 100%;
+    position: relative;
+    // overflow: hidden;
+  }
+  body {
+    // background: $color_tertiary-100;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  input, button, textarea, select {
+    font: inherit;
+  }
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+
+  ol, ul{
+      list-style: none;
+      display:flex;
+      place-items: center;
+  }
+
+  a{
+    text-decoration: none;
+  }
+
+  button:hover{
+    cursor: pointer !important;
+  }
+
+  .wrapper{
+    width:100%;
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+
+//   .formik-error{
+//    @include styletext($xxsm-font-size,$color_error-100,600, left);
+//   }
+
+  // .active{
+  //   color:$color_primary-500;
+  // }
+  // #root{
+  //   isolation: isolate;
+  // }

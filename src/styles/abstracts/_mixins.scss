@@ -1,0 +1,7 @@
+//set text properties
+@mixin styletext($fontsize,$color, $fontweight:400, $textalign:center){
+    color: $color;
+    font-size: $fontsize;
+    font-weight: $fontweight;
+    text-align: $textalign;
+}
