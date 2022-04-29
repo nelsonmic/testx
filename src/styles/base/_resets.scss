@@ -46,9 +46,11 @@
     margin: 0 auto;
   }
 
-//   .formik-error{
-//    @include styletext($xxsm-font-size,$color_error-100,600, left);
-//   }
+  .formik-error{
+    transition: all 0.5s ease-in-out;
+    margin-top:.5em;
+   @include styletext($xxsm-font-size,$color-primary-600,400, left);
+  }
 
   // .active{
   //   color:$color_primary-500;
