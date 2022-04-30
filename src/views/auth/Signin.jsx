@@ -4,10 +4,28 @@ import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import useLoginUser from "../../apis/auth/useLogin";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import AlertMessage from "../../components/Alert";
 
 const SignIn = () => {
+  let navigate = useNavigate();
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
+
+  const { mutate: loginUser, isError, error, isSuccess, data, isLoading } = useLoginUser();
+
+  useEffect(() => {
+    if (isSuccess) {
+      let timer = setTimeout(() => {
+        navigate("/");
+        localStorage.setItem("AT", data.data.data.access_token);
+        localStorage.setItem("RT", data.data.data.refresh_token);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [isSuccess,data, navigate]);
 
   const formik = useFormik({
     initialValues: {
@@ -15,24 +33,34 @@ const SignIn = () => {
       signinPassword: "",
     },
     validationSchema: Yup.object({
-        signinEmail: Yup.string().email("The email address is incorrect").required("Required"),
-        signinPassword: Yup.string().required("Required"),
+      signinEmail: Yup.string()
+        .email("The email address is incorrect")
+        .required("Required"),
+      signinPassword: Yup.string().required("Required"),
     }),
     onSubmit: (values) => {
-      console.log(values);
+      const { signinEmail, signinPassword } = values;
+      const user = { signinEmail, signinPassword };
+      loginUser(user);
     },
   });
 
   return (
     <div className="signin">
       <div className="signin__welcome">
+        {isSuccess ? (
+          <AlertMessage status="success" message={data.data.message} />
+        ) : null}
+        {isError ? (
+          <AlertMessage status="error" message={error.response.data.message} />
+        ) : null}
         <div className="logo">
           <img src={logo} alt="xtrapay logo" />
         </div>
         <h1>Welcome back!</h1>
       </div>
 
-      <form className="signin__form" onSubmit={formik.handleSubmit}>
+      <form className="signin__form">
         <div className="inputs">
           <label htmlFor="signinEmail">Email</label>
           <InputGroup size="lg">
@@ -139,7 +167,13 @@ const SignIn = () => {
         <Link to="/forgot-password">Forgot password?</Link>
 
         <div className="submit-button">
-          <Button size="lg" type="sumbit">
+          <Button
+            size="lg"
+            colorScheme="red"
+            onClick={formik.handleSubmit}
+            isLoading={isLoading ? true : false}
+            isActive={isLoading ? true : false}
+          >
             Sign In
           </Button>
         </div>

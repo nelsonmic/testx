@@ -46,7 +46,7 @@
 
             button{
                 width:100%;
-                background-color: $color-primary-500;
+                // background-color: $color-primary-500;
                 border:none;
                 @include styletext($sm-font-size, $color-tertiary-100, 400, center);
             }

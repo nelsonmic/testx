@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/86c120fc-a8e8-46cf-b6b7-2be26147f951/deploy-status)](https://app.netlify.com/sites/test-xtrapay-new/deploys)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
