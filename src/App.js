@@ -6,6 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import Signup from "./views/auth/Signup";
 import Signin from "./views/auth/Signin";
 import ForgotPassword from "./views/auth/ForgotPassword";
+import ConfirmEmail from "./views/auth/ConfirmEmail";
 
 import Overview from "./views/Overview";
 
@@ -29,6 +30,7 @@ function App() {
               <Route path="/sign-up" element={<Signup />} />
               <Route path="/sign-in" element={<Signin />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
+              <Route path="/confirm-email" element={<ConfirmEmail />} />
             </Routes>
           </>
         )

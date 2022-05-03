@@ -1,31 +1,37 @@
-.signin {
+.signup {
     padding: 1em 2em;
 
-    &__welcome {
-        .logo {
-            width: 150px;
-            height: 150px;
-            margin: 0 auto;
-
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: contain;
-                object-position: 50% 50%;
-            }
-        }
-
+    &__desc {
+        margin-bottom:2em;
         h1 {
-            margin-bottom: 2em;
+            margin-top: 2em;
+            margin-bottom: .35em;
             @include styletext($lg-font-size, $color-tertiary-300, 700, center);
 
             @include for-medium-screens {
-                @include styletext($md-font-size, $color-tertiary-300, 700, center);
+                @include styletext($md-font-size, $color-tertiary-300, 700, left);
             }
 
             @include for-small-screens {
-                @include styletext($sm-font-size, $color-tertiary-300, 700, center);
+                @include styletext($sm-font-size, $color-tertiary-300, 700, left);
             }
+        }
+
+        p {
+            @include styletext($sm-font-size, $color-tertiary-200, 400, center);
+            width:50%;
+            margin:0 auto;
+
+            @include for-medium-screens {
+                width:100%;
+                @include styletext($xsm-font-size, $color-tertiary-200, 400, left);
+            }
+
+            @include for-small-screens {
+                width:100%;
+                @include styletext($xxsm-font-size, $color-tertiary-200, 400, left);
+            }
+
         }
     }
 
@@ -58,10 +64,24 @@
                     @include styletext($xxsm-font-size, $color-tertiary-300, 400, left);
                 }
             }
+
+            .chakra-radio {
+                span {
+                    @include styletext($xsm-font-size, $color-tertiary-200, 400, left)
+                }
+            }
+
+            .chakra-checkbox {
+                margin-top: 1em;
+
+                span {
+                    @include styletext($xxsm-font-size, $color-tertiary-200, 400, left)
+                }
+            }
         }
 
         a {
-            @include styletext($xxsm-font-size, $color-primary-400, 400, left);
+            @include styletext($xsm-font-size, $color-primary-400, 400, left);
         }
 
         .submit-button {
@@ -69,6 +89,7 @@
 
             button {
                 width: 100%;
+                // background-color: $color-primary-500;
                 border: none;
                 @include styletext($xxsm-font-size, $color-tertiary-100, 400, center);
             }

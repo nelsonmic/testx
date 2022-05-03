@@ -1,6 +1,6 @@
 import { Input, InputGroup, InputRightElement, Button } from "@chakra-ui/react";
 import logo from "../../assets/logo.png";
-import { Link, NavLink } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -63,7 +63,7 @@ const SignIn = () => {
       <form className="signin__form">
         <div className="inputs">
           <label htmlFor="signinEmail">Email</label>
-          <InputGroup size="lg">
+          <InputGroup size="md">
             <Input
               id="signinEmail"
               name="signinEmail"
@@ -77,8 +77,8 @@ const SignIn = () => {
             />
             <InputRightElement pointerEvents="none">
               <svg
-                width="20"
-                height="20"
+                width="16"
+                height="16"
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -101,7 +101,7 @@ const SignIn = () => {
 
         <div className="inputs">
           <label htmlFor="signinPassword">Password</label>
-          <InputGroup size="lg">
+          <InputGroup size="md">
             <Input
               id="signinPassword"
               name="signinPassword"
@@ -117,8 +117,8 @@ const SignIn = () => {
               <span onClick={handleClick}>
                 {show ? (
                   <svg
-                    width="20"
-                    height="20"
+                    width="16"
+                    height="16"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -134,8 +134,8 @@ const SignIn = () => {
                   </svg>
                 ) : (
                   <svg
-                    width="23"
-                    height="23"
+                    width="16"
+                    height="16"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -168,7 +168,7 @@ const SignIn = () => {
 
         <div className="submit-button">
           <Button
-            size="lg"
+            size="md"
             colorScheme="red"
             onClick={formik.handleSubmit}
             isLoading={isLoading ? true : false}
@@ -179,7 +179,7 @@ const SignIn = () => {
         </div>
 
         <p className="no-account">
-          Don't have an account? <NavLink to="/sign-up">Sign up</NavLink>
+          Don't have an account? <Link to="/sign-up">Sign up</Link>
         </p>
       </form>
     </div>
