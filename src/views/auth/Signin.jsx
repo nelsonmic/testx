@@ -1,6 +1,6 @@
 import { Input, InputGroup, InputRightElement, Button } from "@chakra-ui/react";
 import logo from "../../assets/logo.png";
-import { Link, NavLink } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -179,7 +179,7 @@ const SignIn = () => {
         </div>
 
         <p className="no-account">
-          Don't have an account? <NavLink to="/sign-up">Sign up</NavLink>
+          Don't have an account? <Link to="/sign-up">Sign up</Link>
         </p>
       </form>
     </div>
