@@ -9,6 +9,7 @@ import {
   Checkbox,
 } from "@chakra-ui/react";
 import { useState } from "react";
+import useRegisterUser from "../../apis/auth/useRegister";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useEffect } from "react";
@@ -18,6 +19,8 @@ import AlertMessage from "../../components/Alert";
 const SignUp = () => {
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
+
+  const { mutate: RegisterUser, isError, error, isSuccess, data, isLoading } = useRegisterUser();
 
   const formik = useFormik({
     initialValues: {
@@ -37,7 +40,10 @@ const SignUp = () => {
       signupPassword: Yup.string().required("Required"),
     }),
     onSubmit: (values) => {
-      console.log(values);
+        console.log(values);
+        const { signupFullname, signupEmail, signupPhone, signupAs, signupPassword } = values;
+        const user = { signupFullname, signupEmail, signupPhone, signupAs, signupPassword };
+        RegisterUser(user);
     },
   });
 
