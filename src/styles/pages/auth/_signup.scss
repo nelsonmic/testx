@@ -1,0 +1,64 @@
+.signup{
+    padding:1em 2em;
+
+    &__desc{
+
+        h1{
+            margin-top:2em;
+            margin-bottom:.35em;
+            @include styletext($lg-font-size, $color-tertiary-300, 700, left);
+        }
+        p{
+            @include styletext($xsm-font-size, $color-tertiary-200, 400, left);
+            margin-bottom:2em;
+        }
+    }
+
+    &__form{
+        max-width:400px;
+        margin:0 auto;
+        .inputs{
+            position: relative;
+            margin-bottom: 1em;
+
+            input{
+                @include styletext($xsm-font-size, $color-tertiary-600, 400, left);
+            }
+
+            label{
+                @include styletext($xsm-font-size, $color-tertiary-300, 400, left);
+            }
+
+            .chakra-checkbox{
+                margin-top:1em;
+                span{
+                    @include styletext($xsm-font-size, $color-tertiary-200, 400, left)
+                }
+            }
+        }
+
+        a{
+            @include styletext($xsm-font-size, $color-primary-400, 400, left);
+        }
+
+        .submit-button{
+            margin-top:5em;
+
+            button{
+                width:100%;
+                // background-color: $color-primary-500;
+                border:none;
+                @include styletext($sm-font-size, $color-tertiary-100, 400, center);
+            }
+        }
+
+        .no-account{
+            margin-top:1em;
+            @include styletext($xsm-font-size, $color-tertiary-600, 600, center);
+
+            a{
+                @include styletext($xsm-font-size, $color-primary-600, 600, center);
+            }
+        }
+    }
+}
