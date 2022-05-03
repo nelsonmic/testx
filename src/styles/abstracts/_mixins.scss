@@ -5,3 +5,16 @@
     font-weight: $fontweight;
     text-align: $textalign;
 }
+
+//responsiveness
+@mixin for-small-screens{
+    @media (max-width: 300px) {
+        @content;
+    }
+}
+
+@mixin for-medium-screens{
+    @media (max-width: 500px) {
+        @content;
+    }
+}

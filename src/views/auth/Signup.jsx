@@ -54,7 +54,7 @@ const SignUp = () => {
       <form className="signup__form">
         <div className="inputs">
           <label htmlFor="signupFullname">Full Name</label>
-          <InputGroup size="lg">
+          <InputGroup size="md">
             <Input
               id="signupFullname"
               name="signupFullname"
@@ -68,8 +68,8 @@ const SignUp = () => {
             />
             <InputRightElement pointerEvents="none">
               <svg
-                width="20"
-                height="20"
+                width="16"
+                height="16"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -92,7 +92,7 @@ const SignUp = () => {
 
         <div className="inputs">
           <label htmlFor="signupEmail">Email</label>
-          <InputGroup size="lg">
+          <InputGroup size="md">
             <Input
               id="signupEmail"
               name="signupEmail"
@@ -106,8 +106,8 @@ const SignUp = () => {
             />
             <InputRightElement pointerEvents="none">
               <svg
-                width="20"
-                height="20"
+                width="16"
+                height="16"
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -130,7 +130,7 @@ const SignUp = () => {
 
         <div className="inputs">
           <label htmlFor="signupPhone">Phone Number</label>
-          <InputGroup size="lg">
+          <InputGroup size="md">
             <Input
               id="signupPhone"
               name="signupPhone"
@@ -144,8 +144,8 @@ const SignUp = () => {
             />
             <InputRightElement pointerEvents="none">
               <svg
-                width="20"
-                height="20"
+                width="16"
+                height="16"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -207,7 +207,7 @@ const SignUp = () => {
 
         <div className="inputs">
           <label htmlFor="signupPassword">Password</label>
-          <InputGroup size="lg">
+          <InputGroup size="md">
             <Input
               id="signupPassword"
               name="signupPassword"
@@ -223,8 +223,8 @@ const SignUp = () => {
               <span onClick={handleClick}>
                 {show ? (
                   <svg
-                    width="20"
-                    height="20"
+                    width="16"
+                    height="16"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -240,8 +240,8 @@ const SignUp = () => {
                   </svg>
                 ) : (
                   <svg
-                    width="23"
-                    height="23"
+                    width="16"
+                    height="16"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -271,7 +271,7 @@ const SignUp = () => {
         </div>
 
         <div className="inputs">
-          <Checkbox colorScheme="red" size="lg">
+          <Checkbox colorScheme="red" size="md">
             By creating an account with us, you agree to our Terms and
             Conditions.
           </Checkbox>
@@ -279,7 +279,7 @@ const SignUp = () => {
 
         <div className="submit-button">
           <Button
-            size="lg"
+            size="md"
             colorScheme="red"
             onClick={formik.handleSubmit}
             // isLoading={isLoading ? true : false}
@@ -290,7 +290,7 @@ const SignUp = () => {
         </div>
 
         <p className="no-account">
-          Don't have an account? <Link to="/sign-in">Sign in</Link>
+          Already have an account? <Link to="/sign-in">Sign in</Link>
         </p>
       </form>
     </div>

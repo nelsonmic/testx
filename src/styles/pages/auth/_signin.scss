@@ -1,63 +1,85 @@
-.signin{
-    padding:1em 2em;
+.signin {
+    padding: 1em 2em;
 
-    &__welcome{
-        .logo{
-            width:150px;
-            height:150px;
+    &__welcome {
+        .logo {
+            width: 150px;
+            height: 150px;
             margin: 0 auto;
 
-            img{
-                width:100%;
-                height:100%;
+            img {
+                width: 100%;
+                height: 100%;
                 object-fit: contain;
                 object-position: 50% 50%;
             }
         }
 
-        h1{
-            margin-bottom:2em;
+        h1 {
+            margin-bottom: 2em;
             @include styletext($lg-font-size, $color-tertiary-300, 700, center);
+
+            @include for-medium-screens {
+                @include styletext($md-font-size, $color-tertiary-300, 700, center);
+            }
+
+            @include for-small-screens {
+                @include styletext($sm-font-size, $color-tertiary-300, 700, center);
+            }
         }
     }
 
-    &__form{
-        max-width:400px;
-        margin:0 auto;
-        .inputs{
+    &__form {
+        max-width: 400px;
+        margin: 0 auto;
+
+        .inputs {
             position: relative;
             margin-bottom: 1em;
 
-            input{
+            input {
                 @include styletext($xsm-font-size, $color-tertiary-600, 400, left);
+
+                @include for-small-screens {
+                    @include styletext($xxsm-font-size, $color-tertiary-300, 400, left);
+                }
             }
 
-            label{
+            input::placeholder {
+                @include for-small-screens {
+                    @include styletext($xxsm-font-size, $color-tertiary-200, 400, left);
+                }
+            }
+
+            label {
                 @include styletext($xsm-font-size, $color-tertiary-300, 400, left);
+
+                @include for-small-screens {
+                    @include styletext($xxsm-font-size, $color-tertiary-300, 400, left);
+                }
             }
         }
 
-        a{
-            @include styletext($xsm-font-size, $color-primary-400, 400, left);
+        a {
+            @include styletext($xxsm-font-size, $color-primary-400, 400, left);
         }
 
-        .submit-button{
-            margin-top:5em;
+        .submit-button {
+            margin-top: 5em;
 
-            button{
-                width:100%;
-                // background-color: $color-primary-500;
-                border:none;
-                @include styletext($sm-font-size, $color-tertiary-100, 400, center);
+            button {
+                width: 100%;
+                border: none;
+                @include styletext($xxsm-font-size, $color-tertiary-100, 400, center);
             }
         }
 
-        .no-account{
-            margin-top:1em;
-            @include styletext($xsm-font-size, $color-tertiary-600, 600, center);
+        .no-account {
+            margin-top: 1em;
+            @include styletext($xxsm-font-size, $color-tertiary-600, 600, center);
 
-            a{
-                @include styletext($xsm-font-size, $color-primary-600, 600, center);
+            a {
+                @include styletext($xxsm-font-size, $color-primary-600, 600, center);
             }
         }
     }
