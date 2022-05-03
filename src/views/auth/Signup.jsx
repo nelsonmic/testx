@@ -17,10 +17,27 @@ import { useNavigate, Link } from "react-router-dom";
 import AlertMessage from "../../components/Alert";
 
 const SignUp = () => {
+    let navigate = useNavigate();
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
 
-  const { mutate: RegisterUser, isError, error, isSuccess, data, isLoading } = useRegisterUser();
+  const {
+    mutate: RegisterUser,
+    isError,
+    error,
+    isSuccess,
+    data,
+    isLoading,
+  } = useRegisterUser();
+
+  useEffect(() => {
+    if (isSuccess) {
+      let timer = setTimeout(() => {
+        navigate("/confirm-email");
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [isSuccess, navigate]);
 
   const formik = useFormik({
     initialValues: {
@@ -40,16 +57,34 @@ const SignUp = () => {
       signupPassword: Yup.string().required("Required"),
     }),
     onSubmit: (values) => {
-        console.log(values);
-        const { signupFullname, signupEmail, signupPhone, signupAs, signupPassword } = values;
-        const user = { signupFullname, signupEmail, signupPhone, signupAs, signupPassword };
-        RegisterUser(user);
+      const {
+        signupFullname,
+        signupEmail,
+        signupPhone,
+        signupAs,
+        signupPassword,
+      } = values;
+      const user = {
+        signupFullname,
+        signupEmail,
+        signupPhone,
+        signupAs,
+        signupPassword,
+      };
+      RegisterUser(user);
     },
   });
 
   return (
     <div className="signup">
       <div className="signup__desc">
+        {isSuccess ? (
+          <AlertMessage status="success" message={data.data.message} />
+        ) : null}
+        {isError ? (
+          <AlertMessage status="error" message={error.response.data.data[Object.keys(error.response.data.data)[0]]} />
+        ) : null}
+
         <h1>Create Account</h1>
         <p>
           Create a free account and start enjoying financial benefits with
@@ -288,8 +323,8 @@ const SignUp = () => {
             size="md"
             colorScheme="red"
             onClick={formik.handleSubmit}
-            // isLoading={isLoading ? true : false}
-            // isActive={isLoading ? true : false}
+            isLoading={isLoading ? true : false}
+            isActive={isLoading ? true : false}
           >
             Sign Up
           </Button>
