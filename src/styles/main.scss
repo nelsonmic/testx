@@ -7,8 +7,13 @@
 
 
 //components
+@import 'components/imageformatter';
+@import 'components/bottomnav';
 
 
 //pages
+@import 'pages/overview';
+
+    //auth pages
 @import 'pages/auth/signin';
 @import 'pages/auth/signup'

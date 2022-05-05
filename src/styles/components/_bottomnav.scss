@@ -1,0 +1,48 @@
+.bottom-nav {
+    padding: .5em 1em;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    background: white !important;
+
+    svg{
+        stroke: black;
+        fill: $color_tertiary-300;
+    }
+
+    .no{
+        fill:none;
+    }
+
+    a{
+        display: flex;
+        flex-direction: column;
+        place-items: center;
+        text-align: center
+        svg{
+            border:1px solid red;
+            margin:0 auto;
+            stroke: black;
+            fill: $color_tertiary-300;
+        }
+
+        p{
+            margin-top:.5em;
+            @include styletext($xxxsm-font-size, $color-tertiary-300, 400, center);
+        }
+    }
+
+
+    .active {
+        svg {
+            fill: $color_primary-500;   
+        }
+
+        .no{
+            stroke:$color_primary-500;   
+            fill:none;
+        }
+    }
+}
