@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 
 //components
 import BottomNav from "./components/BottomNav";
+import Alert from "./components/Alert";
 //auth routes
 import Signup from "./views/auth/Signup";
 import Signin from "./views/auth/Signin";
@@ -20,6 +22,8 @@ import Overview from "./views/Overview";
 import ErrorPage from "./views/Error";
 
 function App() {
+  const [interceptorError, setInterceptorError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const [view, setView] = useState(window.screen.width);
   const [app, setApp] = useState("");
   let location = useLocation();
@@ -32,15 +36,57 @@ function App() {
       "/forgot-password",
       "/confirm-email",
       "/reset-password",
-      "*"
+      "*",
     ];
-    
+
+    axios.interceptors.request.use(
+      (config) => {
+        config.timeout = 60000;
+        if (!authRoutes.includes(location.pathname)) {
+          config.headers.Authorization = `Bearer ${localStorage.getItem("AT")}`;
+        }
+        return config;
+      },
+      (error) => {
+        return Promise.reject(error);
+      }
+    );
+
+    axios.interceptors.response.use(
+      (response) => {
+        return response;
+      },
+      (error) => {
+        const data = error.response.data;
+        if (
+          data.message === "Invalid Token" ||
+          data.message === "The refresh token is invalid" ||
+          data.message === "Unauthenticated."
+        ) {
+          setInterceptorError(true);
+          setErrorMessage("Unauthenticated. Please sign in again.");
+
+          // setTimeout(() => {
+          //     if (refreshContainer.style.display == "block") {
+          //         window.location.href = "../auth/login.html"
+          //     }
+          // }, 180000);
+        } else {
+          setInterceptorError(false);
+          console.log(data.message);
+        }
+
+        return Promise.reject(error);
+      }
+    );
+
     const allViews = (
       <>
-      {!authRoutes.includes(location.pathname) && <BottomNav />}
+        {!authRoutes.includes(location.pathname) && <BottomNav />}
+        { interceptorError ? <Alert status="error" message={errorMessage} />: null}
         <Routes>
           <Route path="/" element={<Overview />} />
-  
+
           {/* auth routes */}
           <Route path="/sign-up" element={<Signup />} />
           <Route path="/sign-in" element={<Signin />} />
@@ -73,7 +119,7 @@ function App() {
     } else {
       view < 900 ? setApp(allViews) : setApp(null);
     }
-  }, [view, location, navigate]);
+  }, [view, location, navigate, interceptorError, errorMessage]);
 
   return app;
 }
