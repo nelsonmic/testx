@@ -1,15 +1,34 @@
-// import { useEffect, useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+// import { Link } from "react-router-dom";
+import { useRecoilState } from "recoil";
 
+//state
+import userState from "../recoil/userRecoil";
+import userProfileImageState from "../recoil/userProfileImageRecoil";
+
+//api
+import useGetUserInfo from "../apis/profile/useGetUserInfo";
 //assets
 import naira from ".././assets/naira.svg";
 //components
 import ImageFormatter from ".././components/ImageFormatter";
 //utils
-import truncateText from "../utils/truncateText";
+import * as utils from "../utils";
 
 const Overview = () => {
   //   let navigate = useNavigate();
+  const [user, setUser] = useRecoilState(userState);
+  const [userProfileImage, setUserProfileImage] = useRecoilState(userProfileImageState);
+  const { isSuccess, data } = useGetUserInfo();
+  
+
+  useEffect(() => {
+    if (isSuccess) {
+      setUser(data.data.data);
+      setUserProfileImage(data.data.data.profile_photo);
+    }
+  },[isSuccess, data, user, setUser, setUserProfileImage]);
+
 
   return (
     <div className="overview">
@@ -34,9 +53,9 @@ const Overview = () => {
         </div>
 
         <div className="user-greet">
-          <h1>Hey {truncateText("nelson", 8)}!</h1>
+          <h1>Hey {utils.truncateText(user? user.name.split(' ').slice(0, -1).join(' '):"", 8)}!</h1>
           <ImageFormatter
-            source="https://images.unsplash.com/photo-1485921040253-3601b55d50aa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=627&q=80"
+            source={userProfileImage}
             width="40px"
             height="40px"
             alt="User display profile"
@@ -49,7 +68,7 @@ const Overview = () => {
             <h2>Current Balance</h2>
             <p className="account-balance">
               <img src={naira} alt="naira" />
-              3,000,000
+              {user? utils.numbersWithCommas(utils.truncateDecimals(user.balance)) : "0"}
             </p>
 
             <div className="balance-ctrls">
