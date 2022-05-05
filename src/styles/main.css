@@ -12,6 +12,7 @@
 html, body {
   height: 100%;
   position: relative;
+  width: 100vw;
 }
 
 body {
@@ -50,7 +51,7 @@ button:hover {
 
 .wrapper {
   width: 100%;
-  max-width: 1600px;
+  max-width: 500px;
   margin: 0 auto;
 }
 
@@ -66,6 +67,255 @@ button:hover {
 
 * {
   font-family: "Poppins", sans-serif !important;
+}
+
+.image-formatter-container {
+  border: 1px solid #A0AEC0;
+  border-radius: 50%;
+}
+
+.image-formatter-container img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 50% 50%;
+     object-position: 50% 50%;
+  border-radius: 50%;
+}
+
+.bottom-nav {
+  padding: .5em 1em;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: white !important;
+}
+
+.bottom-nav svg {
+  stroke: black;
+  fill: #4A5568;
+}
+
+.bottom-nav .no {
+  fill: none;
+}
+
+.bottom-nav a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  place-items: center;
+  text-align: center svg;
+  text-align-border: 1px solid red;
+  text-align-margin: 0 auto;
+  text-align-stroke: black;
+  text-align-fill: #4A5568;
+}
+
+.bottom-nav a p {
+  margin-top: .5em;
+  color: #4A5568;
+  font-size: 10px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.bottom-nav .active svg {
+  fill: #FF0000;
+}
+
+.bottom-nav .active .no {
+  stroke: #FF0000;
+  fill: none;
+}
+
+.overview {
+  padding: 1em;
+}
+
+.overview header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  place-items: center;
+}
+
+.overview header .user-greet {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-items: center;
+}
+
+.overview header .user-greet h1 {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-right: 10px;
+  color: #4A5568;
+  font-size: 16px;
+  font-weight: 800;
+  text-align: left;
+}
+
+.overview main {
+  margin-top: 1.5em;
+}
+
+.overview main .balance-container {
+  background: url("../assets/balance-bg.png") repeat center, linear-gradient(178.88deg, #323232 -6.81%, #282828 295.48%);
+  text-align: center;
+  border-radius: 10px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding: 1.5em 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  place-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.overview main .balance-container h2 {
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.overview main .balance-container .account-balance {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-items: center;
+  margin: .5em 0 1em 0;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.overview main .balance-container .account-balance img {
+  margin-right: .35em;
+}
+
+.overview main .balance-container .balance-ctrls {
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.overview main .balance-container .balance-ctrls div {
+  width: 50px;
+  height: 50px;
+}
+
+.overview main .balance-container .balance-ctrls div span {
+  background: #ffffff;
+  margin: 0 auto;
+  width: 40px;
+  height: 25px;
+  display: block;
+  border-radius: 2px;
+}
+
+.overview main .balance-container .balance-ctrls div span svg {
+  margin: auto;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.overview main .balance-container .balance-ctrls div p {
+  margin-top: .5em;
+  color: #A0AEC0;
+  font-size: 10px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.overview main .quick-action-container {
+  margin-top: 2em;
+}
+
+.overview main .quick-action-container .desc {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.overview main .quick-action-container .quick-action-items {
+  margin-top: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1em;
+}
+
+.overview main .quick-action-container .quick-action-items div {
+  background: #FFFFFF;
+  border: 1px solid #C4C4C4;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 0px 3.45918px 25.9439px rgba(82, 81, 81, 0.15);
+          box-shadow: 0px 3.45918px 25.9439px rgba(82, 81, 81, 0.15);
+  border-radius: 5px;
+  padding: .5em;
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.overview main .quick-action-container .quick-action-items div span {
+  margin-right: 10px;
+}
+
+.overview main .quick-action-container .quick-action-items div p {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.overview main .recent-transaction-history {
+  margin-top: 2em;
+}
+
+.overview main .recent-transaction-history .desc {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
 }
 
 .signin {
