@@ -15,6 +15,7 @@ import ConfirmEmail from "./views/auth/ConfirmEmail";
 
 //overview route
 import Overview from "./views/Overview";
+import Profile from "./views/Profile";
 
 //payment routes
 
@@ -86,6 +87,7 @@ function App() {
         { interceptorError ? <Alert status="error" message={errorMessage} />: null}
         <Routes>
           <Route path="/" element={<Overview />} />
+          <Route path="/profile" element={<Profile />} />
 
           {/* auth routes */}
           <Route path="/sign-up" element={<Signup />} />
