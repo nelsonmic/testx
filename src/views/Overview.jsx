@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { useRecoilState } from "recoil";
 
 //state
@@ -19,7 +19,7 @@ const Overview = () => {
   //   let navigate = useNavigate();
   const [user, setUser] = useRecoilState(userState);
   const [userProfileImage, setUserProfileImage] = useRecoilState(userProfileImageState);
-  const { isSuccess, data, isError, error } = useGetUserInfo();
+  const { isSuccess, data } = useGetUserInfo();
   
 
   useEffect(() => {
