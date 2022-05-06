@@ -15,7 +15,7 @@ const SignIn = () => {
   const handleClick = () => setShow(!show);
 
   const { mutate: loginUser, isError, error, isSuccess, data, isLoading } = useLoginUser();
-
+if(isError) console.log(error.response)
   useEffect(() => {
     if (isSuccess) {
       let timer = setTimeout(() => {

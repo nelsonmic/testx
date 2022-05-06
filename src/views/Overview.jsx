@@ -32,6 +32,7 @@ const Overview = () => {
 
   return (
     <div className="overview">
+      <h3 className="page-name">Overview</h3>
       <header>
         <div className="menu">
           <svg

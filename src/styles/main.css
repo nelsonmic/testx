@@ -55,6 +55,18 @@ button:hover {
   margin: 0 auto;
 }
 
+.page-name {
+  position: fixed;
+  top: 0;
+  background: #fff;
+  width: 100%;
+  padding: 1em;
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+}
+
 .formik-error {
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
@@ -85,6 +97,7 @@ button:hover {
 }
 
 .bottom-nav {
+  z-index: 2;
   padding: .5em 1em;
   position: fixed;
   bottom: 0;
@@ -141,7 +154,13 @@ button:hover {
 }
 
 .overview {
-  padding: 1em;
+  padding: .5em 1em;
+}
+
+.overview .page-name {
+  position: relative;
+  padding: 0;
+  margin-bottom: 2em;
 }
 
 .overview header {
@@ -316,6 +335,102 @@ button:hover {
   font-size: 14px;
   font-weight: 600;
   text-align: left;
+}
+
+.profile {
+  padding: .5em 1em;
+}
+
+.profile main {
+  margin-top: 3em;
+  margin-bottom: 5em;
+}
+
+.profile main header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.profile main header .user-details {
+  margin-left: 20px;
+  width: 60%;
+  min-width: 160px;
+  max-width: 200px;
+}
+
+.profile main header .user-details h2 {
+  color: #4A5568;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: left;
+  margin: .25em 0 .05em 0;
+}
+
+.profile main header .user-details p {
+  text-overflow: ellipsis;
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.profile main .account-details {
+  margin-top: 1em;
+}
+
+.profile main .account-details div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: .25em;
+}
+
+.profile main .account-details div span {
+  margin-right: 10px;
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.profile main .account-details div p {
+  text-overflow: ellipsis;
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.profile main .update-profile {
+  margin-top: 2em;
+}
+
+.profile main .update-profile .inputs {
+  margin-top: .75em;
+}
+
+.profile main .update-profile .inputs label {
+  margin-top: .35em;
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.profile main .update-profile .inputs input {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.profile main .update-profile .submit-button {
+  margin-top: 3em;
+}
+
+.profile main .update-profile .submit-button button {
+  width: 100%;
 }
 
 .signin {
