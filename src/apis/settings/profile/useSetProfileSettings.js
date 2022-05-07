@@ -1,9 +1,9 @@
 
 import { useMutation } from "react-query";
-import axios from "axios";
+// import axios from "axios";
 
-const setProfileSetting = async (user) => {
-    console.log(user)
+const setProfileSetting = async (user, firstName, lastName, photo, currentPhoto) => {
+    console.log(user);  
   // return await axios.post(`${process.env.REACT_APP_BASE}/settings/profile`, {
   //   first_name: user.first_name,
   //   last_name: user.last_name,

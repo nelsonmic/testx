@@ -19,9 +19,7 @@ import { Input, Button } from "@chakra-ui/react";
 
 const Profile = () => {
   //state
-  const [userProfileImage, setUserProfileImage] = useRecoilState(
-    userProfileImageState
-  );
+  const [userProfileImage, setUserProfileImage] = useRecoilState(userProfileImageState);
   const [user, setUser] = useRecoilState(userState);
   const [profileSettings, setProfileSettings] = useState(null);
 
@@ -31,21 +29,22 @@ const Profile = () => {
   const {mutate: setProfileSetting, isSuccess: isSuccessSetSettings, error: errorSetSettings} = useSetProfileSettings();
 
   useEffect(() => {
+
     if (isSuccessUser) {
       setUser(dataUser.data.data);
-      setUserProfileImage(dataUser.data.data.profile_photo);
-      console.log(dataUser.data.data)
     }
 
     if(isSuccessSettings){
         setProfileSettings(dataSettings.data.data[0]);
-        console.log(profileSettings)
     }
   }, [isSuccessUser, dataUser, setUser, setUserProfileImage, isSuccessSettings, dataSettings, setProfileSettings, profileSettings, user]);
 
   const formik = useFormik({
     enableReinitialize: true,
     initialValues: {
+      editProfileFirstName: user? (user.name.split(' ')[0]):"",
+      editProfileLastName: user? (user.name.split(' ')[1]) :"",
+      editProfilePhoto : (profileSettings && (profileSettings.photo !== null))? profileSettings.photo :userProfileImage,
       editProfileAddress: (profileSettings && (profileSettings.home_address !== null))? profileSettings.home_address: "kfjd",
       editProfileNok: (profileSettings && (profileSettings.next_kin !== null)) ? profileSettings.next_kin: "sdkjs",
       editProfileNokAddress: (profileSettings && (profileSettings.next_kin_address !== null)) ? profileSettings.next_kin_address: "dkckxcm",
@@ -68,7 +67,7 @@ const Profile = () => {
           <header>
             <div className="profile-image">
               <ImageFormatter
-                source={userProfileImage && userProfileImage}
+                source={(profileSettings && (profileSettings.photo !== null))? profileSettings.photo :userProfileImage}
                 alt="profile image"
                 width="80px"
                 height="80px"
@@ -108,7 +107,7 @@ const Profile = () => {
                 size="md"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                Value={formik.values.editProfileAddress}
+                value={formik.values.editProfileAddress}
               />
             </div>
 

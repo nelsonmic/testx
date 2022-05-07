@@ -153,6 +153,13 @@ button:hover {
   fill: none;
 }
 
+.alert-message {
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  margin: 1em;
+}
+
 .overview {
   padding: .5em 1em;
 }

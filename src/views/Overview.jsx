@@ -18,16 +18,15 @@ import * as utils from "../utils";
 const Overview = () => {
   //   let navigate = useNavigate();
   const [user, setUser] = useRecoilState(userState);
-  const [userProfileImage, setUserProfileImage] = useRecoilState(userProfileImageState);
+  const [userProfileImage] = useRecoilState(userProfileImageState);
   const { isSuccess, data } = useGetUserInfo();
   
 
   useEffect(() => {
     if (isSuccess) {
       setUser(data.data.data);
-      setUserProfileImage(data.data.data.profile_photo);
     }
-  },[isSuccess, data, user, setUser, setUserProfileImage]);
+  },[isSuccess, data, user, setUser]);
 
 
   return (
@@ -57,7 +56,7 @@ const Overview = () => {
           <h1>Hey {utils.truncateText(user? user.name.split(' ').slice(0, -1).join(' '):"", 8)}!</h1>
           <Link to="/profile">
           <ImageFormatter
-            source={userProfileImage}
+            source={(user && (user.profile_photo !== null)) ? user.profile_photo : userProfileImage}
             width="40px"
             height="40px"
             alt="User display profile"

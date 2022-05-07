@@ -65,7 +65,7 @@ function App() {
           data.message === "Unauthenticated."
         ) {
           setInterceptorError(true);
-          setErrorMessage("Unauthenticated. Please sign in again.");
+          setErrorMessage("Unauthenticated. Sign in again.");
 
           // setTimeout(() => {
           //     if (refreshContainer.style.display == "block") {
@@ -74,7 +74,6 @@ function App() {
           // }, 180000);
         } else {
           setInterceptorError(false);
-          console.log(data.message);
         }
 
         return Promise.reject(error);
