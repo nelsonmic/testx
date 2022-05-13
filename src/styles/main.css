@@ -55,6 +55,18 @@ button:hover {
   margin: 0 auto;
 }
 
+.page-name {
+  position: fixed;
+  top: 0;
+  background: #fff;
+  width: 100%;
+  padding: 1em;
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+}
+
 .formik-error {
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
@@ -85,6 +97,7 @@ button:hover {
 }
 
 .bottom-nav {
+  z-index: 5;
   padding: .5em 1em;
   position: fixed;
   bottom: 0;
@@ -140,8 +153,53 @@ button:hover {
   fill: none;
 }
 
+.alert-message {
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  margin: 1em;
+}
+
+.image-uploader {
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.image-uploader svg {
+  position: absolute;
+}
+
+.image-uploader input {
+  opacity: 0;
+  z-index: 2;
+}
+
+.image-uploader:hover {
+  cursor: pointer;
+}
+
 .overview {
-  padding: 1em;
+  padding: .5em 1em;
+}
+
+.overview .page-name {
+  position: relative;
+  padding: 0;
+  margin-bottom: 2em;
 }
 
 .overview header {
@@ -316,6 +374,334 @@ button:hover {
   font-size: 14px;
   font-weight: 600;
   text-align: left;
+}
+
+.profile {
+  padding: .5em 1em;
+}
+
+.profile main {
+  margin-top: 3em;
+  margin-bottom: 5em;
+}
+
+.profile main header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.profile main header .profile-image {
+  position: relative;
+}
+
+.profile main header .user-details {
+  margin-left: 20px;
+  width: 60%;
+  min-width: 160px;
+  max-width: 200px;
+}
+
+.profile main header .user-details h2 {
+  color: #4A5568;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: left;
+  margin: .25em 0 .05em 0;
+}
+
+.profile main header .user-details p {
+  text-overflow: ellipsis;
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.profile main .account-details {
+  margin-top: 1em;
+}
+
+.profile main .account-details div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: .25em;
+}
+
+.profile main .account-details div span {
+  margin-right: 10px;
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.profile main .account-details div p {
+  text-overflow: ellipsis;
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.profile main .update-profile {
+  margin-top: 2em;
+}
+
+.profile main .update-profile .inputs {
+  margin-top: .75em;
+}
+
+.profile main .update-profile .inputs label {
+  margin-top: .35em;
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.profile main .update-profile .inputs input {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.profile main .update-profile .submit-button {
+  margin-top: 3em;
+}
+
+.profile main .update-profile .submit-button button {
+  border: none;
+  width: 100%;
+}
+
+.payments main {
+  margin-top: 4em;
+  margin-bottom: 5em;
+  padding: 1em;
+}
+
+.payments main header h2 {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.payments main ul {
+  margin-top: 2em;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.payments main ul a {
+  width: 100%;
+}
+
+.payments main ul a li {
+  padding: 1em 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: .5px solid #C4C4C4;
+  place-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.payments main ul a li .payment-type {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-items: center;
+  gap: 10px;
+}
+
+.payments main ul a li .payment-type span h3 {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.payments main ul a li .payment-type span p {
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.bank-transfer main {
+  margin-top: 2em;
+  margin-bottom: 5em;
+  padding: 1em;
+}
+
+.bank-transfer main .header {
+  z-index: 2;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 7vh;
+  border-radius: 10px;
+  padding: .75em 1em;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 0 auto;
+  background: #FF3A3A80;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-items: center;
+  gap: 20px;
+}
+
+.bank-transfer main .header p {
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.bank-transfer main .header h2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-items: center;
+  gap: 3px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.bank-transfer main .header h2 img {
+  width: 12px;
+  height: 12px;
+}
+
+.bank-transfer main form {
+  margin-top: 3em;
+}
+
+.bank-transfer main form .inputs {
+  margin-bottom: 1em;
+}
+
+.bank-transfer main form .inputs label {
+  display: block;
+  margin-bottom: .35em;
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.bank-transfer main form .inputs input {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.bank-transfer main form .submit-button {
+  margin: 3em 0 5em 0;
+  width: 100%;
+}
+
+.bank-transfer main form .submit-button button {
+  width: 100%;
+  border: none;
+  padding: 1.5em 0;
+}
+
+.wallet-transfer main {
+  margin-top: 2em;
+  margin-bottom: 5em;
+  padding: 1em;
+}
+
+.wallet-transfer main .header {
+  z-index: 2;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 7vh;
+  border-radius: 10px;
+  padding: .75em 1em;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 0 auto;
+  background: #FF3A3A80;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-items: center;
+  gap: 20px;
+}
+
+.wallet-transfer main .header p {
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.wallet-transfer main .header h2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-items: center;
+  gap: 3px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.wallet-transfer main .header h2 img {
+  width: 12px;
+  height: 12px;
+}
+
+.wallet-transfer main form {
+  margin-top: 3em;
+}
+
+.wallet-transfer main form .inputs {
+  margin-bottom: 1em;
+}
+
+.wallet-transfer main form .inputs label {
+  display: block;
+  margin-bottom: .35em;
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.wallet-transfer main form .inputs input {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.wallet-transfer main form .submit-button {
+  margin: 3em 0 5em 0;
+  width: 100%;
+}
+
+.wallet-transfer main form .submit-button button {
+  width: 100%;
+  border: none;
+  padding: 1.5em 0;
 }
 
 .signin {

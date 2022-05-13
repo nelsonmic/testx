@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useRecoilState } from "recoil";
 
 //state
@@ -18,20 +18,20 @@ import * as utils from "../utils";
 const Overview = () => {
   //   let navigate = useNavigate();
   const [user, setUser] = useRecoilState(userState);
-  const [userProfileImage, setUserProfileImage] = useRecoilState(userProfileImageState);
+  const [userProfileImage] = useRecoilState(userProfileImageState);
   const { isSuccess, data } = useGetUserInfo();
   
 
   useEffect(() => {
     if (isSuccess) {
       setUser(data.data.data);
-      setUserProfileImage(data.data.data.profile_photo);
     }
-  },[isSuccess, data, user, setUser, setUserProfileImage]);
+  },[isSuccess, data, user, setUser]);
 
 
   return (
     <div className="overview">
+      <h3 className="page-name">Overview</h3>
       <header>
         <div className="menu">
           <svg
@@ -41,7 +41,7 @@ const Overview = () => {
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
-            color="#000"
+            color="#d40000"
           >
             <path
               strokeLinecap="round"
@@ -54,12 +54,14 @@ const Overview = () => {
 
         <div className="user-greet">
           <h1>Hey {utils.truncateText(user? user.name.split(' ').slice(0, -1).join(' '):"", 8)}!</h1>
+          <Link to="/profile">
           <ImageFormatter
-            source={userProfileImage}
+            source={(user && (user.profile_photo !== null)) ? user.profile_photo : userProfileImage}
             width="40px"
             height="40px"
             alt="User display profile"
           />
+          </Link>
         </div>
       </header>
       <div className="wrapper">

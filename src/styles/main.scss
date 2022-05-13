@@ -9,10 +9,16 @@
 //components
 @import 'components/imageformatter';
 @import 'components/bottomnav';
+@import 'components/alertmessage';
+@import 'components/imageuploader';
 
 
 //pages
 @import 'pages/overview';
+@import 'pages/profile';
+@import 'pages/payments';
+@import 'pages/payments/banktransfer';
+@import 'pages/payments/wallettransfer';	
 
     //auth pages
 @import 'pages/auth/signin';

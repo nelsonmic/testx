@@ -1,0 +1,74 @@
+.profile {
+    padding: .5em 1em;
+
+    main {
+        margin-top: 3em;
+        margin-bottom: 5em;
+        header {
+            display: flex;
+
+            .profile-image{
+                position:relative;
+            }
+
+            .user-details {
+                margin-left: 20px;
+                width:60%;
+                min-width:160px;
+                max-width:200px;
+
+                h2 {
+                    @include styletext($sm-font-size, $color-tertiary-300, 700, left);
+                    margin: .25em 0 .05em 0;
+                }
+
+                p {
+                    text-overflow: ellipsis;
+                    @include styletext($xxsm-font-size, $color-tertiary-300, 400, left);
+                }
+            }
+        }
+
+        .account-details {
+            margin-top:1em;
+            div{
+                display:flex;
+                margin-bottom:.25em;
+                span{
+                    margin-right:10px;
+                    @include styletext($xxsm-font-size, $color-tertiary-300, 700, left);
+                }
+
+                p{
+                    text-overflow: ellipsis;
+                    @include styletext($xxsm-font-size, $color-tertiary-300, 400, left);
+                }
+            }
+        }
+
+        .update-profile{
+            margin-top:2em;
+
+            .inputs{
+                margin-top: .75em;
+                label{
+                    margin-top:.35em;
+                    @include styletext($xxsm-font-size, $color-tertiary-300, 400, left);
+                }
+
+                input{
+                    @include styletext($xsm-font-size, $color-tertiary-300, 400, left);
+                }
+            }
+
+            .submit-button{
+                margin-top:3em;
+
+                button{
+                    border:none;
+                    width:100%;
+                }
+            }
+        }
+    }
+}

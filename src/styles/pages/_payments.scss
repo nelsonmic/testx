@@ -1,0 +1,47 @@
+.payments {
+
+    main {
+        margin-top: 4em;
+        margin-bottom: 5em;
+        padding: 1em;
+
+        header {
+            h2 {
+                @include styletext($xsm-font-size, $color-tertiary-300, 400, center);
+            }
+        }
+
+        ul {
+            margin-top: 2em;
+            flex-direction: column;
+
+            a {
+                width: 100%;
+
+                li {
+                    padding: 1em 0;
+                    display: flex;
+                    border-bottom: .5px solid #C4C4C4;
+                    place-items: center;
+                    justify-content: space-between;
+
+                    .payment-type {
+                        display: flex;
+                        place-items: center;
+                        gap: 10px;
+
+                        span {
+                            h3 {
+                                @include styletext($xsm-font-size, $color-tertiary-300, 600, left);
+                            }
+
+                            p {
+                                @include styletext($xxsm-font-size, $color-tertiary-300, 400, left);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

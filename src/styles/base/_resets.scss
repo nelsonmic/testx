@@ -46,6 +46,15 @@
     margin: 0 auto;
   }
 
+  .page-name{
+    position:fixed;
+    top:0;
+    background: #fff;
+    width:100%;
+    padding:1em;
+    @include styletext($xxsm-font-size, $color-tertiary-300, 700, center);
+}
+
   .formik-error{
     transition: all 0.5s ease-in-out;
     margin-top:.5em;
