@@ -2,7 +2,6 @@ import { Alert, AlertIcon, AlertDescription } from "@chakra-ui/react";
 import { useState , useEffect} from "react";
 
 const AlertMessage = ({ status, message }) => {
-  console.log(status, message);
   const [alert, setAlert] = useState(
     <div className="alert-message">
       <Alert status={status} variant="left-accent">

@@ -19,7 +19,9 @@ if(isError) console.log(error.response)
   useEffect(() => {
     if (isSuccess) {
       let timer = setTimeout(() => {
-        navigate("/");
+        navigate("/", {
+          replace: true,
+        });
         localStorage.setItem("AT", data.data.data.access_token);
         localStorage.setItem("RT", data.data.data.refresh_token);
       }, 3000);

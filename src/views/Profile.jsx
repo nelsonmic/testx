@@ -11,46 +11,90 @@ import useSetProfileSettings from "../apis/settings/profile/useSetProfileSetting
 //state
 import userProfileImageState from "../recoil/userProfileImageRecoil";
 import userState from "../recoil/userRecoil";
+//utilities
+import UploadImagesToServer from "../utils/UploadImage";
 //components
 import ImageFormatter from "../components/ImageFormatter";
+import ImageUploader from "../components/ImageUploader";
+import AlertMessage from "../components/Alert";
 import { Input, Button } from "@chakra-ui/react";
-
-
 
 const Profile = () => {
   //state
-  const [userProfileImage, setUserProfileImage] = useRecoilState(userProfileImageState);
+  const [userProfileImage, setUserProfileImage] = useRecoilState(
+    userProfileImageState
+  );
+ 
   const [user, setUser] = useRecoilState(userState);
   const [profileSettings, setProfileSettings] = useState(null);
+  const [uploadImageErrorMessage, setUploadImageErrorMessage] = useState(null);
 
   //apis
-  const { isSuccess:isSuccessUser, data:dataUser } = useGetUserInfo();
-  const { isSuccess: isSuccessSettings, data: dataSettings } = useGetProfileSettings();
-  const {mutate: setProfileSetting, isSuccess: isSuccessSetSettings, error: errorSetSettings} = useSetProfileSettings();
+  const { isSuccess: isSuccessUser, data: dataUser } = useGetUserInfo();
+  const { isSuccess: isSuccessSettings, data: dataSettings } =
+    useGetProfileSettings();
+  const {
+    mutate: setProfileSetting,
+    isSuccess: isSuccessSetSettings,
+    error: errorSetSettings,
+    isLoading: isLoadingSetSettings,
+  } = useSetProfileSettings();
+
+  if (errorSetSettings) console.log(errorSetSettings.response);
 
   useEffect(() => {
-
     if (isSuccessUser) {
       setUser(dataUser.data.data);
     }
 
-    if(isSuccessSettings){
-        setProfileSettings(dataSettings.data.data[0]);
+    if (isSuccessSettings) {
+      setProfileSettings(dataSettings.data.data[0]);
     }
-  }, [isSuccessUser, dataUser, setUser, setUserProfileImage, isSuccessSettings, dataSettings, setProfileSettings, profileSettings, user]);
+  }, [
+    isSuccessUser,
+    dataUser,
+    setUser,
+    isSuccessSettings,
+    dataSettings,
+    setProfileSettings,
+    profileSettings,
+    user,
+    setUserProfileImage,
+  ]);
 
   const formik = useFormik({
     enableReinitialize: true,
     initialValues: {
-      editProfileFirstName: user? (user.name.split(' ')[0]):"",
-      editProfileLastName: user? (user.name.split(' ')[1]) :"",
-      editProfilePhoto : (profileSettings && (profileSettings.photo !== null))? profileSettings.photo :userProfileImage,
-      editProfileAddress: (profileSettings && (profileSettings.home_address !== null))? profileSettings.home_address: "kfjd",
-      editProfileNok: (profileSettings && (profileSettings.next_kin !== null)) ? profileSettings.next_kin: "sdkjs",
-      editProfileNokAddress: (profileSettings && (profileSettings.next_kin_address !== null)) ? profileSettings.next_kin_address: "dkckxcm",
-      editProfileRelationship: (profileSettings && (profileSettings.next_kin_rela !== null)) ? profileSettings.next_kin_rela: "slow down",
-      editProfileNokMobile: (profileSettings && (profileSettings.next_kin_phone !== null)) ? profileSettings.next_kin_phone: "dskjd",
-      editProfileNokEmail: (profileSettings && (profileSettings.next_kin_email !== null)) ? profileSettings.next_kin_email: "mdnmd",
+      editProfileFirstName: user ? user.name.split(" ")[0] : "",
+      editProfileLastName: user ? user.name.split(" ")[1] : "",
+      editProfilePhoto:
+        profileSettings && profileSettings.photo !== null
+          ? profileSettings.photo
+          : userProfileImage,
+      editProfileAddress:
+        profileSettings && profileSettings.home_address !== null
+          ? profileSettings.home_address
+          : "",
+      editProfileNok:
+        profileSettings && profileSettings.next_kin !== null
+          ? profileSettings.next_kin
+          : "",
+      editProfileNokAddress:
+        profileSettings && profileSettings.next_kin_address !== null
+          ? profileSettings.next_kin_address
+          : "",
+      editProfileRelationship:
+        profileSettings && profileSettings.next_kin_rela !== null
+          ? profileSettings.next_kin_rela
+          : "",
+      editProfileNokMobile:
+        profileSettings && profileSettings.next_kin_phone !== null
+          ? profileSettings.next_kin_phone
+          : "",
+      editProfileNokEmail:
+        profileSettings && profileSettings.next_kin_email !== null
+          ? profileSettings.next_kin_email
+          : "",
     },
     validationSchema: Yup.object({}),
     onSubmit: (values) => {
@@ -62,20 +106,39 @@ const Profile = () => {
     <div className="profile">
       <h1 className="page-name">Profile</h1>
 
+      {isSuccessSetSettings? <AlertMessage status="success" message="Profile updated successfully" /> : null} 
+      {uploadImageErrorMessage? <AlertMessage status="error" message={uploadImageErrorMessage} /> : null}
+      {/* {errorSetSettings?<AlertMessage status="error" message={"kdjfkjdfdj"} />:null} */}
       <div className="wrapper">
         <main>
           <header>
             <div className="profile-image">
               <ImageFormatter
-                source={(profileSettings && (profileSettings.photo !== null))? profileSettings.photo :userProfileImage}
-                alt="profile image"
-                width="80px"
+                source={
+                  profileSettings && profileSettings.photo !== null
+                    ? profileSettings.photo
+                    : userProfileImage
+                }
                 height="80px"
+                width="80px"
+                alt="profile"
+              />
+              <ImageUploader
+                width="20px"
+                height="20px"
+                marginBottom=".5em"
+                uploadImage={UploadImagesToServer}
+                changeImage={setUserProfileImage}
+                uploadErrorMessage = {setUploadImageErrorMessage}
               />
             </div>
 
             <div className="user-details">
-              <h2>{profileSettings ? `${profileSettings.first_name} ${profileSettings.last_name}` : ""}</h2>
+              <h2>
+                {profileSettings
+                  ? `${profileSettings.first_name} ${profileSettings.last_name}`
+                  : ""}
+              </h2>
               <p>{profileSettings ? profileSettings.phone_number : ""}</p>
               <p>{profileSettings ? profileSettings.email : ""}</p>
             </div>
@@ -85,7 +148,7 @@ const Profile = () => {
             <div className="account-number">
               <span>Account:</span>
               <p>
-                {(user && (user.reserved_accounts !== null))
+                {user && user.reserved_accounts !== null
                   ? `${user.reserved_accounts.account_num_1} | ${user.reserved_accounts.bank_name_1}`
                   : ""}
               </p>
@@ -186,8 +249,8 @@ const Profile = () => {
                 size="md"
                 colorScheme="red"
                 onClick={formik.handleSubmit}
-                // isLoading={isLoading ? true : false}
-                // isActive={isLoading ? true : false}
+                isLoading={isLoadingSetSettings ? true : false}
+                isActive={isLoadingSetSettings ? true : false}
               >
                 Save Information
               </Button>

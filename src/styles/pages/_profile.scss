@@ -7,6 +7,10 @@
         header {
             display: flex;
 
+            .profile-image{
+                position:relative;
+            }
+
             .user-details {
                 margin-left: 20px;
                 width:60%;
