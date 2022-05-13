@@ -476,6 +476,62 @@ button:hover {
   width: 100%;
 }
 
+.payments main {
+  margin-top: 4em;
+  margin-bottom: 5em;
+  padding: 1em;
+}
+
+.payments main header h2 {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.payments main ul {
+  margin-top: 2em;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.payments main ul li {
+  padding: 1em 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: .5px solid #C4C4C4;
+  place-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.payments main ul li .payment-type {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-items: center;
+  gap: 10px;
+}
+
+.payments main ul li .payment-type span h3 {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.payments main ul li .payment-type span p {
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+
 .signin {
   padding: 1em 2em;
 }

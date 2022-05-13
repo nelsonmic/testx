@@ -16,6 +16,7 @@ import ConfirmEmail from "./views/auth/ConfirmEmail";
 //overview route
 import Overview from "./views/Overview";
 import Profile from "./views/Profile";
+import Payments from "./views/Payments";
 
 //payment routes
 
@@ -87,6 +88,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Overview />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/payments" element={<Payments />} />
 
           {/* auth routes */}
           <Route path="/sign-up" element={<Signup />} />
