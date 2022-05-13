@@ -97,7 +97,7 @@ button:hover {
 }
 
 .bottom-nav {
-  z-index: 2;
+  z-index: 5;
   padding: .5em 1em;
   position: fixed;
   bottom: 0;
@@ -473,6 +473,7 @@ button:hover {
 }
 
 .profile main .update-profile .submit-button button {
+  border: none;
   width: 100%;
 }
 
@@ -497,9 +498,12 @@ button:hover {
           flex-direction: column;
 }
 
-.payments main ul li {
-  padding: 1em 0;
+.payments main ul a {
   width: 100%;
+}
+
+.payments main ul a li {
+  padding: 1em 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -510,7 +514,7 @@ button:hover {
           justify-content: space-between;
 }
 
-.payments main ul li .payment-type {
+.payments main ul a li .payment-type {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -518,18 +522,101 @@ button:hover {
   gap: 10px;
 }
 
-.payments main ul li .payment-type span h3 {
+.payments main ul a li .payment-type span h3 {
   color: #4A5568;
   font-size: 14px;
   font-weight: 600;
   text-align: left;
 }
 
-.payments main ul li .payment-type span p {
+.payments main ul a li .payment-type span p {
   color: #4A5568;
   font-size: 12px;
   font-weight: 400;
   text-align: left;
+}
+
+.bank-transfer main {
+  margin-top: 2em;
+  margin-bottom: 5em;
+  padding: 1em;
+}
+
+.bank-transfer main .header {
+  z-index: 2;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 7vh;
+  border-radius: 10px;
+  padding: .75em 1em;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 0 auto;
+  background: #FF3A3A80;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-items: center;
+  gap: 20px;
+}
+
+.bank-transfer main .header p {
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.bank-transfer main .header h2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-items: center;
+  gap: 3px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.bank-transfer main .header h2 img {
+  width: 12px;
+  height: 12px;
+}
+
+.bank-transfer main form {
+  margin-top: 3em;
+}
+
+.bank-transfer main form .inputs {
+  margin-bottom: 1em;
+}
+
+.bank-transfer main form .inputs label {
+  display: block;
+  margin-bottom: .35em;
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.bank-transfer main form .inputs input {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.bank-transfer main form .submit-button {
+  margin: 3em 0 5em 0;
+  width: 100%;
+}
+
+.bank-transfer main form .submit-button button {
+  width: 100%;
+  border: none;
 }
 
 .signin {

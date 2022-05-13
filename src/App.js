@@ -17,8 +17,10 @@ import ConfirmEmail from "./views/auth/ConfirmEmail";
 import Overview from "./views/Overview";
 import Profile from "./views/Profile";
 import Payments from "./views/Payments";
-
-//payment routes
+//Payment >> payment routes
+import BankTransfer from "./views/payments/BankTransfer";
+import WalletTransfer from "./views/payments/WalletTransfer";
+import BillPayments from "./views/payments/Billspayment";
 
 //404 route
 import ErrorPage from "./views/Error";
@@ -89,6 +91,10 @@ function App() {
           <Route path="/" element={<Overview />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/payments" element={<Payments />} />
+          {/* payment routes */}
+          <Route path="/payments/bank" element={<BankTransfer />} />
+          <Route path="/payments/wallet" element={<WalletTransfer />} />
+          <Route path="/payments/billpayments" element={<BillPayments />} />
 
           {/* auth routes */}
           <Route path="/sign-up" element={<Signup />} />
@@ -96,8 +102,6 @@ function App() {
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/confirm-email" element={<ConfirmEmail />} />
-
-          {/* payment routes */}
 
           {/* 404 route */}
           <Route path="*" element={<ErrorPage />} />
