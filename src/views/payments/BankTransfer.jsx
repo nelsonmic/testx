@@ -60,7 +60,7 @@ const BankTransfer = () => {
                     </svg>
                   }
                 />
-                <Input type="text" id="bank-name" placeholder="Select Bank" />
+                <Input type="text" id="bank-name" placeholder="Select Bank" readOnly/>
                 <InputRightElement
                   children={
                     <svg
@@ -113,9 +113,9 @@ const BankTransfer = () => {
             </div>
 
             <div className="inputs">
-              <label htmlFor="receipient">Description</label>
+              <label htmlFor="description">Description</label>
               <Input
-                id="receipient"
+                id="description"
                 type="text"
                 placeholder="School Fees"
                 size="lg"
@@ -131,7 +131,7 @@ const BankTransfer = () => {
                 // isLoading={isLoading ? true : false}
                 // isActive={isLoading ? true : false}
               >
-                Sign In
+                Proceed
               </Button>
             </div>
           </form>

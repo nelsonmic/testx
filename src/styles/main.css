@@ -617,6 +617,91 @@ button:hover {
 .bank-transfer main form .submit-button button {
   width: 100%;
   border: none;
+  padding: 1.5em 0;
+}
+
+.wallet-transfer main {
+  margin-top: 2em;
+  margin-bottom: 5em;
+  padding: 1em;
+}
+
+.wallet-transfer main .header {
+  z-index: 2;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 7vh;
+  border-radius: 10px;
+  padding: .75em 1em;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 0 auto;
+  background: #FF3A3A80;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-items: center;
+  gap: 20px;
+}
+
+.wallet-transfer main .header p {
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.wallet-transfer main .header h2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-items: center;
+  gap: 3px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.wallet-transfer main .header h2 img {
+  width: 12px;
+  height: 12px;
+}
+
+.wallet-transfer main form {
+  margin-top: 3em;
+}
+
+.wallet-transfer main form .inputs {
+  margin-bottom: 1em;
+}
+
+.wallet-transfer main form .inputs label {
+  display: block;
+  margin-bottom: .35em;
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.wallet-transfer main form .inputs input {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.wallet-transfer main form .submit-button {
+  margin: 3em 0 5em 0;
+  width: 100%;
+}
+
+.wallet-transfer main form .submit-button button {
+  width: 100%;
+  border: none;
+  padding: 1.5em 0;
 }
 
 .signin {
