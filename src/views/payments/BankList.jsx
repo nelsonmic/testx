@@ -1,3 +1,5 @@
+//react
+import { useState, useEffect } from "react";
 //router
 import { useOutletContext } from "react-router-dom";
 //components
@@ -6,11 +8,25 @@ import BackButton from "../../components/BackButton";
 import ViewBank from "../../components/ViewBank";
 
 const BankList = () => {
-    const [allBanks, setAllBanks, bankLoading] = useOutletContext();
+  const [allBanks] = useOutletContext();
+  const [query, setQuery] = useState("");
+  const [filteredBanks, setFilteredBanks] = useState([]);
 
-    if(bankLoading) {
-        return <div>Loading...</div>
+  useEffect(() => {
+    if (allBanks !== null) {
+      setFilteredBanks(allBanks);
     }
+  } , [allBanks]);
+
+  const handleSearch = (e) => {
+    setQuery(e.target.value);
+
+    if (allBanks !== null) {
+        setFilteredBanks( allBanks.filter((bank) => bank.bankName.includes(query.toUpperCase())));
+    }
+  };
+
+
   return (
     <div className="bank-list">
       <BackButton />
@@ -36,14 +52,22 @@ const BankList = () => {
                   </svg>
                 }
               />
-              <Input type="search" id="search" placeholder="Search Bank" />
+              <Input
+                type="search"
+                id="search"
+                placeholder="Search Bank"
+                value={query}
+                onChange={handleSearch}
+              />
             </InputGroup>
           </div>
-            <div className="bank-list-body">
-                {allBanks !== null ? allBanks.map((bank, index)=>{
-                    return <ViewBank bankName={bank.bankName} key={index} />
-                }): ''}
-            </div>
+          <div className="bank-list-body">
+            {allBanks !== null
+              ? filteredBanks.map((bank, index) => {
+                  return <ViewBank bankName={bank.bankName} key={index} bankCode={bank.bankCode} />;
+                })
+              : ""}
+          </div>
         </main>
       </div>
     </div>
