@@ -199,6 +199,27 @@ button:hover {
   cursor: pointer;
 }
 
+.view-bank {
+  border-bottom: 0.15px solid #4A5568;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-items: center;
+  gap: 10px;
+  padding: 1em;
+}
+
+.view-bank p {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.view-bank:last-child {
+  margin-bottom: 5em;
+}
+
 .overview {
   padding: .5em 1em;
 }
@@ -724,7 +745,12 @@ button:hover {
   top: 0;
 }
 
+.bank-list .wrapper {
+  background: #ffffff;
+}
+
 .bank-list .wrapper main .bank-list-header {
+  background: #ffffff;
   z-index: 2;
   position: -webkit-sticky;
   position: sticky;
@@ -733,6 +759,12 @@ button:hover {
 
 .bank-list .wrapper main .bank-list-header input {
   font-size: 14px;
+}
+
+.bank-list .wrapper main .bank-list-body {
+  height: 600px;
+  overflow: auto;
+  padding: 1em;
 }
 
 .signin {

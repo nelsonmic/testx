@@ -1,8 +1,16 @@
+//router
+import { useOutletContext } from "react-router-dom";
 //components
 import { InputGroup, Input, InputLeftElement } from "@chakra-ui/react";
 import BackButton from "../../components/BackButton";
+import ViewBank from "../../components/ViewBank";
 
 const BankList = () => {
+    const [allBanks, setAllBanks, bankLoading] = useOutletContext();
+
+    if(bankLoading) {
+        return <div>Loading...</div>
+    }
   return (
     <div className="bank-list">
       <BackButton />
@@ -31,6 +39,11 @@ const BankList = () => {
               <Input type="search" id="search" placeholder="Search Bank" />
             </InputGroup>
           </div>
+            <div className="bank-list-body">
+                {allBanks !== null ? allBanks.map((bank, index)=>{
+                    return <ViewBank bankName={bank.bankName} key={index} />
+                }): ''}
+            </div>
         </main>
       </div>
     </div>

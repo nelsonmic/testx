@@ -1,12 +1,13 @@
 //react
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 //state
 import { useRecoilState } from "recoil";
 import userState from "../../recoil/userRecoil";
 //router
-import {Outlet, useNavigate} from "react-router-dom"
+import { Outlet, useNavigate } from "react-router-dom";
 //api
 import useGetUserInfo from "../../apis/profile/useGetUserInfo";
+import useGetAllBanks from "../../apis/payments/banktransfer/useGetAllBanks";
 //utils
 import * as utils from "../../utils";
 //components
@@ -22,19 +23,38 @@ import BackButton from "../../components/BackButton";
 import naira from "../../assets/naira.svg";
 
 const BankTransfer = () => {
-    let navigate = useNavigate();
+  let navigate = useNavigate();
   const [user, setUser] = useRecoilState(userState);
-  const { isSuccess, data } = useGetUserInfo();
+  const [allBanks, setAllBanks] = useState(null);
+  const { isSuccess: isSuccessInfo, data: info } = useGetUserInfo();
+  const {
+    isSuccess: isSuccessBanks,
+    data: banks,
+    isLoading: bankLoading,
+  } = useGetAllBanks();
 
   useEffect(() => {
-    if (isSuccess) {
-      setUser(data.data.data);
+    if (isSuccessInfo) {
+      setUser(info.data.data);
     }
-  }, [isSuccess, data, user, setUser]);
+
+    if (isSuccessBanks) {
+      setAllBanks(banks.data.data.banks);
+    }
+  }, [
+    isSuccessInfo,
+    info,
+    user,
+    setUser,
+    isSuccessBanks,
+    banks,
+    setAllBanks,
+    allBanks,
+  ]);
 
   return (
     <div className="bank-transfer">
-        <BackButton />
+      <BackButton />
       <h1 className="page-name">Bank Transfer</h1>
 
       <div className="wrapper">
@@ -65,9 +85,15 @@ const BankTransfer = () => {
                     </svg>
                   }
                 />
-                <Input type="text" id="bank-name" placeholder="Select Bank" readOnly onClick={()=>{
-                    navigate("/payments/bank/bank-list")
-                }}/>
+                <Input
+                  type="text"
+                  id="bank-name"
+                  placeholder="Select Bank"
+                  readOnly
+                  onClick={() => {
+                    navigate("/payments/bank/bank-list");
+                  }}
+                />
                 <InputRightElement
                   children={
                     <svg
@@ -144,7 +170,7 @@ const BankTransfer = () => {
           </form>
         </main>
       </div>
-      <Outlet />
+      <Outlet context={[allBanks, setAllBanks, bankLoading]} />
     </div>
   );
 };

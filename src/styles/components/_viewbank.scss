@@ -1,0 +1,15 @@
+.view-bank{
+    border-bottom:.15px solid $color-tertiary-300;
+    display:flex;
+    place-items: center;
+    gap:10px;
+    padding:1em;
+
+    p{
+        @include styletext($xsm-font-size, $color-tertiary-300, 400, left);
+    }
+}
+
+.view-bank:last-child{
+    margin-bottom:5em;
+}
