@@ -21,6 +21,8 @@ import Payments from "./views/Payments";
 import BankTransfer from "./views/payments/BankTransfer";
 import WalletTransfer from "./views/payments/WalletTransfer";
 import BillPayments from "./views/payments/Billspayment";
+//sub payment routes
+import BankList from "./views/payments/BankList";
 
 //404 route
 import ErrorPage from "./views/Error";
@@ -92,7 +94,9 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/payments" element={<Payments />} />
           {/* payment routes */}
-          <Route path="/payments/bank" element={<BankTransfer />} />
+          <Route path="/payments/bank" element={<BankTransfer />}>
+            <Route path="bank-list" element={<BankList />} />
+          </Route>
           <Route path="/payments/wallet" element={<WalletTransfer />} />
           <Route path="/payments/billpayments" element={<BillPayments />} />
 

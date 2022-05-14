@@ -55,6 +55,13 @@ button:hover {
   margin: 0 auto;
 }
 
+.back-button {
+  position: fixed;
+  top: 0;
+  z-index: 3;
+  margin: .5em 1.5em;
+}
+
 .page-name {
   position: fixed;
   top: 0;
@@ -536,6 +543,10 @@ button:hover {
   text-align: left;
 }
 
+.bank-transfer {
+  position: relative;
+}
+
 .bank-transfer main {
   margin-top: 2em;
   margin-bottom: 5em;
@@ -702,6 +713,26 @@ button:hover {
   width: 100%;
   border: none;
   padding: 1.5em 0;
+}
+
+.bank-list {
+  min-height: 100vh;
+  width: 100vw;
+  background: #ffffff;
+  z-index: 2;
+  position: absolute;
+  top: 0;
+}
+
+.bank-list .wrapper main .bank-list-header {
+  z-index: 2;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 7vh;
+}
+
+.bank-list .wrapper main .bank-list-header input {
+  font-size: 14px;
 }
 
 .signin {

@@ -1,0 +1,22 @@
+.bank-list {
+    min-height: 100vh;
+    width: 100vw;
+    background: $color-tertiary-100;
+    z-index: 2;
+    position: absolute;
+    top: 0;
+
+    .wrapper {
+        main {
+            .bank-list-header {
+                z-index: 2;
+                position: sticky;
+                top: 7vh;
+
+                input{
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}

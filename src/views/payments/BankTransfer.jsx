@@ -3,6 +3,8 @@ import { useEffect } from "react";
 //state
 import { useRecoilState } from "recoil";
 import userState from "../../recoil/userRecoil";
+//router
+import {Outlet, useNavigate} from "react-router-dom"
 //api
 import useGetUserInfo from "../../apis/profile/useGetUserInfo";
 //utils
@@ -15,10 +17,12 @@ import {
   InputLeftElement,
   InputRightElement,
 } from "@chakra-ui/react";
+import BackButton from "../../components/BackButton";
 //assets
 import naira from "../../assets/naira.svg";
 
 const BankTransfer = () => {
+    let navigate = useNavigate();
   const [user, setUser] = useRecoilState(userState);
   const { isSuccess, data } = useGetUserInfo();
 
@@ -30,6 +34,7 @@ const BankTransfer = () => {
 
   return (
     <div className="bank-transfer">
+        <BackButton />
       <h1 className="page-name">Bank Transfer</h1>
 
       <div className="wrapper">
@@ -60,7 +65,9 @@ const BankTransfer = () => {
                     </svg>
                   }
                 />
-                <Input type="text" id="bank-name" placeholder="Select Bank" readOnly/>
+                <Input type="text" id="bank-name" placeholder="Select Bank" readOnly onClick={()=>{
+                    navigate("/payments/bank/bank-list")
+                }}/>
                 <InputRightElement
                   children={
                     <svg
@@ -137,6 +144,7 @@ const BankTransfer = () => {
           </form>
         </main>
       </div>
+      <Outlet />
     </div>
   );
 };
