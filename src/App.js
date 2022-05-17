@@ -24,6 +24,9 @@ import BillPayments from "./views/payments/Billspayment";
 //sub payment routes
 import BankList from "./views/payments/BankList";
 
+//confirm all transactions route
+import ConfirmAllTransactions from "./views/ConfirmAllTransactions";
+
 //404 route
 import ErrorPage from "./views/Error";
 
@@ -96,6 +99,7 @@ function App() {
           {/* payment routes */}
           <Route path="/payments/bank" element={<BankTransfer />}>
             <Route path="bank-list" element={<BankList />} />
+            <Route path="confirm-bank-transactions" element={<ConfirmAllTransactions />} />
           </Route>
           <Route path="/payments/wallet" element={<WalletTransfer />} />
           <Route path="/payments/billpayments" element={<BillPayments />} />

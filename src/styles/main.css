@@ -505,6 +505,23 @@ button:hover {
   width: 100%;
 }
 
+.confirm-all-transactions {
+  min-height: 100vh;
+  width: 100vw;
+  background: #ffffff;
+  z-index: 2;
+  position: absolute;
+  top: 0;
+}
+
+.confirm-all-transactions .wrapper {
+  background: #ffffff;
+}
+
+.confirm-all-transactions .wrapper main {
+  border: 1px solid red;
+}
+
 .payments main {
   margin-top: 4em;
   margin-bottom: 5em;
@@ -632,6 +649,11 @@ button:hover {
   font-size: 12px;
   font-weight: 400;
   text-align: left;
+}
+
+.bank-transfer main form .inputs #amount {
+  color: #4A5568;
+  padding: .85em 1em .85em 2.5em;
 }
 
 .bank-transfer main form .inputs input {

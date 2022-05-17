@@ -1,6 +1,14 @@
-const ViewBank = ({ bankName }) => {
+//router
+import { useNavigate } from "react-router-dom";
+
+const ViewBank = ({ bankName, bankCode, changeBankInput, changeBankCode }) => {
+    const navigate = useNavigate();
   return (
-    <div className="view-bank">
+    <div className="view-bank" onClick={()=>{
+        changeBankCode(bankCode)
+        changeBankInput(bankName);
+        navigate(-1);
+      }} >
       <svg width="30" height="30" viewBox="0 0 43 43" fill="none">
         <circle cx="21.5" cy="21.5" r="21.5" fill="#FF3A3A20" />
         <path

@@ -8,9 +8,10 @@ import BackButton from "../../components/BackButton";
 import ViewBank from "../../components/ViewBank";
 
 const BankList = () => {
-  const [allBanks] = useOutletContext();
+  const [allBanks, setSelectedBank, setSelectBankCode] = useOutletContext();
   const [query, setQuery] = useState("");
   const [filteredBanks, setFilteredBanks] = useState([]);
+
 
   useEffect(() => {
     if (allBanks !== null) {
@@ -64,7 +65,7 @@ const BankList = () => {
           <div className="bank-list-body">
             {allBanks !== null
               ? filteredBanks.map((bank, index) => {
-                  return <ViewBank bankName={bank.bankName} key={index} bankCode={bank.bankCode} />;
+                  return <ViewBank bankName={bank.bankName} key={index} bankCode={bank.bankCode} changeBankInput={setSelectedBank} changeBankCode={setSelectBankCode} />;
                 })
               : ""}
           </div>
