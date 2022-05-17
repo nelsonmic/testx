@@ -40,6 +40,7 @@ const BankTransfer = () => {
   const [staleAccountNumber, setStaleAccountNumber] = useState("");
   const [receipientName, setReceipientName] = useState("");
   const [amount, setAmount] = useState("");
+  const [amountWithComma, setAmountWithComma] = useState("");
   const [description, setDescription] = useState("");
 
   //error state
@@ -226,6 +227,7 @@ const BankTransfer = () => {
                   isNumericString={true}
                   onValueChange={(value) => {
                     setAmount(value.floatValue);
+                    setAmountWithComma(value.formattedValue);
                   }}
                 />
               </InputGroup>
@@ -261,9 +263,10 @@ const BankTransfer = () => {
           setSelectBankCode,
           transactionHash,
           accountNumber,
-          amount,
+          amountWithComma,
           selectedBank,
           receipientName,
+          description,
         ]}
       />
     </div>

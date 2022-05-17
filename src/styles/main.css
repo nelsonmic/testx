@@ -220,6 +220,70 @@ button:hover {
   margin-bottom: 5em;
 }
 
+.loading-screen {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  background: transparent;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 6;
+}
+
+.loading-screen svg {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.success-screen {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  background: #ffffff;
+  z-index: 6;
+}
+
+.success-screen .desc {
+  margin-top: 5em;
+  text-align: center;
+}
+
+.success-screen .desc h2 {
+  color: #4A5568;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.success-screen .desc p {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.success-screen .desc p span {
+  color: #4A5568;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.success-screen .btn {
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 2em;
+}
+
+.success-screen .btn button {
+  width: 100%;
+  border: none;
+}
+
 .overview {
   padding: .5em 1em;
 }
@@ -516,10 +580,94 @@ button:hover {
 
 .confirm-all-transactions .wrapper {
   background: #ffffff;
+  min-height: 600px;
 }
 
-.confirm-all-transactions .wrapper main {
-  border: 1px solid red;
+.confirm-all-transactions .wrapper main .info {
+  border-radius: 5px;
+  padding: .75em;
+  color: #ffffff;
+  text-align: center;
+  background: #FF3A3A98;
+}
+
+.confirm-all-transactions .wrapper main .info p {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.confirm-all-transactions .wrapper main .info h2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.confirm-all-transactions .wrapper main .desc {
+  margin-top: 2em;
+}
+
+.confirm-all-transactions .wrapper main .desc p {
+  margin-bottom: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-items: center;
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.confirm-all-transactions .wrapper main .desc p svg {
+  margin-right: 1em;
+}
+
+.confirm-all-transactions .wrapper main .desc p span {
+  margin-right: 10px;
+  color: #4A5568;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.confirm-all-transactions .wrapper main .pin-inputs {
+  margin-top: 5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.confirm-all-transactions .wrapper main .pin-inputs p {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 1.5em;
+}
+
+.confirm-all-transactions .wrapper main .pin-inputs .inputs {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.confirm-all-transactions .wrapper main .pin-inputs .inputs input {
+  margin-right: 10px;
 }
 
 .payments main {
