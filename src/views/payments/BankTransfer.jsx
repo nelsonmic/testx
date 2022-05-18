@@ -51,8 +51,11 @@ const BankTransfer = () => {
 
   //get receipient bank details
   const {
+    isLoading: isLoadingBankDetails,
     isSuccess: detailsSuccess,
     data: bankDetails,
+    isError: isErrorDetails,
+    error: errorDetails,
     refetch: refetchBankDetails,
   } = useGetBankDetails(selectBankCode, accountNumber);
 
@@ -79,6 +82,7 @@ const BankTransfer = () => {
     }
 
     if (detailsSuccess) setReceipientName(bankDetails.data.data.name);
+    if (isErrorDetails) setReceipientName(errorDetails.response.data.message);
     if (initializeSuccess) setTransactionHash(initializeData.data.data.hash);
   }, [
     isSuccessInfo,
@@ -95,6 +99,8 @@ const BankTransfer = () => {
     bankDetails,
     initializeSuccess,
     initializeData,
+    isErrorDetails,
+    errorDetails,
   ]);
 
   //handle form submission
@@ -201,14 +207,92 @@ const BankTransfer = () => {
 
             <div className="inputs">
               <label htmlFor="receipient">Receipient</label>
-              <Input
-                id="receipient"
-                type="text"
-                placeholder="Chukwudi Chike"
-                size="lg"
-                defaultValue={receipientName}
-                readOnly
-              />
+              <InputGroup size="lg">
+                <InputRightElement
+                  children={
+                    isLoadingBankDetails ? (
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 57 57"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor"
+                        color="#d4000080"
+                      >
+                        <g transform="translate(1 1)" fillRule="evenodd">
+                          <circle cx="5" cy="50" r="5">
+                            <animate
+                              attributeName="cy"
+                              begin="0s"
+                              dur="2.2s"
+                              values="50;5;50;50"
+                              calcMode="linear"
+                              repeatCount="indefinite"
+                            ></animate>
+                            <animate
+                              attributeName="cx"
+                              begin="0s"
+                              dur="2.2s"
+                              values="5;27;49;5"
+                              calcMode="linear"
+                              repeatCount="indefinite"
+                            ></animate>
+                          </circle>
+                          <circle cx="27" cy="5" r="5">
+                            <animate
+                              attributeName="cy"
+                              begin="0s"
+                              dur="2.2s"
+                              from="5"
+                              to="5"
+                              values="5;50;50;5"
+                              calcMode="linear"
+                              repeatCount="indefinite"
+                            ></animate>
+                            <animate
+                              attributeName="cx"
+                              begin="0s"
+                              dur="2.2s"
+                              from="27"
+                              to="27"
+                              values="27;49;5;27"
+                              calcMode="linear"
+                              repeatCount="indefinite"
+                            ></animate>
+                          </circle>
+                          <circle cx="49" cy="50" r="5">
+                            <animate
+                              attributeName="cy"
+                              begin="0s"
+                              dur="2.2s"
+                              values="50;50;5;50"
+                              calcMode="linear"
+                              repeatCount="indefinite"
+                            ></animate>
+                            <animate
+                              attributeName="cx"
+                              from="49"
+                              to="49"
+                              begin="0s"
+                              dur="2.2s"
+                              values="49;5;27;49"
+                              calcMode="linear"
+                              repeatCount="indefinite"
+                            ></animate>
+                          </circle>
+                        </g>
+                      </svg>
+                    ) : null
+                  }
+                />
+                <Input
+                  id="receipient"
+                  type="text"
+                  placeholder="Chukwudi Chike"
+                  defaultValue={receipientName}
+                  readOnly
+                />
+              </InputGroup>
             </div>
 
             <div className="inputs">
