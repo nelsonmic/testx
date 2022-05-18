@@ -1,10 +1,15 @@
 //react
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 //state
 import { useRecoilState } from "recoil";
 import userState from "../../recoil/userRecoil";
+//router
+import { Outlet, useNavigate } from "react-router-dom";
 //api
 import useGetUserInfo from "../../apis/profile/useGetUserInfo";
+import useGetAllBanks from "../../apis/payments/banktransfer/useGetAllBanks";
+import useGetBankDetails from "../../apis/payments/banktransfer/useGetBankDetails";
+import useSetInitializeBankTransfer from "../../apis/payments/banktransfer/useSetInitializeBankTransfer";
 //utils
 import * as utils from "../../utils";
 //components
@@ -15,23 +20,119 @@ import {
   InputLeftElement,
   InputRightElement,
 } from "@chakra-ui/react";
+import BackButton from "../../components/BackButton";
+import NumberFormat from "react-number-format";
+import Alert from "../../components/Alert";
 //assets
 import naira from "../../assets/naira.svg";
 
 const BankTransfer = () => {
+  let navigate = useNavigate();
   const [user, setUser] = useRecoilState(userState);
-  const { isSuccess, data } = useGetUserInfo();
+  const [allBanks, setAllBanks] = useState(null);
+  const { isSuccess: isSuccessInfo, data: info } = useGetUserInfo();
+  const { isSuccess: isSuccessBanks, data: banks } = useGetAllBanks();
+
+  //all selected info
+  const [selectedBank, setSelectedBank] = useState("");
+  const [selectBankCode, setSelectBankCode] = useState("");
+  const [accountNumber, setAccountNumber] = useState("");
+  const [staleAccountNumber, setStaleAccountNumber] = useState("");
+  const [receipientName, setReceipientName] = useState("");
+  const [amount, setAmount] = useState("");
+  const [amountWithComma, setAmountWithComma] = useState("");
+  const [description, setDescription] = useState("");
+
+  //error state
+  const [error, setError] = useState(false);
+
+  //transaction hash key gotten after successful transaction
+  const [transactionHash, setTransactionHash] = useState("");
+
+  //get receipient bank details
+  const {
+    isLoading: isLoadingBankDetails,
+    isSuccess: detailsSuccess,
+    data: bankDetails,
+    isError: isErrorDetails,
+    error: errorDetails,
+    refetch: refetchBankDetails,
+  } = useGetBankDetails(selectBankCode, accountNumber);
+
+  //initialize bank transfer
+  const {
+    mutate: setInitializeBankTransfer,
+    isSuccess: initializeSuccess,
+    data: initializeData,
+  } = useSetInitializeBankTransfer();
 
   useEffect(() => {
-    if (isSuccess) {
-      setUser(data.data.data);
+    if (isSuccessInfo) {
+      setUser(info.data.data);
     }
-  }, [isSuccess, data, user, setUser]);
+
+    if (isSuccessBanks) {
+      setAllBanks(banks.data.data.banks);
+    }
+
+    //call bank details
+    if (staleAccountNumber.length === 10) {
+      refetchBankDetails();
+      setStaleAccountNumber("xxx");
+    }
+
+    if (detailsSuccess) setReceipientName(bankDetails.data.data.name);
+    if (isErrorDetails) setReceipientName(errorDetails.response.data.message);
+    if (initializeSuccess) setTransactionHash(initializeData.data.data.hash);
+  }, [
+    isSuccessInfo,
+    info,
+    user,
+    setUser,
+    isSuccessBanks,
+    banks,
+    setAllBanks,
+    allBanks,
+    staleAccountNumber,
+    refetchBankDetails,
+    detailsSuccess,
+    bankDetails,
+    initializeSuccess,
+    initializeData,
+    isErrorDetails,
+    errorDetails,
+  ]);
+
+  //handle form submission
+  const submitPaymentInfo = () => {
+    if (
+      selectedBank === "" ||
+      accountNumber === "" ||
+      amount === "" ||
+      description === "" ||
+      selectBankCode === "" ||
+      receipientName === ""
+    ) {
+      setError(true);
+    } else {
+      const values = {
+        selectBankCode,
+        selectedBank,
+        accountNumber,
+        receipientName,
+        description,
+        amount,
+      };
+      setInitializeBankTransfer(values);
+      if (detailsSuccess) navigate("/payments/bank/confirm-bank-transactions");
+    }
+  };
 
   return (
     <div className="bank-transfer">
+      <BackButton />
       <h1 className="page-name">Bank Transfer</h1>
-
+      {error && <Alert status="error" message="Please fill all fields" />}
       <div className="wrapper">
         <main>
           <div className="header">
@@ -60,7 +161,16 @@ const BankTransfer = () => {
                     </svg>
                   }
                 />
-                <Input type="text" id="bank-name" placeholder="Select Bank" readOnly/>
+                <Input
+                  type="text"
+                  id="bank-name"
+                  placeholder="Select Bank"
+                  readOnly
+                  defaultValue={selectedBank}
+                  onClick={() => {
+                    navigate("/payments/bank/bank-list");
+                  }}
+                />
                 <InputRightElement
                   children={
                     <svg
@@ -87,18 +197,102 @@ const BankTransfer = () => {
                 type="number"
                 placeholder="2229227625"
                 size="lg"
+                value={accountNumber}
+                onChange={(e) => {
+                  setAccountNumber(e.target.value);
+                  setStaleAccountNumber(e.target.value);
+                }}
               />
             </div>
 
             <div className="inputs">
               <label htmlFor="receipient">Receipient</label>
-              <Input
-                id="receipient"
-                type="text"
-                placeholder="Chukwudi Chike"
-                size="lg"
-                readOnly
-              />
+              <InputGroup size="lg">
+                <InputRightElement
+                  children={
+                    isLoadingBankDetails ? (
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 57 57"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor"
+                        color="#d4000080"
+                      >
+                        <g transform="translate(1 1)" fillRule="evenodd">
+                          <circle cx="5" cy="50" r="5">
+                            <animate
+                              attributeName="cy"
+                              begin="0s"
+                              dur="2.2s"
+                              values="50;5;50;50"
+                              calcMode="linear"
+                              repeatCount="indefinite"
+                            ></animate>
+                            <animate
+                              attributeName="cx"
+                              begin="0s"
+                              dur="2.2s"
+                              values="5;27;49;5"
+                              calcMode="linear"
+                              repeatCount="indefinite"
+                            ></animate>
+                          </circle>
+                          <circle cx="27" cy="5" r="5">
+                            <animate
+                              attributeName="cy"
+                              begin="0s"
+                              dur="2.2s"
+                              from="5"
+                              to="5"
+                              values="5;50;50;5"
+                              calcMode="linear"
+                              repeatCount="indefinite"
+                            ></animate>
+                            <animate
+                              attributeName="cx"
+                              begin="0s"
+                              dur="2.2s"
+                              from="27"
+                              to="27"
+                              values="27;49;5;27"
+                              calcMode="linear"
+                              repeatCount="indefinite"
+                            ></animate>
+                          </circle>
+                          <circle cx="49" cy="50" r="5">
+                            <animate
+                              attributeName="cy"
+                              begin="0s"
+                              dur="2.2s"
+                              values="50;50;5;50"
+                              calcMode="linear"
+                              repeatCount="indefinite"
+                            ></animate>
+                            <animate
+                              attributeName="cx"
+                              from="49"
+                              to="49"
+                              begin="0s"
+                              dur="2.2s"
+                              values="49;5;27;49"
+                              calcMode="linear"
+                              repeatCount="indefinite"
+                            ></animate>
+                          </circle>
+                        </g>
+                      </svg>
+                    ) : null
+                  }
+                />
+                <Input
+                  id="receipient"
+                  type="text"
+                  placeholder="Chukwudi Chike"
+                  defaultValue={receipientName}
+                  readOnly
+                />
+              </InputGroup>
             </div>
 
             <div className="inputs">
@@ -108,7 +302,18 @@ const BankTransfer = () => {
                   pointerEvents="none"
                   children={<p style={{ fontSize: "14px" }}>N</p>}
                 />
-                <Input id="amount" type="number" placeholder="5,000" />
+                <NumberFormat
+                  className="chakra-input css-1lw1oo1"
+                  id="amount"
+                  thousandSeparator={true}
+                  value={amount}
+                  placeholder="5,000"
+                  isNumericString={true}
+                  onValueChange={(value) => {
+                    setAmount(value.floatValue);
+                    setAmountWithComma(value.formattedValue);
+                  }}
+                />
               </InputGroup>
             </div>
 
@@ -119,24 +324,35 @@ const BankTransfer = () => {
                 type="text"
                 placeholder="School Fees"
                 size="lg"
-                readOnly
+                maxLength={50}
+                value={description}
+                onChange={(e) => {
+                  setDescription(e.target.value);
+                }}
               />
             </div>
 
             <div className="submit-button">
-              <Button
-                size="md"
-                colorScheme="red"
-                // onClick={formik.handleSubmit}
-                // isLoading={isLoading ? true : false}
-                // isActive={isLoading ? true : false}
-              >
+              <Button size="md" colorScheme="red" onClick={submitPaymentInfo}>
                 Proceed
               </Button>
             </div>
           </form>
         </main>
       </div>
+      <Outlet
+        context={[
+          allBanks,
+          setSelectedBank,
+          setSelectBankCode,
+          transactionHash,
+          accountNumber,
+          amountWithComma,
+          selectedBank,
+          receipientName,
+          description,
+        ]}
+      />
     </div>
   );
 };

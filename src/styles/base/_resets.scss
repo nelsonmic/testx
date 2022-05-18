@@ -46,6 +46,13 @@
     margin: 0 auto;
   }
 
+  .back-button{
+    position:fixed;
+    top:0;
+    z-index:3;
+    margin:.5em 1.5em;
+  }
+
   .page-name{
     position:fixed;
     top:0;

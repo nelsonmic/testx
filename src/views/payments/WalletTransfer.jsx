@@ -14,6 +14,7 @@ import {
   InputGroup,
   InputLeftElement,
 } from "@chakra-ui/react";
+import BackButton from "../../components/BackButton";
 //assets
 import naira from "../../assets/naira.svg";
 
@@ -29,6 +30,7 @@ const WalletTransfer = () => {
 
   return (
     <div className="wallet-transfer">
+      <BackButton />
       <h1 className="page-name">Wallet Transfer</h1>
 
       <div className="wrapper">
