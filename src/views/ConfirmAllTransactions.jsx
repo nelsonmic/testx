@@ -21,7 +21,6 @@ const ConfirmAllTransactions = () => {
   const {
     mutate: setProcessAllTransactions,
     isSuccess: isProcessSuccess,
-    data: processData,
     isError: isProcessError,
     error: processError,
     isLoading: processLoading,
@@ -38,6 +37,13 @@ const ConfirmAllTransactions = () => {
     description,
   ] = useOutletContext();
 
+  console.log(
+    allBanks,
+    setSelectedBank,
+    setSelectBankCode,
+    transactionHash,
+    accountNumber
+  );
 
   const [pin, setPin] = useState("");
   const handleChange = (e) => {
@@ -52,8 +58,12 @@ const ConfirmAllTransactions = () => {
       <BackButton />
       <h1 className="page-name">Confirm Transaction</h1>
       {processLoading ? <LoadingScreen /> : null}
-      {isProcessError ? <Alert status="error" message={processError.response.data.message} /> : null}
-      {isProcessSuccess ? <SuccessScreen name={receipientName} amount={amountWithComma} /> : null}
+      {isProcessError ? (
+        <Alert status="error" message={processError.response.data.message} />
+      ) : null}
+      {isProcessSuccess ? (
+        <SuccessScreen name={receipientName} amount={amountWithComma} />
+      ) : null}
 
       <div className="wrapper">
         <main>
