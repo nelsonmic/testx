@@ -62,6 +62,7 @@ const BankTransfer = () => {
   //initialize bank transfer
   const {
     mutate: setInitializeBankTransfer,
+    isLoading: isLoadingInitialize,
     isSuccess: initializeSuccess,
     data: initializeData,
   } = useSetInitializeBankTransfer();
@@ -83,7 +84,11 @@ const BankTransfer = () => {
 
     if (detailsSuccess) setReceipientName(bankDetails.data.data.name);
     if (isErrorDetails) setReceipientName(errorDetails.response.data.message);
-    if (initializeSuccess) setTransactionHash(initializeData.data.data.hash);
+    if (initializeSuccess) {
+      setTransactionHash(initializeData.data.data.hash);
+      navigate("/payments/bank/confirm-bank-transactions/");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     isSuccessInfo,
     info,
@@ -124,7 +129,6 @@ const BankTransfer = () => {
         amount,
       };
       setInitializeBankTransfer(values);
-      if (detailsSuccess) navigate("/payments/bank/confirm-bank-transactions");
     }
   };
 
@@ -333,7 +337,12 @@ const BankTransfer = () => {
             </div>
 
             <div className="submit-button">
-              <Button size="md" colorScheme="red" onClick={submitPaymentInfo}>
+              <Button
+                size="md"
+                colorScheme="red"
+                onClick={submitPaymentInfo}
+                isLoading={isLoadingInitialize ? true : false}
+              >
                 Proceed
               </Button>
             </div>

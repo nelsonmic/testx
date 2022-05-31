@@ -12,21 +12,21 @@ const BankList = () => {
   const [query, setQuery] = useState("");
   const [filteredBanks, setFilteredBanks] = useState([]);
 
-
   useEffect(() => {
     if (allBanks !== null) {
       setFilteredBanks(allBanks);
     }
-  } , [allBanks]);
+  }, [allBanks]);
 
   const handleSearch = (e) => {
     setQuery(e.target.value);
 
     if (allBanks !== null) {
-        setFilteredBanks( allBanks.filter((bank) => bank.bankName.includes(query.toUpperCase())));
+      setFilteredBanks(
+        allBanks.filter((bank) => bank.bankName.includes(query.toUpperCase()))
+      );
     }
   };
-
 
   return (
     <div className="bank-list">
@@ -65,7 +65,15 @@ const BankList = () => {
           <div className="bank-list-body">
             {allBanks !== null
               ? filteredBanks.map((bank, index) => {
-                  return <ViewBank bankName={bank.bankName} key={index} bankCode={bank.bankCode} changeBankInput={setSelectedBank} changeBankCode={setSelectBankCode} />;
+                  return (
+                    <ViewBank
+                      bankName={bank.bankName}
+                      key={index}
+                      bankCode={bank.bankCode}
+                      changeBankInput={setSelectedBank}
+                      changeBankCode={setSelectBankCode}
+                    />
+                  );
                 })
               : ""}
           </div>
