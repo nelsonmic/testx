@@ -18,7 +18,6 @@ import { PinInput, PinInputField } from "@chakra-ui/react";
 import naira from "../assets/naira.svg";
 
 const ConfirmAllTransactions = ({ transactionType }) => {
-  console.log(useOutletContext());
   const {
     mutate: setProcessAllTransactions,
     isSuccess: isProcessSuccess,
