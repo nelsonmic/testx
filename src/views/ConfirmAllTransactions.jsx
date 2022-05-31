@@ -17,7 +17,7 @@ import { PinInput, PinInputField } from "@chakra-ui/react";
 //assets
 import naira from "../assets/naira.svg";
 
-const ConfirmAllTransactions = () => {
+const ConfirmAllTransactions = ({ transactionType }) => {
   const {
     mutate: setProcessAllTransactions,
     isSuccess: isProcessSuccess,
@@ -25,25 +25,22 @@ const ConfirmAllTransactions = () => {
     error: processError,
     isLoading: processLoading,
   } = useSetProcessAllTransactions();
+
   const [
+    //eslint-disable-next-line
     allBanks,
+    //eslint-disable-next-line
     setSelectedBank,
+    //eslint-disable-next-line
     setSelectBankCode,
     transactionHash,
+    //eslint-disable-next-line
     accountNumber,
     amountWithComma,
     selectedBank,
     receipientName,
     description,
   ] = useOutletContext();
-
-  console.log(
-    allBanks,
-    setSelectedBank,
-    setSelectBankCode,
-    transactionHash,
-    accountNumber
-  );
 
   const [pin, setPin] = useState("");
   const handleChange = (e) => {
@@ -83,7 +80,7 @@ const ConfirmAllTransactions = () => {
               {description}
             </p>
             <p>
-              <span>Receipient Bank:</span>
+              <span>{transactionType}:</span>
               <svg width="24" height="24" viewBox="0 0 43 43" fill="none">
                 <circle cx="21.5" cy="21.5" r="21.5" fill="#FF3A3A20" />
                 <path

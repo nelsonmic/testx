@@ -91,7 +91,9 @@ function App() {
     const allViews = (
       <>
         {!authRoutes.includes(location.pathname) && <BottomNav />}
-        { interceptorError ? <Alert status="error" message={errorMessage} />: null}
+        {interceptorError ? (
+          <Alert status="error" message={errorMessage} />
+        ) : null}
         <Routes>
           <Route path="/" element={<Overview />} />
           <Route path="/profile" element={<Profile />} />
@@ -99,9 +101,21 @@ function App() {
           {/* payment routes */}
           <Route path="/payments/bank" element={<BankTransfer />}>
             <Route path="bank-list" element={<BankList />} />
-            <Route path="confirm-bank-transactions" element={<ConfirmAllTransactions />} />
+            <Route
+              path="confirm-bank-transactions"
+              element={
+                <ConfirmAllTransactions transactionType="Receipient Bank" />
+              }
+            />
           </Route>
-          <Route path="/payments/wallet" element={<WalletTransfer />} />
+          <Route path="/payments/wallet" element={<WalletTransfer />}>
+            <Route
+              path="confirm-wallet-transactions"
+              element={
+                <ConfirmAllTransactions transactionType="Receipient Wallet" />
+              }
+            />
+          </Route>
           <Route path="/payments/billpayments" element={<BillPayments />} />
 
           {/* auth routes */}

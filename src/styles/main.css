@@ -888,6 +888,11 @@ button:hover {
   text-align: left;
 }
 
+.wallet-transfer main form .inputs #amount {
+  color: #4A5568;
+  padding: .85em 1em .85em 2.5em;
+}
+
 .wallet-transfer main form .inputs input {
   color: #4A5568;
   font-size: 14px;
