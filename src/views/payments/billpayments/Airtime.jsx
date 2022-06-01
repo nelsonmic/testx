@@ -53,7 +53,7 @@ const Airtime = () => {
   const { isSuccess: isSuccessBillers, data: airtimeBillers } =
     useGetAirtimeBillers();
 
-  //initialize airtime purchase
+  //initialize airtime purchasee
   const {
     mutate: setInitializeAirtime,
     isLoading: isLoadingInitialize,
