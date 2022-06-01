@@ -17,6 +17,7 @@ import UploadImagesToServer from "../utils/UploadImage";
 import ImageFormatter from "../components/ImageFormatter";
 import ImageUploader from "../components/ImageUploader";
 import AlertMessage from "../components/Alert";
+import BackButton from "../components/BackButton";
 import { Input, Button } from "@chakra-ui/react";
 
 const Profile = () => {
@@ -24,7 +25,7 @@ const Profile = () => {
   const [userProfileImage, setUserProfileImage] = useRecoilState(
     userProfileImageState
   );
- 
+
   const [user, setUser] = useRecoilState(userState);
   const [profileSettings, setProfileSettings] = useState(null);
   const [uploadImageErrorMessage, setUploadImageErrorMessage] = useState(null);
@@ -104,10 +105,15 @@ const Profile = () => {
 
   return (
     <div className="profile">
+      <BackButton />
       <h1 className="page-name">Profile</h1>
 
-      {isSuccessSetSettings? <AlertMessage status="success" message="Profile updated successfully" /> : null} 
-      {uploadImageErrorMessage? <AlertMessage status="error" message={uploadImageErrorMessage} /> : null}
+      {isSuccessSetSettings ? (
+        <AlertMessage status="success" message="Profile updated successfully" />
+      ) : null}
+      {uploadImageErrorMessage ? (
+        <AlertMessage status="error" message={uploadImageErrorMessage} />
+      ) : null}
       {/* {errorSetSettings?<AlertMessage status="error" message={"kdjfkjdfdj"} />:null} */}
       <div className="wrapper">
         <main>
@@ -129,7 +135,7 @@ const Profile = () => {
                 marginBottom=".5em"
                 uploadImage={UploadImagesToServer}
                 changeImage={setUserProfileImage}
-                uploadErrorMessage = {setUploadImageErrorMessage}
+                uploadErrorMessage={setUploadImageErrorMessage}
               />
             </div>
 

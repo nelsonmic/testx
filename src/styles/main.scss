@@ -22,9 +22,14 @@
 @import 'pages/confirmalltransactions';
 @import 'pages/payments';
 @import 'pages/payments/banktransfer';
-@import 'pages/payments/wallettransfer';	
-@import 'pages/payments/banklist';	
+@import 'pages/payments/wallettransfer';
+@import 'pages/payments/banklist';
+//bill payment pages
+@import 'pages/payments/billpayments/airtime';
+@import 'pages/payments/billpayments/data';
+@import 'pages/payments/billpayments/electricity';
+@import 'pages/payments/billpayments/others';
 
-    //auth pages
+//auth pages
 @import 'pages/auth/signin';
 @import 'pages/auth/signup'
