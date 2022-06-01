@@ -21,6 +21,11 @@ import Payments from "./views/Payments";
 import BankTransfer from "./views/payments/BankTransfer";
 import WalletTransfer from "./views/payments/WalletTransfer";
 import BillPayments from "./views/payments/Billspayment";
+//sub bill payment routes
+import Airtime from "./views/payments/billpayments/Airtime";
+import Data from "./views/payments/billpayments/Data";
+import Electricity from "./views/payments/billpayments/Electricity";
+import Others from "./views/payments/billpayments/Others";
 //sub payment routes
 import BankList from "./views/payments/BankList";
 
@@ -99,6 +104,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/payments" element={<Payments />} />
           {/* payment routes */}
+          {/* bank payment routes */}
           <Route path="/payments/bank" element={<BankTransfer />}>
             <Route path="bank-list" element={<BankList />} />
             <Route
@@ -108,6 +114,7 @@ function App() {
               }
             />
           </Route>
+          {/* wallet payment routes */}
           <Route path="/payments/wallet" element={<WalletTransfer />}>
             <Route
               path="confirm-wallet-transactions"
@@ -116,7 +123,15 @@ function App() {
               }
             />
           </Route>
+          {/* bill payment routes */}
           <Route path="/payments/billpayments" element={<BillPayments />} />
+          <Route path="/payments/billpayments/airtime" element={<Airtime />} />
+          <Route path="/payments/billpayments/data" element={<Data />} />
+          <Route
+            path="/payments/billpayments/electricity"
+            element={<Electricity />}
+          />
+          <Route path="/payments/billpayments/others" element={<Others />} />
 
           {/* auth routes */}
           <Route path="/sign-up" element={<Signup />} />

@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router } from "react-router-dom";
 import "./styles/main.css";
 import App from "./App";
@@ -8,8 +8,8 @@ import { RecoilRoot } from "recoil";
 import { QueryClientProvider, QueryClient } from "react-query";
 
 const queryClient = new QueryClient();
-
-ReactDOM.render(
+const root = createRoot(document.getElementById("root"));
+root.render(
   <React.StrictMode>
     <Router>
       <ChakraProvider resetCSS={false}>
@@ -20,6 +20,5 @@ ReactDOM.render(
         </RecoilRoot>
       </ChakraProvider>
     </Router>
-  </React.StrictMode>,
-  document.getElementById("root")
+  </React.StrictMode>
 );

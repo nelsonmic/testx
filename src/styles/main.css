@@ -942,6 +942,50 @@ button:hover {
   padding: 1em;
 }
 
+.airtime-purchase {
+  position: relative;
+  border: 1px solid red;
+}
+
+.airtime-purchase main {
+  margin-top: 2em;
+  margin-bottom: 5em;
+  padding: 1em;
+}
+
+.data-purchase {
+  position: relative;
+  border: 1px solid green;
+}
+
+.data-purchase main {
+  margin-top: 2em;
+  margin-bottom: 5em;
+  padding: 1em;
+}
+
+.electricity-purchase {
+  position: relative;
+  border: 1px solid yellow;
+}
+
+.electricity-purchase main {
+  margin-top: 2em;
+  margin-bottom: 5em;
+  padding: 1em;
+}
+
+.others-purchase {
+  position: relative;
+  border: 1px solid purple;
+}
+
+.others-purchase main {
+  margin-top: 2em;
+  margin-bottom: 5em;
+  padding: 1em;
+}
+
 .signin {
   padding: 1em 2em;
 }
