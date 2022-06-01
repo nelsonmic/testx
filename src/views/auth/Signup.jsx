@@ -17,7 +17,7 @@ import { useNavigate, Link } from "react-router-dom";
 import AlertMessage from "../../components/Alert";
 
 const SignUp = () => {
-    let navigate = useNavigate();
+  let navigate = useNavigate();
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
 
@@ -52,7 +52,10 @@ const SignUp = () => {
       signupEmail: Yup.string()
         .email("The email address is incorrect")
         .required("Required"),
-      signupPhone: Yup.string().required("Please enter a Phone number"),
+      signupPhone: Yup.number()
+        .typeError("That doesn't look like a phone number")
+        .positive("A phone number can't start with a minus")
+        .required("Please enter a Phone number"),
       signupAs: Yup.string().required("Required"),
       signupPassword: Yup.string().required("Required"),
     }),
@@ -82,7 +85,12 @@ const SignUp = () => {
           <AlertMessage status="success" message={data.data.message} />
         ) : null}
         {isError ? (
-          <AlertMessage status="error" message={error.response.data.data[Object.keys(error.response.data.data)[0]]} />
+          <AlertMessage
+            status="error"
+            message={
+              error.response.data.data[Object.keys(error.response.data.data)[0]]
+            }
+          />
         ) : null}
 
         <h1>Create Account</h1>

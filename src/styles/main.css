@@ -944,13 +944,110 @@ button:hover {
 
 .airtime-purchase {
   position: relative;
-  border: 1px solid red;
 }
 
 .airtime-purchase main {
   margin-top: 2em;
   margin-bottom: 5em;
   padding: 1em;
+}
+
+.airtime-purchase main .header {
+  z-index: 2;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 7vh;
+  border-radius: 10px;
+  padding: .75em 1em;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 0 auto;
+  background: #FF3A3A80;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-items: center;
+  gap: 20px;
+}
+
+.airtime-purchase main .header p {
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.airtime-purchase main .header h2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-items: center;
+  gap: 3px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.airtime-purchase main .header h2 img {
+  width: 12px;
+  height: 12px;
+}
+
+.airtime-purchase main form {
+  margin-top: 3em;
+}
+
+.airtime-purchase main form .inputs {
+  margin-bottom: 1em;
+}
+
+.airtime-purchase main form .inputs label {
+  display: block;
+  margin-bottom: .35em;
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.airtime-purchase main form .inputs #airtimeAmount {
+  width: 100%;
+  border: 1px solid #E2E8F0;
+  border-radius: 5px;
+  color: #4A5568;
+  padding: .85em 1em .85em 2.5em;
+}
+
+.airtime-purchase main form .inputs input {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.airtime-purchase main form .billers label {
+  padding-bottom: 0;
+}
+
+.airtime-purchase main form .billers span {
+  display: inline;
+}
+
+.airtime-purchase main form .billers span img {
+  display: inline;
+}
+
+.airtime-purchase main form .submit-button {
+  margin: 3em 0 5em 0;
+  width: 100%;
+}
+
+.airtime-purchase main form .submit-button button {
+  width: 100%;
+  border: none;
+  padding: 1.5em 0;
 }
 
 .data-purchase {
@@ -964,6 +1061,49 @@ button:hover {
   padding: 1em;
 }
 
+.data-purchase main .header {
+  z-index: 2;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 7vh;
+  border-radius: 10px;
+  padding: .75em 1em;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 0 auto;
+  background: #FF3A3A80;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-items: center;
+  gap: 20px;
+}
+
+.data-purchase main .header p {
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.data-purchase main .header h2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-items: center;
+  gap: 3px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.data-purchase main .header h2 img {
+  width: 12px;
+  height: 12px;
+}
+
 .electricity-purchase {
   position: relative;
   border: 1px solid yellow;
@@ -975,6 +1115,49 @@ button:hover {
   padding: 1em;
 }
 
+.electricity-purchase main .header {
+  z-index: 2;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 7vh;
+  border-radius: 10px;
+  padding: .75em 1em;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 0 auto;
+  background: #FF3A3A80;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-items: center;
+  gap: 20px;
+}
+
+.electricity-purchase main .header p {
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.electricity-purchase main .header h2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-items: center;
+  gap: 3px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.electricity-purchase main .header h2 img {
+  width: 12px;
+  height: 12px;
+}
+
 .others-purchase {
   position: relative;
   border: 1px solid purple;
@@ -984,6 +1167,49 @@ button:hover {
   margin-top: 2em;
   margin-bottom: 5em;
   padding: 1em;
+}
+
+.others-purchase main .header {
+  z-index: 2;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 7vh;
+  border-radius: 10px;
+  padding: .75em 1em;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 0 auto;
+  background: #FF3A3A80;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-items: center;
+  gap: 20px;
+}
+
+.others-purchase main .header p {
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.others-purchase main .header h2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-items: center;
+  gap: 3px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.others-purchase main .header h2 img {
+  width: 12px;
+  height: 12px;
 }
 
 .signin {

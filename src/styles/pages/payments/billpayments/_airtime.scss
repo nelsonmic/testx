@@ -1,11 +1,91 @@
 .airtime-purchase {
     position: relative;
-    border: 1px solid red;
 
     main {
         margin-top: 2em;
         margin-bottom: 5em;
         padding: 1em;
 
+        .header {
+            z-index: 2;
+            position: sticky;
+            top: 7vh;
+            border-radius: 10px;
+            padding: .75em 1em;
+            width: max-content;
+            margin: 0 auto;
+            background: #FF3A3A80;
+            display: flex;
+            place-items: center;
+            gap: 20px;
+
+            p {
+                @include styletext($xxsm-font-size, $color-tertiary-100, 400, center);
+            }
+
+            h2 {
+                display: flex;
+                place-items: center;
+                gap: 3px;
+                @include styletext($xsm-font-size, $color-tertiary-100, 600, center);
+
+                img {
+                    width: 12px;
+                    height: 12px;
+                }
+            }
+        }
+
+        form {
+            margin-top: 3em;
+
+            .inputs {
+                margin-bottom: 1em;
+
+                label {
+                    display: block;
+                    margin-bottom: .35em;
+                    @include styletext($xxsm-font-size, $color-tertiary-300, 400, left);
+                }
+
+                #airtimeAmount {
+                    width: 100%;
+                    border: 1px solid #E2E8F0;
+                    border-radius: 5px;
+                    color: $color-tertiary-300;
+                    padding: .85em 1em .85em 2.5em;
+                }
+
+                input {
+                    @include styletext($xsm-font-size, $color-tertiary-300, 400, left);
+                }
+            }
+
+            .billers {
+                label {
+                    padding-bottom: 0;
+                }
+
+                span {
+                    display: inline;
+
+                    img {
+                        display: inline;
+                    }
+                }
+            }
+
+
+            .submit-button {
+                margin: 3em 0 5em 0;
+                width: 100%;
+
+                button {
+                    width: 100%;
+                    border: none;
+                    padding: 1.5em 0;
+                }
+            }
+        }
     }
 }

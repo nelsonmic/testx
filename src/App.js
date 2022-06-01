@@ -125,7 +125,14 @@ function App() {
           </Route>
           {/* bill payment routes */}
           <Route path="/payments/billpayments" element={<BillPayments />} />
-          <Route path="/payments/billpayments/airtime" element={<Airtime />} />
+          <Route path="/payments/billpayments/airtime" element={<Airtime />}>
+            <Route
+              path="confirm-airtime-transactions"
+              element={
+                <ConfirmAllTransactions transactionType="Airtime Biller" />
+              }
+            />
+          </Route>
           <Route path="/payments/billpayments/data" element={<Data />} />
           <Route
             path="/payments/billpayments/electricity"
