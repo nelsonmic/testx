@@ -1,6 +1,5 @@
 .data-purchase {
     position: relative;
-    border: 1px solid green;
 
     main {
         margin-top: 2em;
@@ -33,6 +32,55 @@
                 img {
                     width: 12px;
                     height: 12px;
+                }
+            }
+        }
+
+        form {
+            margin-top: 3em;
+
+            .inputs {
+                margin-bottom: 1em;
+
+                label {
+                    display: block;
+                    margin-bottom: .35em;
+                    @include styletext($xxsm-font-size, $color-tertiary-300, 400, left);
+                }
+
+                input {
+                    @include styletext($xsm-font-size, $color-tertiary-300, 400, left);
+                }
+
+                select {
+                    @include styletext($xsm-font-size, $color-tertiary-300, 400, left);
+                    padding: .85em 2em .85em 2.5em;
+                }
+            }
+
+            .billers {
+                label {
+                    padding-bottom: 0;
+                }
+
+                span {
+                    display: inline;
+
+                    img {
+                        display: inline;
+                    }
+                }
+            }
+
+
+            .submit-button {
+                margin: 3em 0 5em 0;
+                width: 100%;
+
+                button {
+                    width: 100%;
+                    border: none;
+                    padding: 1.5em 0;
                 }
             }
         }

@@ -1052,7 +1052,6 @@ button:hover {
 
 .data-purchase {
   position: relative;
-  border: 1px solid green;
 }
 
 .data-purchase main {
@@ -1102,6 +1101,61 @@ button:hover {
 .data-purchase main .header h2 img {
   width: 12px;
   height: 12px;
+}
+
+.data-purchase main form {
+  margin-top: 3em;
+}
+
+.data-purchase main form .inputs {
+  margin-bottom: 1em;
+}
+
+.data-purchase main form .inputs label {
+  display: block;
+  margin-bottom: .35em;
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.data-purchase main form .inputs input {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.data-purchase main form .inputs select {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+  padding: .85em 2em .85em 2.5em;
+}
+
+.data-purchase main form .billers label {
+  padding-bottom: 0;
+}
+
+.data-purchase main form .billers span {
+  display: inline;
+}
+
+.data-purchase main form .billers span img {
+  display: inline;
+}
+
+.data-purchase main form .submit-button {
+  margin: 3em 0 5em 0;
+  width: 100%;
+}
+
+.data-purchase main form .submit-button button {
+  width: 100%;
+  border: none;
+  padding: 1.5em 0;
 }
 
 .electricity-purchase {
