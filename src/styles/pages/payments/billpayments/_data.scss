@@ -55,6 +55,10 @@
                 select {
                     @include styletext($xsm-font-size, $color-tertiary-300, 400, left);
                     padding: .85em 2em .85em 2.5em;
+
+                    option {
+                        font-size: $xxsm-font-size;
+                    }
                 }
             }
 

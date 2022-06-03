@@ -7,6 +7,7 @@ import userState from "../../../recoil/userRecoil";
 import useGetUserInfo from "../../../apis/profile/useGetUserInfo";
 import useGetDataBillers from "../../../apis/payments/billpayments/databill/useGetDataBiller";
 import useGetSpecificBiller from "../../../apis/payments/billpayments/databill/useGetSpecificBiller";
+import useSetInitializeDataPurchase from "../../../apis/payments/billpayments/databill/useSetInitializeDataPurchase";
 //formik
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -37,6 +38,7 @@ import airtel from "../../../assets/airtel.svg";
 import glo from "../../../assets/glo.svg";
 
 const Data = () => {
+  const navigate = useNavigate();
   const [user, setUser] = useRecoilState(userState);
   const { isSuccess: isSuccessInfo, data: info } = useGetUserInfo();
 
@@ -47,11 +49,15 @@ const Data = () => {
   const [billerId, setBillerId] = useState("");
   const [staleBillerId, setStaleBillerId] = useState("");
   const [billerName, setBillerName] = useState("");
+  const [stalePaymentCode, setStalePaymentCode] = useState("");
   const [paymentCode, setPaymentCode] = useState("");
   const [specificBillerItems, setSpecificBillerItems] = useState(null);
   const [transactionHash, setTransactionHash] = useState("");
 
-  console.log(amount);
+  //error
+  const [error, setError] = useState("");
+
+  // console.log(amount, amountWithComma);
 
   //api
   const { isSuccess: isSuccessBillers, data: dataBillers } =
@@ -62,10 +68,16 @@ const Data = () => {
     isLoading: isLoadingBillerItems,
     isSuccess: billersSuccess,
     data: billerItems,
-    isError: isErrorBillerItems,
-    error: errorBillerItems,
     refetch: refetchBillerItems,
   } = useGetSpecificBiller(billerId);
+
+  //initialize data purchase
+  const {
+    mutate: setInitializeDataPurchase,
+    isLoading: isLoadingInitialize,
+    isSuccess: initializeSuccess,
+    data: initializeData,
+  } = useSetInitializeDataPurchase();
 
   useEffect(() => {
     if (isSuccessInfo) {
@@ -78,7 +90,6 @@ const Data = () => {
     }
     if (billersSuccess) {
       setSpecificBillerItems(billerItems.data.data);
-      console.log(billerItems.data.data);
     }
   }, [
     isSuccessInfo,
@@ -90,6 +101,14 @@ const Data = () => {
     billersSuccess,
     billerItems,
   ]);
+
+  useEffect(() => {
+    if (initializeSuccess) {
+      setTransactionHash(initializeData.data.data.hash);
+      navigate("/payments/billpayments/data/confirm-data-transactions");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [initializeSuccess, initializeData, setTransactionHash]);
 
   //formik
   const formik = useFormik({
@@ -105,10 +124,13 @@ const Data = () => {
     onSubmit: (values) => {
       const { dataPhone } = values;
       const data = {
+        dataPhone,
         billerId,
+        amount,
+        paymentCode,
       };
       if (billerId !== "" || paymentCode !== "") {
-        // setInitializeAirtime(data);
+        setInitializeDataPurchase(data);
         setPhoneNumber(dataPhone);
         billerId === "348"
           ? setBillerName("MTN Mobile Data Plans")
@@ -118,7 +140,7 @@ const Data = () => {
           ? setBillerName("9mobile Data Bundles")
           : setBillerName("GLO Data Bundles");
       } else {
-        // setError(true);
+        setError(true);
       }
     },
   });
@@ -161,6 +183,7 @@ const Data = () => {
     <div className="data-purchase">
       <BackButton />
       <h1 className="page-name">Buy Data</h1>
+      {error && <Alert status="error" message="Please fill all fields" />}
       <div className="wrapper">
         <main>
           <div className="header">
@@ -274,15 +297,24 @@ const Data = () => {
                 <Select
                   placeholder="Select a data plan"
                   size="lg"
-                  value={paymentCode}
+                  value={stalePaymentCode}
                   onChange={(e) => {
-                    setPaymentCode(e.target.value);
+                    let value = e.target.value;
+                    setPaymentCode(value.split(",")[0]);
+                    setAmount(value.split(",")[1] / 100);
+                    setStalePaymentCode(e.target.value);
+                    setAmountWithComma(
+                      utils.numbersWithCommas(value.split(",")[1] / 100)
+                    );
                   }}
                 >
                   {specificBillerItems
                     ? specificBillerItems.map((item, index) => {
                         return (
-                          <option key={index} value={item.paymentCode}>
+                          <option
+                            key={index}
+                            value={[item.paymentCode, item.amount]}
+                          >
                             {item.paymentitemname}
                           </option>
                         );
@@ -335,7 +367,7 @@ const Data = () => {
                 size="md"
                 colorScheme="red"
                 onClick={formik.handleSubmit}
-                // isLoading={isLoadingInitialize ? true : false}
+                isLoading={isLoadingInitialize ? true : false}
               >
                 Proceed
               </Button>

@@ -1135,6 +1135,10 @@ button:hover {
   padding: .85em 2em .85em 2.5em;
 }
 
+.data-purchase main form .inputs select option {
+  font-size: 12px;
+}
+
 .data-purchase main form .billers label {
   padding-bottom: 0;
 }
