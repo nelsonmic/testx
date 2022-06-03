@@ -133,7 +133,12 @@ function App() {
               }
             />
           </Route>
-          <Route path="/payments/billpayments/data" element={<Data />} />
+          <Route path="/payments/billpayments/data" element={<Data />}>
+            <Route
+              path="confirm-data-transactions"
+              element={<ConfirmAllTransactions transactionType="Data Biller" />}
+            />
+          </Route>
           <Route
             path="/payments/billpayments/electricity"
             element={<Electricity />}
