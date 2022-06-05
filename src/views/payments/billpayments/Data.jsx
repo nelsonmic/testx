@@ -196,7 +196,7 @@ const Data = () => {
             </h2>
           </div>
 
-          <form className="bank-transfer-form">
+          <form className="data-purchase-form">
             <div className="inputs billers">
               <label>Select a network</label>
 
@@ -393,3 +393,5 @@ const Data = () => {
 };
 
 export default Data;
+
+//TODO - add validation for phone number field and amount verification with balance

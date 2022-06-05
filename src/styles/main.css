@@ -1164,7 +1164,6 @@ button:hover {
 
 .electricity-purchase {
   position: relative;
-  border: 1px solid yellow;
 }
 
 .electricity-purchase main {
@@ -1214,6 +1213,73 @@ button:hover {
 .electricity-purchase main .header h2 img {
   width: 12px;
   height: 12px;
+}
+
+.electricity-purchase main form {
+  margin-top: 3em;
+}
+
+.electricity-purchase main form .inputs {
+  margin-bottom: 1em;
+}
+
+.electricity-purchase main form .inputs label {
+  display: block;
+  margin-bottom: .35em;
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.electricity-purchase main form .inputs #electricityAmount {
+  width: 100%;
+  border: 1px solid #E2E8F0;
+  border-radius: 5px;
+  color: #4A5568;
+  padding: .85em 1em .85em 2.5em;
+}
+
+.electricity-purchase main form .inputs input {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.electricity-purchase main form .inputs select {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+  padding: .85em 2em .85em 2.5em;
+}
+
+.electricity-purchase main form .inputs select option {
+  font-size: 12px;
+}
+
+.electricity-purchase main form .billers label {
+  padding-bottom: 0;
+}
+
+.electricity-purchase main form .billers span {
+  display: inline;
+}
+
+.electricity-purchase main form .billers span img {
+  display: inline;
+}
+
+.electricity-purchase main form .submit-button {
+  margin: 3em 0 5em 0;
+  width: 100%;
+}
+
+.electricity-purchase main form .submit-button button {
+  width: 100%;
+  border: none;
+  padding: 1.5em 0;
 }
 
 .others-purchase {
