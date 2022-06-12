@@ -179,7 +179,7 @@ const Electricity = () => {
             </h2>
           </div>
 
-          <form className="data-purchase-form">
+          <form className="electricity-purchase-form">
             <div className="inputs">
               <label htmlFor="electricitybiller">Select an operator</label>
               <InputGroup size="lg">

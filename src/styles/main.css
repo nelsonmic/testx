@@ -803,8 +803,50 @@ input {
   height: 12px;
 }
 
-.bank-transfer main form {
-  margin-top: 3em;
+.bank-transfer main .beneficiary-container {
+  margin: 1em 0;
+}
+
+.bank-transfer main .beneficiary-container .beneficiary-header,
+.bank-transfer main .beneficiary-container .see-more {
+  place-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+}
+
+.bank-transfer main .beneficiary-container .beneficiary-header p,
+.bank-transfer main .beneficiary-container .see-more p {
+  margin-bottom: .35em;
+  color: #2D3748;
+  font-size: 10px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.bank-transfer main .beneficiary-container .beneficiaries {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 10px;
+  margin: .75em 0;
+  overflow-x: scroll;
+}
+
+.bank-transfer main .beneficiary-container .beneficiaries .beneficiary {
+  width: 60px;
+}
+
+.bank-transfer main .beneficiary-container .beneficiaries .beneficiary p {
+  margin-top: .35em;
+  color: #4A5568;
+  font-size: 8px;
+  font-weight: 400;
+  text-align: left;
 }
 
 .bank-transfer main form .inputs {
@@ -1280,18 +1322,6 @@ input {
   font-size: 12px;
 }
 
-.electricity-purchase main form .billers label {
-  padding-bottom: 0;
-}
-
-.electricity-purchase main form .billers span {
-  display: inline;
-}
-
-.electricity-purchase main form .billers span img {
-  display: inline;
-}
-
 .electricity-purchase main form .submit-button {
   margin: 3em 0 5em 0;
   width: 100%;
@@ -1305,7 +1335,6 @@ input {
 
 .others-purchase {
   position: relative;
-  border: 1px solid purple;
 }
 
 .others-purchase main {
@@ -1355,6 +1384,61 @@ input {
 .others-purchase main .header h2 img {
   width: 12px;
   height: 12px;
+}
+
+.others-purchase main form {
+  margin-top: 3em;
+}
+
+.others-purchase main form .inputs {
+  margin-bottom: 1em;
+}
+
+.others-purchase main form .inputs label {
+  display: block;
+  margin-bottom: .35em;
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.others-purchase main form .inputs #otherbillsAmount {
+  width: 100%;
+  border: 1px solid #E2E8F0;
+  border-radius: 5px;
+  color: #4A5568;
+  padding: .85em 1em .85em 2.5em;
+}
+
+.others-purchase main form .inputs input {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.others-purchase main form .inputs select {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+  padding: .85em 2em .85em 2.5em;
+}
+
+.others-purchase main form .inputs select option {
+  font-size: 12px;
+}
+
+.others-purchase main form .submit-button {
+  margin: 3em 0 5em 0;
+  width: 100%;
+}
+
+.others-purchase main form .submit-button button {
+  width: 100%;
+  border: none;
+  padding: 1.5em 0;
 }
 
 .signin {
