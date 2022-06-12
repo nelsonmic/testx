@@ -44,7 +44,7 @@ const Others = () => {
   const [inputAmount, setInputAmount] = useState("");
   const [amountWithComma, setAmountWithComma] = useState("");
   const [finalAmount, setFinalAmount] = useState("");
-  console.log(finalAmount);
+  console.log(finalAmount, amountWithComma, itemFee, paymentCode);
 
   //api calls
 
