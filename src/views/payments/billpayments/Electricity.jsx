@@ -465,3 +465,5 @@ const Electricity = () => {
 };
 
 export default Electricity;
+
+// TODO - handle balance checking and handle errors
