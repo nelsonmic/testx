@@ -394,4 +394,4 @@ const Data = () => {
 
 export default Data;
 
-//TODO - add validation for phone number field and amount verification with balance
+//TODO - add validation for phone number field and amount verification with balance and errrors

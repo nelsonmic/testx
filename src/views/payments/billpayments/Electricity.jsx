@@ -8,9 +8,6 @@ import useGetUserInfo from "../../../apis/profile/useGetUserInfo";
 import useGetElectricityBillers from "../../../apis/payments/billpayments/electricity/useGetElectricityBiller";
 import useGetCustomerData from "../../../apis/payments/billpayments/electricity/useGetCustomerData";
 import useSetInitializeElectricity from "../../../apis/payments/billpayments/electricity/useSetInitializeElectricity";
-//formik
-import { useFormik } from "formik";
-import * as Yup from "yup";
 //router
 import { Outlet, useNavigate } from "react-router-dom";
 //Components
@@ -136,47 +133,35 @@ const Electricity = () => {
     initializeData,
   ]);
 
-  //formik
-  const formik = useFormik({
-    initialValues: {
-      electricityAmount: amount,
-    },
-    validationSchema: Yup.object({
-      electricityAmount: Yup.string().required("Required"),
-      meterNumber: Yup.number()
-        .typeError("That doesn't look like a phone number")
-        .positive("Your meter number does not start with a minus symbol")
-        .required("Meter number number is required"),
-    }),
-    onSubmit: () => {
-      const data = {
-        amount,
-        meterNumber,
-        paymentCode,
-        accessToken,
-        customerName,
-        customerAddress,
-      };
-      if (
-        amount !== "" ||
-        meterNumber !== "" ||
-        paymentCode !== "" ||
-        accessToken !== "" ||
-        customerName !== "" ||
-        customerAddress !== ""
-      ) {
-        if (amount >= minAmount) {
-          setInitializeElectricity(data);
-        } else {
-          setError(true);
-          setErrorMessage(`Amount is less than minimum ${minAmount} amount`);
-        }
+  const handleSubmit = () => {
+    const data = {
+      amount: amount.toString(),
+      meterNumber,
+      paymentCode,
+      accessToken,
+      customerName,
+      customerAddress,
+    };
+    console.log(data);
+    if (
+      amount !== "" ||
+      meterNumber !== "" ||
+      paymentCode !== "" ||
+      accessToken !== "" ||
+      customerName !== "" ||
+      customerAddress !== ""
+    ) {
+      if (amount >= minAmount) {
+        setInitializeElectricity(data);
       } else {
         setError(true);
-        setErrorMessage("All fields required");
+        setErrorMessage(`Amount is less than minimum ${minAmount} amount`);
       }
-    },
-  });
+    } else {
+      setError(true);
+      setErrorMessage("All fields required");
+    }
+  };
   return (
     <div className="electricity-purchase">
       <BackButton />
@@ -319,16 +304,8 @@ const Electricity = () => {
                     setAmount(value.floatValue);
                     setAmountWithComma(value.formattedValue);
                   }}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
                 />
               </InputGroup>
-              {formik.touched.electricityAmount &&
-              formik.errors.electricityAmount ? (
-                <div className="formik-error">
-                  {formik.errors.electricityAmount}
-                </div>
-              ) : null}
             </div>
 
             <div className="inputs">
@@ -344,7 +321,6 @@ const Electricity = () => {
                     setMeterNumber(e.target.value);
                     setStaleMeterNumber(e.target.value);
                   }}
-                  onBlur={formik.handleBlur}
                   value={meterNumber}
                 />
                 <InputRightElement pointerEvents="none">
@@ -366,10 +342,6 @@ const Electricity = () => {
                   </svg>
                 </InputRightElement>
               </InputGroup>
-
-              {formik.touched.meterNumber && formik.errors.meterNumber ? (
-                <div className="formik-error">{formik.errors.meterNumber}</div>
-              ) : null}
             </div>
 
             <div className="inputs">
@@ -466,7 +438,7 @@ const Electricity = () => {
               <Button
                 size="md"
                 colorScheme="red"
-                onClick={formik.handleSubmit}
+                onClick={handleSubmit}
                 isLoading={isLoadingInitialize ? true : false}
               >
                 Proceed
@@ -493,3 +465,5 @@ const Electricity = () => {
 };
 
 export default Electricity;
+
+// TODO - handle balance checking and handle errors

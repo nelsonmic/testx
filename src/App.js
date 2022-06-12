@@ -142,7 +142,14 @@ function App() {
           <Route
             path="/payments/billpayments/electricity"
             element={<Electricity />}
-          />
+          >
+            <Route
+              path="confirm-electricity-transactions"
+              element={
+                <ConfirmAllTransactions transactionType="Electric Biller" />
+              }
+            />
+          </Route>
           <Route path="/payments/billpayments/others" element={<Others />} />
 
           {/* auth routes */}
