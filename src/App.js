@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
-
 //components
 import BottomNav from "./components/BottomNav";
 import Alert from "./components/Alert";
@@ -28,6 +27,7 @@ import Electricity from "./views/payments/billpayments/Electricity";
 import Others from "./views/payments/billpayments/Others";
 //sub payment routes
 import BankList from "./views/payments/BankList";
+import AllBankBeneficiaryList from "./views/payments/AllBankBeneficiaryList";
 
 //confirm all transactions route
 import ConfirmAllTransactions from "./views/ConfirmAllTransactions";
@@ -107,6 +107,10 @@ function App() {
           {/* bank payment routes */}
           <Route path="/payments/bank" element={<BankTransfer />}>
             <Route path="bank-list" element={<BankList />} />
+            <Route
+              path="all-bank-beneficiaries"
+              element={<AllBankBeneficiaryList />}
+            />
             <Route
               path="confirm-bank-transactions"
               element={
