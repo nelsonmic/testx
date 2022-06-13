@@ -3,14 +3,12 @@ import { useNavigate } from "react-router-dom";
 //components
 import Avatar from "react-avatar";
 
-const ViewBankBeneficiary = ({
+const ViewWalletBeneficiary = ({
   name,
-  bankName,
-  accountNumber,
-  bankCode,
-  setSelectedBank,
-  setSelectBankCode,
-  setAccountNumber,
+  email,
+  walletAddress,
+  setReceipientWalletAddress,
+  setReceipientEmail,
   setReceipientName,
 }) => {
   const navigate = useNavigate();
@@ -18,10 +16,9 @@ const ViewBankBeneficiary = ({
     <div
       className="view-bank"
       onClick={() => {
-        setSelectedBank(bankName);
-        setSelectBankCode(bankCode);
-        setAccountNumber(accountNumber);
         setReceipientName(name);
+        setReceipientEmail(email);
+        setReceipientWalletAddress(walletAddress);
         navigate(-1);
       }}
     >
@@ -29,12 +26,12 @@ const ViewBankBeneficiary = ({
       <span>
         <p>{name}</p>
         <span>
-          <p style={{ fontSize: "10px" }}>{bankName}</p>
-          <p style={{ fontSize: "10px" }}>{accountNumber}</p>
+          <p style={{ fontSize: "10px" }}>{email}</p>
+          <p style={{ fontSize: "10px" }}>{walletAddress}</p>
         </span>
       </span>
     </div>
   );
 };
 
-export default ViewBankBeneficiary;
+export default ViewWalletBeneficiary;

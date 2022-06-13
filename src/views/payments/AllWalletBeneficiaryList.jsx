@@ -5,30 +5,29 @@ import { useOutletContext } from "react-router-dom";
 //components
 import { InputGroup, Input, InputLeftElement } from "@chakra-ui/react";
 import BackButton from "../../components/BackButton";
-import ViewBankBeneficiary from "../../components/ViewBankBeneficiary";
+import ViewWalletBeneficiary from "../../components/ViewWalletBeneficiary";
 
-const AllBankBeneficiaryList = () => {
-  const fullBeneficiaryList = useOutletContext()[9];
-  const setSelectedBank = useOutletContext()[1];
-  const setSelectBankCode = useOutletContext()[2];
-  const setAccountNumber = useOutletContext()[10];
-  const setReceipientName = useOutletContext()[11];
+const AllWalletBeneficiaryList = () => {
+  const fullWalletBeneficiaryList = useOutletContext()[9];
+  const setReceipientEmail = useOutletContext()[10];
+  const setReceipientWalletAddress = useOutletContext()[11];
+  const setReceipientName = useOutletContext()[12];
   const [query, setQuery] = useState("");
   const [filteredBankBeneficiary, setFilteredBankBeneficiary] = useState([]);
 
   useEffect(() => {
-    if (fullBeneficiaryList !== null) {
-      setFilteredBankBeneficiary(fullBeneficiaryList);
+    if (fullWalletBeneficiaryList !== null) {
+      setFilteredBankBeneficiary(fullWalletBeneficiaryList);
     }
-  }, [fullBeneficiaryList]);
+  }, [fullWalletBeneficiaryList]);
 
   const handleSearch = (e) => {
     setQuery(e.target.value);
 
-    if (fullBeneficiaryList !== null) {
+    if (fullWalletBeneficiaryList !== null) {
       setFilteredBankBeneficiary(
-        fullBeneficiaryList.filter((beneficial) =>
-          beneficial.account_name.toUpperCase().includes(query.toUpperCase())
+        fullWalletBeneficiaryList.filter((beneficial) =>
+          beneficial.name.toUpperCase().includes(query.toUpperCase())
         )
       );
     }
@@ -37,7 +36,7 @@ const AllBankBeneficiaryList = () => {
   return (
     <div className="bank-list">
       <BackButton />
-      <h1 className="page-name">All Bank Beneficiaries</h1>
+      <h1 className="page-name">All Wallet Beneficiaries</h1>
 
       <div className="wrapper">
         <main>
@@ -69,18 +68,16 @@ const AllBankBeneficiaryList = () => {
             </InputGroup>
           </div>
           <div className="bank-list-body">
-            {fullBeneficiaryList !== null
+            {fullWalletBeneficiaryList !== null
               ? filteredBankBeneficiary.map((beneficial, index) => {
                   return (
-                    <ViewBankBeneficiary
+                    <ViewWalletBeneficiary
                       key={index}
-                      name={beneficial.account_name}
-                      bankName={beneficial.bank_name}
-                      accountNumber={beneficial.account_number}
-                      bankCode={beneficial.bank_code}
-                      setSelectedBank={setSelectedBank}
-                      setSelectBankCode={setSelectBankCode}
-                      setAccountNumber={setAccountNumber}
+                      name={beneficial.name}
+                      email={beneficial.email}
+                      walletAddress={beneficial.wallet_to}
+                      setReceipientWalletAddress={setReceipientWalletAddress}
+                      setReceipientEmail={setReceipientEmail}
                       setReceipientName={setReceipientName}
                     />
                   );
@@ -93,4 +90,4 @@ const AllBankBeneficiaryList = () => {
   );
 };
 
-export default AllBankBeneficiaryList;
+export default AllWalletBeneficiaryList;

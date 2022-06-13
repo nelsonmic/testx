@@ -188,7 +188,7 @@ const BankTransfer = () => {
                 {bankBeneficiary.map((beneficial, index) => (
                   <div className="beneficiary" key={index}>
                     <Avatar
-                      maxInitials={2}
+                      maxInitials={1}
                       name={beneficial.account_name}
                       size={40}
                       round={true}
