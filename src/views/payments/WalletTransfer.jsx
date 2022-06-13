@@ -7,6 +7,7 @@ import userState from "../../recoil/userRecoil";
 import { Outlet, useNavigate } from "react-router-dom";
 //api
 import useGetUserInfo from "../../apis/profile/useGetUserInfo";
+import useGetWalletBeneficiary from "../../apis/payments/wallettransfer/useGetWalletBeneficiary";
 import useGetWalletDetails from "../../apis/payments/wallettransfer/useGetWalletDetails";
 import useSetInitializeWalletTransfer from "../../apis/payments/wallettransfer/useSetInitializeWalletTransfer";
 //utils
@@ -18,10 +19,12 @@ import {
   InputGroup,
   InputLeftElement,
   InputRightElement,
+  HStack,
 } from "@chakra-ui/react";
 import BackButton from "../../components/BackButton";
 import Alert from "../../components/Alert";
 import NumberFormat from "react-number-format";
+import Avatar from "react-avatar";
 //assets
 import naira from "../../assets/naira.svg";
 
@@ -29,6 +32,13 @@ const WalletTransfer = () => {
   let navigate = useNavigate();
   const [user, setUser] = useRecoilState(userState);
   const { isUserSuccess, data } = useGetUserInfo();
+  const { isSuccess: isSuccessBeneficiary, data: beneficiary } =
+    useGetWalletBeneficiary();
+
+  //beneficiary data
+  const [walletBeneficiary, setWalletBeneficiary] = useState(null);
+  const [fullWalletBeneficiaryList, setFullWalletBeneficiaryList] =
+    useState(null);
 
   //all user enetered data
   const [receipientEmail, setReceipientEmail] = useState("");
@@ -73,6 +83,12 @@ const WalletTransfer = () => {
       setReceipientWalletAddress(walletDetails.data.data.wallet_address);
     }
 
+    if (isSuccessBeneficiary) {
+      console.log(beneficiary.data.data.slice(0, 5));
+      setWalletBeneficiary(beneficiary.data.data.slice(0, 5));
+      setFullWalletBeneficiaryList(beneficiary.data.data);
+    }
+
     if (isErrorDetails) {
       setReceipientName(errorDetails.response.data.message);
     }
@@ -92,6 +108,10 @@ const WalletTransfer = () => {
     errorDetails,
     initializeSuccess,
     initializeData,
+    isSuccessBeneficiary,
+    beneficiary,
+    setFullWalletBeneficiaryList,
+    setWalletBeneficiary,
   ]);
 
   //handle form submission
@@ -133,6 +153,72 @@ const WalletTransfer = () => {
                 : "0"}
             </h2>
           </div>
+
+          {walletBeneficiary ? (
+            <div className="beneficiary-container">
+              <HStack
+                spacing={2}
+                alignItems="center"
+                placeItems="center"
+                className="beneficiary-header"
+              >
+                <svg
+                  width="14"
+                  height="14"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  color="#d40000"
+                >
+                  <path d="M0 0h24v24H0z" fill="none"></path>
+                  <path d="M13 3a9 9 0 00-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0013 21a9 9 0 000-18zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"></path>
+                </svg>
+                <p>Beneficiary</p>
+              </HStack>
+
+              <div className="beneficiaries">
+                {walletBeneficiary.map((beneficial, index) => (
+                  <div className="beneficiary" key={index}>
+                    <Avatar
+                      maxInitials={1}
+                      name={beneficial.name}
+                      size={40}
+                      round={true}
+                      onClick={() => {
+                        setReceipientEmail(beneficial.email);
+                        setReceipientWalletAddress(beneficial.wallet_to);
+                        setReceipientName(beneficial.name);
+                      }}
+                    />
+                    <p>
+                      {utils.truncateText(beneficial.name, 21).toUpperCase()}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <HStack justifyContent="flex-end" className="see-more">
+                <p
+                  onClick={() => {
+                    navigate("/payments/wallet/all-wallet-beneficiaries/");
+                  }}
+                >
+                  More
+                </p>
+                <svg
+                  width="14"
+                  height="14"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  color="#000"
+                >
+                  <path d="M0 0h24v24H0z" fill="none"></path>
+                  <path d="M12 5.83L15.17 9l1.41-1.41L12 3 7.41 7.59 8.83 9 12 5.83zm0 12.34L8.83 15l-1.41 1.41L12 21l4.59-4.59L15.17 15 12 18.17z"></path>
+                </svg>
+              </HStack>
+            </div>
+          ) : null}
 
           <form className="Wallet-transfer-form">
             <div className="inputs">
@@ -298,6 +384,10 @@ const WalletTransfer = () => {
           receipientWalletAddress,
           receipientName,
           description,
+          fullWalletBeneficiaryList,
+          setReceipientEmail,
+          setReceipientWalletAddress,
+          setReceipientName,
         ]}
       />
     </div>

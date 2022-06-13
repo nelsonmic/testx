@@ -28,6 +28,7 @@ import Others from "./views/payments/billpayments/Others";
 //sub payment routes
 import BankList from "./views/payments/BankList";
 import AllBankBeneficiaryList from "./views/payments/AllBankBeneficiaryList";
+import AllWalletBeneficiaryList from "./views/payments/AllWalletBeneficiaryList";
 
 //confirm all transactions route
 import ConfirmAllTransactions from "./views/ConfirmAllTransactions";
@@ -120,6 +121,10 @@ function App() {
           </Route>
           {/* wallet payment routes */}
           <Route path="/payments/wallet" element={<WalletTransfer />}>
+            <Route
+              path="all-wallet-beneficiaries"
+              element={<AllWalletBeneficiaryList />}
+            />
             <Route
               path="confirm-wallet-transactions"
               element={
