@@ -305,6 +305,89 @@ input {
   border: none;
 }
 
+.transaction-row {
+  margin-bottom: .75em;
+  padding: .5em;
+  border: 1px solid #E2E8F0;
+  border-radius: 5px;
+  color: #4A5568;
+}
+
+.transaction-row .info p {
+  color: #A0AEC0;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.transaction-row .info p:first-child {
+  font-weight: 400;
+  color: #4A5568;
+}
+
+.transaction-row .amount-value {
+  color: 400;
+  font-size: 14px;
+  font-weight: right;
+  text-align: center;
+}
+
+.transaction-row .amount .status {
+  color: 400;
+  font-size: 10px;
+  font-weight: center;
+  text-align: center;
+  padding: .25em;
+  margin-top: .15em;
+  border-radius: 5px;
+}
+
+.credit-text {
+  color: #0ACF83;
+}
+
+.debit-text {
+  color: #FF0000;
+}
+
+.pending-text {
+  color: #FF6E1D;
+}
+
+.success-state {
+  background: #09D85C20;
+}
+
+.pending-state {
+  background: #F1840337;
+}
+
+.failed-state {
+  background: #FF3A3A20;
+}
+
+.card-skeleton {
+  padding: .35rem;
+  margin-bottom: .75em;
+  padding: .5em;
+  border: 1px solid #E2E8F0;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 10px;
+  z-index: -1;
+}
+
+.card-skeleton div:first-child {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
 .overview {
   padding: .5em 1em;
 }
@@ -366,6 +449,7 @@ input {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  z-index: 2;
 }
 
 .overview main .balance-container h2 {
@@ -480,9 +564,11 @@ input {
 
 .overview main .recent-transaction-history {
   margin-top: 2em;
+  margin-bottom: 4em;
 }
 
 .overview main .recent-transaction-history .desc {
+  margin-bottom: 1em;
   color: #4A5568;
   font-size: 14px;
   font-weight: 600;
@@ -588,6 +674,66 @@ input {
 .profile main .update-profile .submit-button button {
   border: none;
   width: 100%;
+}
+
+.all-transactions main {
+  border: 1px solid green;
+  margin-top: 4em;
+  margin-bottom: 5em;
+  padding: 1em;
+}
+
+.all-transactions main header h2 {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.all-transactions main ul {
+  margin-top: 2em;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.all-transactions main ul a {
+  width: 100%;
+}
+
+.all-transactions main ul a li {
+  padding: 1em 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: .5px solid #C4C4C4;
+  place-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.all-transactions main ul a li .payment-type {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-items: center;
+  gap: 10px;
+}
+
+.all-transactions main ul a li .payment-type span h3 {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.all-transactions main ul a li .payment-type span p {
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
 }
 
 .confirm-all-transactions {

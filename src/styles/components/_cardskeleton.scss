@@ -1,0 +1,16 @@
+.card-skeleton {
+    padding: .35rem;
+    margin-bottom: .75em;
+    padding: .5em;
+    border: 1px solid #E2E8F0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    z-index: -1;
+
+    div:first-child {
+        flex-grow: 1;
+    }
+
+}

@@ -2,10 +2,10 @@
     padding: .5em 1em;
 
 
-    .page-name{
-        position:relative;
-        padding:0;
-        margin-bottom:2em;
+    .page-name {
+        position: relative;
+        padding: 0;
+        margin-bottom: 2em;
     }
 
 
@@ -44,6 +44,7 @@
             flex-direction: column;
             place-items: center;
             justify-content: space-between;
+            z-index: 2;
 
             h2 {
                 @include styletext($xxsm-font-size, $color-tertiary-100, 400, center);
@@ -129,8 +130,10 @@
 
         .recent-transaction-history {
             margin-top: 2em;
+            margin-bottom: 4em;
 
             .desc {
+                margin-bottom: 1em;
                 @include styletext($xsm-font-size, $color-tertiary-300, 600, left);
             }
         }
