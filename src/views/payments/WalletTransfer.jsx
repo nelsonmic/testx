@@ -84,7 +84,6 @@ const WalletTransfer = () => {
     }
 
     if (isSuccessBeneficiary) {
-      console.log(beneficiary.data.data.slice(0, 5));
       setWalletBeneficiary(beneficiary.data.data.slice(0, 5));
       setFullWalletBeneficiaryList(beneficiary.data.data);
     }

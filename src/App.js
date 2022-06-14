@@ -16,6 +16,7 @@ import ConfirmEmail from "./views/auth/ConfirmEmail";
 import Overview from "./views/Overview";
 import Profile from "./views/Profile";
 import Payments from "./views/Payments";
+import Transactions from "./views/Transactions";
 //Payment >> payment routes
 import BankTransfer from "./views/payments/BankTransfer";
 import WalletTransfer from "./views/payments/WalletTransfer";
@@ -104,6 +105,8 @@ function App() {
           <Route path="/" element={<Overview />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/payments" element={<Payments />} />
+          <Route path="/transactions" element={<Transactions />} />
+
           {/* payment routes */}
           {/* bank payment routes */}
           <Route path="/payments/bank" element={<BankTransfer />}>

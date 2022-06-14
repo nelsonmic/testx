@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useRecoilState } from "recoil";
 
@@ -8,9 +8,12 @@ import userProfileImageState from "../recoil/userProfileImageRecoil";
 
 //api
 import useGetUserInfo from "../apis/profile/useGetUserInfo";
+import useGetOverviewHistory from "../apis/history/useGetOverviewHistory";
 //assets
 import naira from ".././assets/naira.svg";
 //components
+import TransactionRow from "../components/TransactionRow";
+import CardSkeleton from "../components/CardSkeleton";
 import ImageFormatter from ".././components/ImageFormatter";
 //utils
 import * as utils from "../utils";
@@ -19,15 +22,31 @@ const Overview = () => {
   //   let navigate = useNavigate();
   const [user, setUser] = useRecoilState(userState);
   const [userProfileImage] = useRecoilState(userProfileImageState);
-  const { isSuccess, data } = useGetUserInfo();
-  
+  const [overviewHistory, setOverviewHistory] = useState([]);
+  const { isSuccess: isSuccessUser, data: dataUser } = useGetUserInfo();
+  const {
+    isSuccess: isSuccessHistory,
+    data: dataHistory,
+    isLoading: isOverviewHistoryLoader,
+  } = useGetOverviewHistory();
 
   useEffect(() => {
-    if (isSuccess) {
-      setUser(data.data.data);
+    if (isSuccessUser) {
+      setUser(dataUser.data.data);
     }
-  },[isSuccess, data, user, setUser]);
 
+    if (isSuccessHistory) {
+      setOverviewHistory(dataHistory.data.data.transfers);
+    }
+  }, [
+    isSuccessUser,
+    dataUser,
+    user,
+    setUser,
+    isSuccessHistory,
+    dataHistory,
+    setOverviewHistory,
+  ]);
 
   return (
     <div className="overview">
@@ -53,14 +72,25 @@ const Overview = () => {
         </div>
 
         <div className="user-greet">
-          <h1>Hey {utils.truncateText(user? user.name.split(' ').slice(0, -1).join(' '):"", 8)}!</h1>
+          <h1>
+            Hey{" "}
+            {utils.truncateText(
+              user ? user.name.split(" ").slice(0, -1).join(" ") : "",
+              8
+            )}
+            !
+          </h1>
           <Link to="/profile">
-          <ImageFormatter
-            source={(user && (user.profile_photo !== null)) ? user.profile_photo : userProfileImage}
-            width="40px"
-            height="40px"
-            alt="User display profile"
-          />
+            <ImageFormatter
+              source={
+                user && user.profile_photo !== null
+                  ? user.profile_photo
+                  : userProfileImage
+              }
+              width="40px"
+              height="40px"
+              alt="User display profile"
+            />
           </Link>
         </div>
       </header>
@@ -70,7 +100,9 @@ const Overview = () => {
             <h2>Current Balance</h2>
             <p className="account-balance">
               <img src={naira} alt="naira" />
-              {user? utils.numbersWithCommas(utils.truncateDecimals(user.balance)) : "0"}
+              {user
+                ? utils.numbersWithCommas(utils.truncateDecimals(user.balance))
+                : "0"}
             </p>
 
             <div className="balance-ctrls">
@@ -213,6 +245,13 @@ const Overview = () => {
 
           <div className="recent-transaction-history">
             <p className="desc">Recent Transactions</p>
+            <div className="transaction-history-items">
+              {isOverviewHistoryLoader ? (
+                <CardSkeleton amount={5} />
+              ) : (
+                <TransactionRow transactions={overviewHistory} naira={naira} />
+              )}
+            </div>
           </div>
         </main>
       </div>
