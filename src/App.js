@@ -31,6 +31,9 @@ import BankList from "./views/payments/BankList";
 import AllBankBeneficiaryList from "./views/payments/AllBankBeneficiaryList";
 import AllWalletBeneficiaryList from "./views/payments/AllWalletBeneficiaryList";
 
+//settings routes
+import Settings from "./views/Settings";
+
 //confirm all transactions route
 import ConfirmAllTransactions from "./views/ConfirmAllTransactions";
 
@@ -106,6 +109,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/payments" element={<Payments />} />
           <Route path="/transactions" element={<Transactions />} />
+          <Route path="/settings" element={<Settings />} />
 
           {/* payment routes */}
           {/* bank payment routes */}
