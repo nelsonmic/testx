@@ -2,7 +2,7 @@ import { HStack } from "@chakra-ui/react";
 import NoRecentTransactions from "./NoRecentTransactions";
 import * as utils from ".././utils";
 
-const TransactionRow = ({ transactions, naira }) => {
+const TransactionRow = ({ transactions, children }) => {
   return transactions.length === 0 ? (
     <NoRecentTransactions />
   ) : (
@@ -70,10 +70,8 @@ const TransactionRow = ({ transactions, naira }) => {
             </span>
           </HStack>
           <span className="amount">
-            <HStack spacing={4}>
-              <div className="naira">
-                <img src={naira} alt="" />
-              </div>
+            <HStack spacing={1} justify="flex-end">
+              {children}
               <p
                 className={`amount-value ${
                   transaction.type === "Debit" ? "debit-text" : "credit-text"

@@ -8,6 +8,9 @@ import useGetUserInfo from "../../../apis/profile/useGetUserInfo";
 import useGetOtherBillerCategories from "../../../apis/payments/billpayments/otherbill/useGetOtherBillerCategories";
 import useGetSpecificBillerCategory from "../../../apis/payments/billpayments/otherbill/useGetSpecificBillerCategory";
 import useGetOtherBillerItem from "../../../apis/payments/billpayments/otherbill/useGetOtherBillerItem";
+import useSetValidateCustomerData from "../../../apis/payments/billpayments/otherbill/useSetValidateCustomerData";
+import useSetInitializeOtherBills from "../../../apis/payments/billpayments/otherbill/useSetInitializeOtherBills";
+
 //Components
 import BackButton from "../../../components/BackButton";
 import {
@@ -38,13 +41,13 @@ const Others = () => {
   const [billerId, setBillerId] = useState("");
   const [customerField, setCustomerField] = useState("");
   const [customerId, setCustomerId] = useState("");
+  const [customerDetails, setCustomerDetails] = useState("");
   const [paymentCode, setPaymentCode] = useState("");
   const [itemFee, setItemFee] = useState("");
   const [amount, setAmount] = useState("");
   const [inputAmount, setInputAmount] = useState("");
   const [amountWithComma, setAmountWithComma] = useState("");
   const [finalAmount, setFinalAmount] = useState("");
-  console.log(finalAmount, amountWithComma, itemFee, paymentCode);
 
   //api calls
 
@@ -71,6 +74,32 @@ const Others = () => {
     refetch: refetchOtherBillerItem,
   } = useGetOtherBillerItem(billerId);
 
+  // validate customer data
+  const {
+    mutate: setValidateCustomerData,
+    isLoading: isLoadingValidateCustomerData,
+    isSuccess: isSuccessValidateCustomerData,
+    data: validateCustomerData,
+    isError: isErrorValidateCustomerData,
+    error: errorValidateCustomerData,
+  } = useSetValidateCustomerData();
+
+  const {
+    mutate: setInitializeOtherBills,
+    isLoading: isLoadingInitializeOtherBills,
+    isSuccess: isSuccessInitializeOtherBills,
+    data: initializeOtherBills,
+    isError: isErrorInitializeOtherBills,
+    error: errorInitializeOtherBills,
+  } = useSetInitializeOtherBills();
+
+  console.log(
+    initializeOtherBills,
+    isSuccessInitializeOtherBills,
+    errorInitializeOtherBills,
+    isErrorInitializeOtherBills,
+    amountWithComma
+  );
   useEffect(() => {
     if (isSuccessInfo) {
       setUser(info.data.data);
@@ -83,6 +112,15 @@ const Others = () => {
     }
     if (detailsOtherBillerItem) {
       setOtherBillerItems(otherBillerItemData.data.data);
+      setItemFee(otherBillerItemData.data.data.item_fee);
+    }
+
+    if (isSuccessValidateCustomerData) {
+      setCustomerDetails(validateCustomerData.data.data);
+    }
+
+    if (isErrorValidateCustomerData) {
+      setCustomerDetails(errorValidateCustomerData.response.data.message);
     }
   }, [
     isSuccessInfo,
@@ -97,7 +135,32 @@ const Others = () => {
     specificBillerCategoryData,
     detailsOtherBillerItem,
     otherBillerItemData,
+    setOtherBillerItems,
+    isSuccessValidateCustomerData,
+    validateCustomerData,
+    setCustomerDetails,
+    isErrorValidateCustomerData,
+    errorValidateCustomerData,
   ]);
+
+  const handleValidateCustomerData = () => {
+    const value = {
+      customerId,
+      paymentCode,
+    };
+    setValidateCustomerData(value);
+  };
+
+  const handleInitializeOtherBills = () => {
+    const value = {
+      billerId,
+      finalAmount,
+      customerId,
+      paymentCode,
+      itemFee,
+    };
+    setInitializeOtherBills(value);
+  };
 
   return (
     <div className="others-purchase">
@@ -509,15 +572,40 @@ const Others = () => {
               </InputGroup>
             </div>
 
+            <div className="inputs">
+              <label htmlFor="customerdetails">Customer Details</label>
+              <Input
+                size="lg"
+                id="customerdetails"
+                name="customerdetails"
+                type="text"
+                placeholder="Chukwudi Chike"
+                _placeholder={{ fontSize: 15 }}
+                defaultValue={customerDetails}
+                readOnly={isErrorValidateCustomerData ? false : true}
+              />
+            </div>
+
             <div className="submit-button">
-              <Button
-                size="md"
-                colorScheme="red"
-                // onClick={handleSubmit}
-                // isLoading={isLoadingInitialize ? true : false}
-              >
-                Proceed
-              </Button>
+              {isSuccessValidateCustomerData ? (
+                <Button
+                  size="md"
+                  colorScheme="red"
+                  onClick={handleInitializeOtherBills}
+                  isLoading={isLoadingInitializeOtherBills}
+                >
+                  Continue
+                </Button>
+              ) : (
+                <Button
+                  size="md"
+                  colorScheme="red"
+                  onClick={handleValidateCustomerData}
+                  isLoading={isLoadingValidateCustomerData}
+                >
+                  Validate
+                </Button>
+              )}
             </div>
           </form>
         </main>
