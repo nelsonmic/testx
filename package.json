@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
     "formik": "^2.2.9",
+    "framer-motion": "^6.3.11",
     "gsap": "^3.10.4",
     "prop-types": "^15.8.1",
     "react": "^18.1.0",

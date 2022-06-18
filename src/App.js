@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+import { AnimatePresence } from "framer-motion";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 //components
 import BottomNav from "./components/BottomNav";
@@ -17,6 +18,7 @@ import Overview from "./views/Overview";
 import Profile from "./views/Profile";
 import Payments from "./views/Payments";
 import Transactions from "./views/Transactions";
+import Settings from "./views/Settings";
 //Payment >> payment routes
 import BankTransfer from "./views/payments/BankTransfer";
 import WalletTransfer from "./views/payments/WalletTransfer";
@@ -32,7 +34,10 @@ import AllBankBeneficiaryList from "./views/payments/AllBankBeneficiaryList";
 import AllWalletBeneficiaryList from "./views/payments/AllWalletBeneficiaryList";
 
 //settings routes
-import Settings from "./views/Settings";
+import KycSettings from "./views/settings/KycSettings";
+import PinSettings from "./views/settings/PinSettings";
+import PasswordSettings from "./views/settings/PasswordSettings";
+import BankSettings from "./views/settings/BankSettings";
 
 //confirm all transactions route
 import ConfirmAllTransactions from "./views/ConfirmAllTransactions";
@@ -104,80 +109,92 @@ function App() {
         {interceptorError ? (
           <Alert status="error" message={errorMessage} />
         ) : null}
-        <Routes>
-          <Route path="/" element={<Overview />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/payments" element={<Payments />} />
-          <Route path="/transactions" element={<Transactions />} />
-          <Route path="/settings" element={<Settings />} />
+        <AnimatePresence>
+          <Routes>
+            <Route path="/" element={<Overview />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/payments" element={<Payments />} />
+            <Route path="/transactions" element={<Transactions />} />
+            <Route path="/settings" element={<Settings />} />
 
-          {/* payment routes */}
-          {/* bank payment routes */}
-          <Route path="/payments/bank" element={<BankTransfer />}>
-            <Route path="bank-list" element={<BankList />} />
+            {/* payment routes */}
+            {/* bank payment routes */}
+            <Route path="/payments/bank" element={<BankTransfer />}>
+              <Route path="bank-list" element={<BankList />} />
+              <Route
+                path="all-bank-beneficiaries"
+                element={<AllBankBeneficiaryList />}
+              />
+              <Route
+                path="confirm-bank-transactions"
+                element={
+                  <ConfirmAllTransactions transactionType="Receipient Bank" />
+                }
+              />
+            </Route>
+            {/* wallet payment routes */}
+            <Route path="/payments/wallet" element={<WalletTransfer />}>
+              <Route
+                path="all-wallet-beneficiaries"
+                element={<AllWalletBeneficiaryList />}
+              />
+              <Route
+                path="confirm-wallet-transactions"
+                element={
+                  <ConfirmAllTransactions transactionType="Receipient Wallet" />
+                }
+              />
+            </Route>
+            {/* bill payment routes */}
+            <Route path="/payments/billpayments" element={<BillPayments />} />
+            <Route path="/payments/billpayments/airtime" element={<Airtime />}>
+              <Route
+                path="confirm-airtime-transactions"
+                element={
+                  <ConfirmAllTransactions transactionType="Airtime Biller" />
+                }
+              />
+            </Route>
+            <Route path="/payments/billpayments/data" element={<Data />}>
+              <Route
+                path="confirm-data-transactions"
+                element={
+                  <ConfirmAllTransactions transactionType="Data Biller" />
+                }
+              />
+            </Route>
             <Route
-              path="all-bank-beneficiaries"
-              element={<AllBankBeneficiaryList />}
-            />
-            <Route
-              path="confirm-bank-transactions"
-              element={
-                <ConfirmAllTransactions transactionType="Receipient Bank" />
-              }
-            />
-          </Route>
-          {/* wallet payment routes */}
-          <Route path="/payments/wallet" element={<WalletTransfer />}>
-            <Route
-              path="all-wallet-beneficiaries"
-              element={<AllWalletBeneficiaryList />}
-            />
-            <Route
-              path="confirm-wallet-transactions"
-              element={
-                <ConfirmAllTransactions transactionType="Receipient Wallet" />
-              }
-            />
-          </Route>
-          {/* bill payment routes */}
-          <Route path="/payments/billpayments" element={<BillPayments />} />
-          <Route path="/payments/billpayments/airtime" element={<Airtime />}>
-            <Route
-              path="confirm-airtime-transactions"
-              element={
-                <ConfirmAllTransactions transactionType="Airtime Biller" />
-              }
-            />
-          </Route>
-          <Route path="/payments/billpayments/data" element={<Data />}>
-            <Route
-              path="confirm-data-transactions"
-              element={<ConfirmAllTransactions transactionType="Data Biller" />}
-            />
-          </Route>
-          <Route
-            path="/payments/billpayments/electricity"
-            element={<Electricity />}
-          >
-            <Route
-              path="confirm-electricity-transactions"
-              element={
-                <ConfirmAllTransactions transactionType="Electric Biller" />
-              }
-            />
-          </Route>
-          <Route path="/payments/billpayments/others" element={<Others />} />
+              path="/payments/billpayments/electricity"
+              element={<Electricity />}
+            >
+              <Route
+                path="confirm-electricity-transactions"
+                element={
+                  <ConfirmAllTransactions transactionType="Electric Biller" />
+                }
+              />
+            </Route>
+            <Route path="/payments/billpayments/others" element={<Others />} />
 
-          {/* auth routes */}
-          <Route path="/sign-up" element={<Signup />} />
-          <Route path="/sign-in" element={<Signin />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route path="/reset-password" element={<ResetPassword />} />
-          <Route path="/confirm-email" element={<ConfirmEmail />} />
+            {/* settings routes */}
+            <Route path="/settings/kyc" element={<KycSettings />} />
+            <Route path="/settings/pin" element={<PinSettings />} />
+            <Route path="/settings/password" element={<PasswordSettings />} />
+            <Route path="/settings/bank" element={<BankSettings />}>
+              <Route path="bank-list" element={<BankList />} />
+            </Route>
 
-          {/* 404 route */}
-          <Route path="*" element={<ErrorPage />} />
-        </Routes>
+            {/* auth routes */}
+            <Route path="/sign-up" element={<Signup />} />
+            <Route path="/sign-in" element={<Signin />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
+            <Route path="/confirm-email" element={<ConfirmEmail />} />
+
+            {/* 404 route */}
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
+        </AnimatePresence>
       </>
     );
 

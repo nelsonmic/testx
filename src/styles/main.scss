@@ -33,6 +33,11 @@
 @import 'pages/payments/billpayments/data';
 @import 'pages/payments/billpayments/electricity';
 @import 'pages/payments/billpayments/others';
+//settings pages
+@import 'pages/settings/banksettings';
+@import 'pages/settings/kycsettings';
+@import 'pages/settings/passwordsettings';
+@import 'pages/settings/pinsettings';
 
 //auth pages
 @import 'pages/auth/signin';
