@@ -1692,6 +1692,83 @@ input {
   padding: 1.5em 0;
 }
 
+.bank-settings main {
+  margin-top: 4em;
+  margin-bottom: 5em;
+  padding: 1em;
+}
+
+.bank-settings main .header-text {
+  margin-bottom: 1em;
+  color: #4A5568;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.bank-settings main .header-text:nth-child(3) {
+  margin-top: 3em;
+}
+
+.bank-settings main .account-details {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.bank-settings main .account-details div {
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+  padding: .5em 1em;
+}
+
+.bank-settings main .account-details div h2 {
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.bank-settings main .account-details div p {
+  color: #4A5568;
+  font-size: 10px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.bank-settings main form .inputs {
+  margin-bottom: 1em;
+}
+
+.bank-settings main form .inputs label {
+  display: block;
+  margin-bottom: .35em;
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.bank-settings main form .inputs input {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.bank-settings main form .submit-button {
+  margin: 3em 0 5em 0;
+  width: 100%;
+}
+
+.bank-settings main form .submit-button button {
+  width: 100%;
+  border: none;
+  padding: 1.5em 0;
+}
+
 .signin {
   padding: 1em 2em;
 }
