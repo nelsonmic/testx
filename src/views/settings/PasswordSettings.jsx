@@ -1,12 +1,12 @@
 import {
   Input,
-  InputGroup,
-  InputRightElement,
-  InputLeftElement,
+  //   InputGroup,
+  //   InputRightElement,
+  //   InputLeftElement,
   Button,
 } from "@chakra-ui/react";
 import BackButton from "../../components/BackButton";
-import Alert from "../../components/Alert";
+// import Alert from "../../components/Alert";
 
 const PasswordSettings = () => {
   return (
