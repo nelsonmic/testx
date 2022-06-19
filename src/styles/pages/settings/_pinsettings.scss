@@ -1,0 +1,81 @@
+.pin-settings {
+
+    main {
+        margin-top: 4em;
+        margin-bottom: 5em;
+        padding: 1em;
+
+        .header-text {
+            @include styletext($sm-font-size, $color-tertiary-300, 600, center);
+        }
+
+        p {
+            margin-top: .35em;
+            @include styletext($xxsm-font-size, $color-tertiary-300, 400, center);
+        }
+
+
+        form {
+            margin-top: 2em;
+
+            .inputs {
+                margin-bottom: 1em;
+
+                label {
+                    display: block;
+                    margin-bottom: .35em;
+                    @include styletext($xxsm-font-size, $color-tertiary-300, 400, left);
+                }
+
+
+                input {
+                    @include styletext($xsm-font-size, $color-tertiary-300, 400, left);
+                }
+            }
+
+            .pin-inputs {
+                display: flex;
+                flex-direction: column;
+                place-items: center;
+
+                p {
+                    @include styletext($xsm-font-size, $color-tertiary-300, 400, left);
+                    margin-bottom: 1em;
+                }
+
+                .inputs {
+                    width: max-content;
+
+                    input {
+                        margin-right: 10px;
+                        text-align: center;
+                    }
+                }
+            }
+
+            .submit-button {
+                margin: 3em 0 5em 0;
+                width: 100%;
+
+                button {
+                    width: 100%;
+                    border: none;
+                    padding: 1.5em 0;
+                }
+            }
+        }
+
+        .request {
+            .submit-button {
+                margin: 3em 0 5em 0;
+                width: 100%;
+
+                button {
+                    width: 100%;
+                    border: none;
+                    padding: 1.5em 0;
+                }
+            }
+        }
+    }
+}
