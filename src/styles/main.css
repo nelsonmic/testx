@@ -1811,6 +1811,62 @@ input {
   padding: 1.5em 0;
 }
 
+.password-settings main {
+  margin-top: 4em;
+  margin-bottom: 5em;
+  padding: 1em;
+}
+
+.password-settings main .header-text {
+  color: #4A5568;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.password-settings main p {
+  margin-top: .35em;
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.password-settings main form {
+  margin-top: 3em;
+}
+
+.password-settings main form .inputs {
+  margin-bottom: 1em;
+}
+
+.password-settings main form .inputs label {
+  display: block;
+  margin-bottom: .35em;
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.password-settings main form .inputs input {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.password-settings main form .submit-button {
+  margin: 3em 0 5em 0;
+  width: 100%;
+}
+
+.password-settings main form .submit-button button {
+  width: 100%;
+  border: none;
+  padding: 1.5em 0;
+}
+
 .signin {
   padding: 1em 2em;
 }

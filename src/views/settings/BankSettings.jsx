@@ -25,6 +25,8 @@ const BankSettings = () => {
   const [accountNumber, setAccountNumber] = useState("");
   const [pin, setPin] = useState("");
 
+  console.log(setPin);
+
   //apis
   const { isSuccess: isSuccessBanks, data: banks } = useGetAllBanks();
   const { isSuccess: isSuccessGetBankSettings, data: getBankSettings } =
@@ -72,7 +74,7 @@ const BankSettings = () => {
         )}
 
         <main>
-          <h1 className="header-text">Account details</h1>
+          <h1 className="header-text">Account Details</h1>
           <div className="account-details">
             <div className="bank">
               <h2>Bank name</h2>
@@ -99,7 +101,7 @@ const BankSettings = () => {
             </div>
           </div>
 
-          <h1 className="header-text">Change account details</h1>
+          <h1 className="header-text">Change Account Details</h1>
           <form>
             <div className="inputs">
               <label htmlFor="bank-name">Bank Name</label>
