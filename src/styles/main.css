@@ -186,6 +186,48 @@ input {
   position: absolute;
   top: 0;
   margin: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-items: center;
+  gap: 20px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  min-width: 220px;
+  padding: .35em .5em;
+  background: #fff;
+  border-radius: 5px;
+  -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.alert-message span {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.alert-message span h2 {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 800;
+  text-align: left;
+}
+
+.alert-message span p {
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.success {
+  border-left: 3px solid #0ACF83;
+}
+
+.fail {
+  border-left: 3px solid #FF0000;
 }
 
 .image-uploader {

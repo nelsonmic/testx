@@ -1,6 +1,37 @@
-.alert-message{
+.alert-message {
     z-index: 3;
-    position:absolute;
-    top:0;
-    margin:1em;
+    position: absolute;
+    top: 0;
+    margin: 1em;
+    display: flex;
+    place-items: center;
+    gap: 20px;
+    width: max-content;
+    min-width: 220px;
+    padding: .35em .5em;
+    background: #fff;
+    border-radius: 5px;
+
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+    span {
+        flex-grow: 1;
+
+        h2 {
+            @include styletext($xsm-font-size, $color-tertiary-300, 800, left)
+        }
+
+        p {
+            @include styletext($xxsm-font-size, $color-tertiary-300, 400, left)
+        }
+    }
+
+}
+
+.success {
+    border-left: 3px solid $color-success-fore;
+}
+
+.fail {
+    border-left: 3px solid $color-primary-500;
 }
