@@ -6,7 +6,7 @@ const TransactionRow = ({ transactions, children }) => {
   return transactions.length === 0 ? (
     <NoRecentTransactions />
   ) : (
-    transactions.map((transaction, index) => {
+    transactions.slice(0, 6).map((transaction, index) => {
       return (
         <HStack
           key={index}
