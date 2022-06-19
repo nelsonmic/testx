@@ -2,7 +2,8 @@
 import { useState, useEffect } from "react";
 //api
 import useGetAllBanks from "../../apis/payments/banktransfer/useGetAllBanks";
-
+import useSetBankSettings from "../../apis/settings/bank/useSetBankSettings";
+import useGetBankSettings from "../../apis/settings/bank/useGetBankSettings";
 //component
 import { Outlet, useNavigate } from "react-router-dom";
 import {
@@ -13,17 +14,31 @@ import {
   Button,
 } from "@chakra-ui/react";
 import BackButton from "../../components/BackButton";
+import Alert from "../../components/Alert";
 
 const BankSettings = () => {
   let navigate = useNavigate();
   const [allBanks, setAllBanks] = useState(null);
   const [selectedBank, setSelectedBank] = useState("");
   const [selectBankCode, setSelectBankCode] = useState("");
+  const [bankAcctName, setBankAcctName] = useState("");
+  const [accountNumber, setAccountNumber] = useState("");
+  const [pin, setPin] = useState("");
 
-  console.log(selectedBank, selectBankCode);
+  console.log(setPin);
 
   //apis
   const { isSuccess: isSuccessBanks, data: banks } = useGetAllBanks();
+  const { isSuccess: isSuccessGetBankSettings, data: getBankSettings } =
+    useGetBankSettings();
+
+  const {
+    mutate: setBankSettings,
+    isSuccess: isSuccessBankSettings,
+    isLoading: isLoadingBankSettings,
+    isError: isErrorBankSettings,
+    error: errorBankSettings,
+  } = useSetBankSettings();
 
   useEffect(() => {
     if (isSuccessBanks) {
@@ -31,28 +46,62 @@ const BankSettings = () => {
     }
   }, [isSuccessBanks, banks]);
 
+  const submitBankSettings = () => {
+    const value = {
+      bankName: selectedBank,
+      bankCode: selectBankCode,
+      bankAcctName: bankAcctName,
+      accountNumber: accountNumber,
+      pin: pin,
+    };
+    setBankSettings(value);
+  };
+
   return (
     <div className="bank-settings">
       <BackButton />
       <h1 className="page-name">Bank Settings</h1>
       <div className="wrapper">
+        {isErrorBankSettings && (
+          <Alert
+            status="error"
+            message={errorBankSettings.response.data.message}
+          />
+        )}
+
+        {isSuccessBankSettings && (
+          <Alert status="success" message={"Bank Updated Successfully"} />
+        )}
+
         <main>
-          <h1 className="header-text">Account details</h1>
+          <h1 className="header-text">Account Details</h1>
           <div className="account-details">
             <div className="bank">
               <h2>Bank name</h2>
-              <p>GTBank Plc</p>
+              <p>
+                {isSuccessGetBankSettings &&
+                  getBankSettings.data.data[0].bank_name}
+              </p>
             </div>
             <div className="account-name">
               <h2>Account name</h2>
-              <p>John Doe</p>
+              <p>
+                {" "}
+                {isSuccessGetBankSettings &&
+                  getBankSettings.data.data[0].bank_acct_name}
+              </p>
             </div>
             <div className="account-number">
               <h2>Account number</h2>
-              <p>123456789</p>
+              <p>
+                {" "}
+                {isSuccessGetBankSettings &&
+                  getBankSettings.data.data[0].bank_acct_no}
+              </p>
             </div>
           </div>
-          <h1 className="header-text">Change account details</h1>
+
+          <h1 className="header-text">Change Account Details</h1>
           <form>
             <div className="inputs">
               <label htmlFor="bank-name">Bank Name</label>
@@ -105,26 +154,20 @@ const BankSettings = () => {
                 type="number"
                 placeholder="2229227625"
                 size="lg"
-                // value={accountNumber}
-                // onChange={(e) => {
-                //   setAccountNumber(e.target.value);
-                //   setStaleAccountNumber(e.target.value);
-                // }}
+                value={accountNumber}
+                onChange={(e) => setAccountNumber(e.target.value)}
               />
             </div>
 
             <div className="inputs">
-              <label htmlFor="account-number">Account Name</label>
+              <label htmlFor="account-name">Account Name</label>
               <Input
                 id="account-name"
-                type="number"
+                type="text"
                 placeholder="Chukwudi Chike"
                 size="lg"
-                // value={accountNumber}
-                // onChange={(e) => {
-                //   setAccountNumber(e.target.value);
-                //   setStaleAccountNumber(e.target.value);
-                // }}
+                value={bankAcctName}
+                onChange={(e) => setBankAcctName(e.target.value)}
               />
             </div>
 
@@ -132,8 +175,8 @@ const BankSettings = () => {
               <Button
                 size="md"
                 colorScheme="red"
-                // onClick={submitPaymentInfo}
-                // isLoading={isLoadingInitialize ? true : false}
+                onClick={submitBankSettings}
+                isLoading={isLoadingBankSettings}
               >
                 Save Information
               </Button>
@@ -147,3 +190,5 @@ const BankSettings = () => {
 };
 
 export default BankSettings;
+
+// TODO - setup pin input
