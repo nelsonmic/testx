@@ -35,7 +35,7 @@ import AllWalletBeneficiaryList from "./views/payments/AllWalletBeneficiaryList"
 
 //settings routes
 import KycSettings from "./views/settings/KycSettings";
-import PinSettings from "./views/settings/PinSettings";
+import PinSettings from "./views/settings/pin/PinSettings";
 import PasswordSettings from "./views/settings/PasswordSettings";
 import BankSettings from "./views/settings/BankSettings";
 
