@@ -36,7 +36,9 @@
 @import 'pages/payments/billpayments/others';
 //settings pages
 @import 'pages/settings/banksettings';
-@import 'pages/settings/kycsettings';
+@import 'pages/settings/kyc/kycsettings';
+@import 'pages/settings/kyc/lvone';
+@import 'pages/settings/kyc/lvtwo';
 @import 'pages/settings/passwordsettings';
 @import 'pages/settings/pin/pinsettings';
 

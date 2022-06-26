@@ -35,6 +35,7 @@ const Overview = () => {
   useEffect(() => {
     if (isSuccessUser) {
       setUser(dataUser.data.data);
+      console.log(user);
     }
 
     if (isSuccessHistory) {

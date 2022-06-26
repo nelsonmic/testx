@@ -1,0 +1,18 @@
+.level-2 {
+    margin-top: 2em;
+
+    .inputs {
+        margin-bottom: 1em;
+
+        label {
+            display: block;
+            margin-bottom: .35em;
+            @include styletext($xxsm-font-size, $color-tertiary-300, 400, left);
+        }
+
+
+        input {
+            @include styletext($xsm-font-size, $color-tertiary-300, 400, left);
+        }
+    }
+}
