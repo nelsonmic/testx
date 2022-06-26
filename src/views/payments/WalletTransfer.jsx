@@ -71,6 +71,8 @@ const WalletTransfer = () => {
     isLoading: isLoadingInitializeWalletTransfer,
     isSuccess: initializeSuccess,
     data: initializeData,
+    error: errorInitializeData,
+    isError: isErrorInitialize,
   } = useSetInitializeWalletTransfer();
 
   useEffect(() => {
@@ -141,6 +143,12 @@ const WalletTransfer = () => {
       <BackButton />
       <h1 className="page-name">Wallet Transfer</h1>
       {error && <Alert status="error" message={errorMessage} />}
+      {isErrorInitialize && (
+        <Alert
+          status="error"
+          message={errorInitializeData.response.data.message}
+        />
+      )}
       <div className="wrapper">
         <main>
           <div className="header">

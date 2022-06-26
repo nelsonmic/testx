@@ -59,6 +59,8 @@ const Airtime = () => {
     isLoading: isLoadingInitialize,
     isSuccess: initializeSuccess,
     data: initializeData,
+    error: errorInitializeData,
+    isError: isErrorInitialize,
   } = useSetInitializeAirtime();
 
   useEffect(() => {
@@ -145,6 +147,12 @@ const Airtime = () => {
       <BackButton />
       <h1 className="page-name">Buy Airtime</h1>
       {error && <Alert status="error" message="Please fill all fields" />}
+      {isErrorInitialize && (
+        <Alert
+          status="error"
+          message={errorInitializeData.response.data.message}
+        />
+      )}
       <div className="wrapper">
         <main>
           <div className="header">

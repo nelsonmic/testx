@@ -77,6 +77,8 @@ const Data = () => {
     isLoading: isLoadingInitialize,
     isSuccess: initializeSuccess,
     data: initializeData,
+    error: errorInitializeData,
+    isError: isErrorInitialize,
   } = useSetInitializeDataPurchase();
 
   useEffect(() => {
@@ -184,6 +186,12 @@ const Data = () => {
       <BackButton />
       <h1 className="page-name">Buy Data</h1>
       {error && <Alert status="error" message="Please fill all fields" />}
+      {isErrorInitialize && (
+        <Alert
+          status="error"
+          message={errorInitializeData.response.data.message}
+        />
+      )}
       <div className="wrapper">
         <main>
           <div className="header">

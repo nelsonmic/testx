@@ -19,7 +19,7 @@ const PinSettings = () => {
       )} */}
 
         <main>
-          <h1 className="header-text">I know my pin</h1>
+          <h1 className="header-text">Change Pin</h1>
           <p>Change your transaction pin below</p>
           <form>
             <div className="pin-inputs">
@@ -54,7 +54,7 @@ const PinSettings = () => {
           </form>
 
           <div className="request">
-            <h1 className="header-text">I don't know my pin</h1>
+            <h1 className="header-text">Reset Pin</h1>
             <p>Send a request to customer care to reset your pin</p>
             <div className="submit-button">
               <Button

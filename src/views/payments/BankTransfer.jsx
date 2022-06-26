@@ -72,6 +72,8 @@ const BankTransfer = () => {
     isLoading: isLoadingInitialize,
     isSuccess: initializeSuccess,
     data: initializeData,
+    error: errorInitializeData,
+    isError: isErrorInitialize,
   } = useSetInitializeBankTransfer();
 
   useEffect(() => {
@@ -130,7 +132,8 @@ const BankTransfer = () => {
       amount === "" ||
       description === "" ||
       selectBankCode === "" ||
-      receipientName === ""
+      receipientName === "" ||
+      amount > user.balance
     ) {
       setError(true);
     } else {
@@ -151,6 +154,12 @@ const BankTransfer = () => {
       <BackButton />
       <h1 className="page-name">Bank Transfer</h1>
       {error && <Alert status="error" message="Please fill all fields" />}
+      {isErrorInitialize && (
+        <Alert
+          status="error"
+          message={errorInitializeData.response.data.message}
+        />
+      )}
       <div className="wrapper">
         <main>
           <div className="header">

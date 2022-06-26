@@ -1,5 +1,7 @@
 //react
 import { useEffect, useState } from "react";
+//router
+import { useNavigate, Outlet } from "react-router-dom";
 //state
 import { useRecoilState } from "recoil";
 import userState from "../../../recoil/userRecoil";
@@ -13,6 +15,7 @@ import useSetInitializeOtherBills from "../../../apis/payments/billpayments/othe
 
 //Components
 import BackButton from "../../../components/BackButton";
+import Alert from "../../../components/Alert";
 import {
   Button,
   Input,
@@ -28,6 +31,7 @@ import * as utils from "../../../utils";
 import naira from "../../../assets/naira.svg";
 
 const Others = () => {
+  const navigate = useNavigate();
   const [user, setUser] = useRecoilState(userState);
 
   //other billers categories
@@ -48,6 +52,16 @@ const Others = () => {
   const [inputAmount, setInputAmount] = useState("");
   const [amountWithComma, setAmountWithComma] = useState("");
   const [finalAmount, setFinalAmount] = useState("");
+  const [paymentItem, setPaymentItem] = useState("");
+  const [transactionHash, setTransactionHash] = useState("");
+  console.log(
+    itemFee,
+    amount,
+    inputAmount,
+    amountWithComma,
+    finalAmount,
+    customerDetails
+  );
 
   //api calls
 
@@ -89,17 +103,10 @@ const Others = () => {
     isLoading: isLoadingInitializeOtherBills,
     isSuccess: isSuccessInitializeOtherBills,
     data: initializeOtherBills,
-    isError: isErrorInitializeOtherBills,
-    error: errorInitializeOtherBills,
+    error: errorInitializeData,
+    isError: isErrorInitialize,
   } = useSetInitializeOtherBills();
 
-  console.log(
-    initializeOtherBills,
-    isSuccessInitializeOtherBills,
-    errorInitializeOtherBills,
-    isErrorInitializeOtherBills,
-    amountWithComma
-  );
   useEffect(() => {
     if (isSuccessInfo) {
       setUser(info.data.data);
@@ -112,16 +119,22 @@ const Others = () => {
     }
     if (detailsOtherBillerItem) {
       setOtherBillerItems(otherBillerItemData.data.data);
-      setItemFee(otherBillerItemData.data.data.item_fee);
+      // setItemFee(otherBillerItemData.data.data.item_fee);
     }
 
     if (isSuccessValidateCustomerData) {
-      setCustomerDetails(validateCustomerData.data.data);
+      setCustomerDetails(validateCustomerData.data.data[0].customerId);
     }
 
     if (isErrorValidateCustomerData) {
       setCustomerDetails(errorValidateCustomerData.response.data.message);
     }
+
+    if (isSuccessInitializeOtherBills) {
+      setTransactionHash(initializeOtherBills.data.data.hash);
+      navigate("/payments/billpayments/others/confirm-others-transactions");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     isSuccessInfo,
     info,
@@ -141,6 +154,11 @@ const Others = () => {
     setCustomerDetails,
     isErrorValidateCustomerData,
     errorValidateCustomerData,
+    isSuccessInitializeOtherBills,
+    initializeOtherBills,
+    errorInitializeData,
+    isErrorInitialize,
+    setTransactionHash,
   ]);
 
   const handleValidateCustomerData = () => {
@@ -166,6 +184,18 @@ const Others = () => {
     <div className="others-purchase">
       <BackButton />
       <h1 className="page-name">Pay Other Bills</h1>
+      {isErrorValidateCustomerData && (
+        <Alert
+          status="error"
+          message={errorValidateCustomerData.response.data.message}
+        />
+      )}
+      {isErrorInitialize && (
+        <Alert
+          status="error"
+          message={errorInitializeData.response.data.message}
+        />
+      )}
       <div className="wrapper">
         <main>
           <div className="header">
@@ -367,6 +397,7 @@ const Others = () => {
                     const value = e.target.value.split(",");
                     setBillerId(value[0]);
                     setCustomerField(value[1]);
+                    setPaymentItem(value[2]);
                   }}
                   onBlur={refetchOtherBillerItem}
                 >
@@ -375,7 +406,11 @@ const Others = () => {
                         return (
                           <option
                             key={index}
-                            value={[item.billerid, item.customerfield_1]}
+                            value={[
+                              item.billerid,
+                              item.customerfield_1,
+                              item.billername,
+                            ]}
                           >
                             {item.billername}
                           </option>
@@ -610,10 +645,23 @@ const Others = () => {
           </form>
         </main>
       </div>
+      <Outlet
+        context={[
+          "",
+          "",
+          "",
+          transactionHash,
+          customerId,
+          amountWithComma,
+          paymentItem,
+          customerDetails,
+          "Bill payment",
+        ]}
+      />
     </div>
   );
 };
 
 export default Others;
 
-//TODO: Complete transactions, you stopped at validating the info
+//TODO: you only have validating the info left on this
