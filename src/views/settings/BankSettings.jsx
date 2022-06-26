@@ -23,9 +23,6 @@ const BankSettings = () => {
   const [selectBankCode, setSelectBankCode] = useState("");
   const [bankAcctName, setBankAcctName] = useState("");
   const [accountNumber, setAccountNumber] = useState("");
-  const [pin, setPin] = useState("");
-
-  console.log(setPin);
 
   //apis
   const { isSuccess: isSuccessBanks, data: banks } = useGetAllBanks();
@@ -46,7 +43,7 @@ const BankSettings = () => {
     }
   }, [isSuccessBanks, banks]);
 
-  const submitBankSettings = () => {
+  const submitBankSettings = (pin) => {
     const value = {
       bankName: selectedBank,
       bankCode: selectBankCode,
@@ -59,7 +56,7 @@ const BankSettings = () => {
 
   return (
     <div className="bank-settings">
-      <BackButton />
+      <BackButton times="/settings" />
       <h1 className="page-name">Bank Settings</h1>
       <div className="wrapper">
         {isErrorBankSettings && (
@@ -175,7 +172,9 @@ const BankSettings = () => {
               <Button
                 size="md"
                 colorScheme="red"
-                onClick={submitBankSettings}
+                onClick={() => {
+                  navigate("/settings/bank/pin");
+                }}
                 isLoading={isLoadingBankSettings}
               >
                 Save Information
@@ -184,7 +183,18 @@ const BankSettings = () => {
           </form>
         </main>
       </div>
-      <Outlet context={[allBanks, setSelectedBank, setSelectBankCode]} />
+      <Outlet
+        context={[
+          allBanks,
+          setSelectedBank,
+          setSelectBankCode,
+          submitBankSettings,
+          {
+            loading: isLoadingBankSettings,
+            success: isSuccessBankSettings,
+          },
+        ]}
+      />
     </div>
   );
 };

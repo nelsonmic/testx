@@ -1,3 +1,9 @@
+//react
+import { useState } from "react";
+//route
+import { Outlet, useNavigate } from "react-router-dom";
+//api
+import useSetPasswordSettings from "../../apis/settings/password/useSetPasswordSettings";
 import {
   Input,
   //   InputGroup,
@@ -6,24 +12,49 @@ import {
   Button,
 } from "@chakra-ui/react";
 import BackButton from "../../components/BackButton";
-// import Alert from "../../components/Alert";
+import Alert from "../../components/Alert";
 
 const PasswordSettings = () => {
+  const navigate = useNavigate();
+  //states
+  const [oldPassword, setOldPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  //apis
+
+  const {
+    mutate: setPasswordSettings,
+    isSuccess: isSuccessPasswordSettings,
+    isLoading: isLoadingPasswordSettings,
+    isError: isErrorPasswordSettings,
+    error: errorPasswordSettings,
+  } = useSetPasswordSettings();
+
+  const submitPasswordSettings = (pin) => {
+    const value = {
+      oldPassword,
+      newPassword,
+      confirmPassword,
+      pin: pin,
+    };
+    setPasswordSettings(value);
+  };
   return (
     <div className="password-settings">
-      <BackButton />
+      <BackButton times="/settings" />
       <h1 className="page-name">Password Settings</h1>
       <div className="wrapper">
-        {/* {isErrorBankSettings && (
+        {isErrorPasswordSettings && (
           <Alert
             status="error"
-            message={errorBankSettings.response.data.message}
+            message={errorPasswordSettings.response.data.message}
           />
         )}
 
-        {isSuccessBankSettings && (
-          <Alert status="success" message={"Bank Updated Successfully"} />
-        )} */}
+        {isSuccessPasswordSettings && (
+          <Alert status="success" message={"Password Updated Successfully"} />
+        )}
 
         <main>
           <h1 className="header-text">Change Password</h1>
@@ -35,8 +66,8 @@ const PasswordSettings = () => {
                 id="old-password"
                 type="text"
                 size="lg"
-                // value={accountNumber}
-                // onChange={(e) => setAccountNumber(e.target.value)}
+                value={oldPassword}
+                onChange={(e) => setOldPassword(e.target.value)}
               />
             </div>
 
@@ -46,8 +77,8 @@ const PasswordSettings = () => {
                 id="new-password"
                 type="text"
                 size="lg"
-                // value={accountNumber}
-                // onChange={(e) => setAccountNumber(e.target.value)}
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
               />
             </div>
 
@@ -57,8 +88,8 @@ const PasswordSettings = () => {
                 id="retype-new-password"
                 type="text"
                 size="lg"
-                // value={accountNumber}
-                // onChange={(e) => setAccountNumber(e.target.value)}
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
               />
             </div>
 
@@ -66,8 +97,9 @@ const PasswordSettings = () => {
               <Button
                 size="md"
                 colorScheme="red"
-                // onClick={submitBankSettings}
-                // isLoading={isLoadingBankSettings}
+                onClick={() => {
+                  navigate("/settings/password/pin");
+                }}
               >
                 Update Password
               </Button>
@@ -75,9 +107,22 @@ const PasswordSettings = () => {
           </form>
         </main>
       </div>
-      {/* <Outlet context={[allBanks, setSelectedBank, setSelectBankCode]} /> */}
+      <Outlet
+        context={[
+          "",
+          "",
+          "",
+          submitPasswordSettings,
+          {
+            loading: isLoadingPasswordSettings,
+            success: isSuccessPasswordSettings,
+          },
+        ]}
+      />
     </div>
   );
 };
 
 export default PasswordSettings;
+
+//TODO: Add validation for password input fields

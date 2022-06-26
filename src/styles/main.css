@@ -182,9 +182,10 @@ input {
 }
 
 .alert-message {
-  z-index: 3;
-  position: absolute;
+  z-index: 99;
+  position: fixed;
   top: 0;
+  margin: 1em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -936,6 +937,81 @@ input {
 
 .confirm-all-transactions .wrapper main .pin-inputs .inputs input {
   margin-right: 10px;
+}
+
+.pin-screen {
+  min-height: 100vh;
+  width: 100vw;
+  background: #01010160;
+  z-index: 5;
+  position: fixed;
+  top: 0;
+}
+
+.pin-screen .wrapper {
+  max-height: 65vh;
+  border-radius: 20px 20px 0 0;
+  background: #ffffff;
+  position: fixed;
+  bottom: 0;
+  min-width: 100vw;
+}
+
+.pin-screen .wrapper .done {
+  position: absolute;
+  top: -40px;
+  margin: 0 1em;
+  padding: .5em 1em;
+  background: #0ACF83;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.pin-screen .wrapper main .pin-inputs {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 2em auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.pin-screen .wrapper main .pin-inputs p {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 1.5em;
+}
+
+.pin-screen .wrapper main .pin-inputs .inputs {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.pin-screen .wrapper main .pin-inputs .inputs input {
+  margin-right: 10px;
+}
+
+.pin-screen .wrapper main .pin-inputs .submit-button {
+  margin-top: 2em;
+  width: 100%;
+}
+
+.pin-screen .wrapper main .pin-inputs .submit-button button {
+  width: 100%;
+  max-width: 400px;
+  border: none;
+  padding: 1.5em 0;
 }
 
 .payments main {
