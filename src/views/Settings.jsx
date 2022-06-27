@@ -1,5 +1,10 @@
+//react
+import { useEffect } from "react";
+
 //router
 import { Link } from "react-router-dom";
+//api
+import useGetUserInfo from "../apis/profile/useGetUserInfo";
 //state
 import { useRecoilState } from "recoil";
 import userState from "../recoil/userRecoil";
@@ -13,7 +18,14 @@ import ImageFormatter from "../components/ImageFormatter";
 const Settings = () => {
   const [user, setUser] = useRecoilState(userState);
   const [userProfileImage] = useRecoilState(userProfileImageState);
-  console.log(setUser);
+  const { isSuccess: isSuccessInfo, data: info } = useGetUserInfo();
+
+  useEffect(() => {
+    if (isSuccessInfo) {
+      setUser(info.data.data);
+    }
+  }, [isSuccessInfo, info, setUser]);
+
   return (
     <div className="settings">
       <h1 className="page-name">Settings</h1>

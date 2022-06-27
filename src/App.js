@@ -89,6 +89,7 @@ function App() {
         ) {
           setInterceptorError(true);
           setErrorMessage("Unauthenticated. Sign in again.");
+          navigate("/sign-in");
 
           // setTimeout(() => {
           //     if (refreshContainer.style.display == "block") {
@@ -174,7 +175,12 @@ function App() {
                 }
               />
             </Route>
-            <Route path="/payments/billpayments/others" element={<Others />} />
+            <Route path="/payments/billpayments/others" element={<Others />}>
+              <Route
+                path="confirm-others-transactions"
+                element={<ConfirmAllTransactions transactionType="Biller" />}
+              />
+            </Route>
 
             {/* settings routes */}
             <Route path="/settings/kyc" element={<KycSettings />} />

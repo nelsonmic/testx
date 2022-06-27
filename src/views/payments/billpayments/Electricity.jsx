@@ -77,6 +77,8 @@ const Electricity = () => {
     isLoading: isLoadingInitialize,
     isSuccess: initializeSuccess,
     data: initializeData,
+    error: errorInitializeData,
+    isError: isErrorInitialize,
   } = useSetInitializeElectricity();
 
   useEffect(() => {
@@ -142,7 +144,6 @@ const Electricity = () => {
       customerName,
       customerAddress,
     };
-    console.log(data);
     if (
       amount !== "" ||
       meterNumber !== "" ||
@@ -167,6 +168,12 @@ const Electricity = () => {
       <BackButton />
       <h1 className="page-name">Buy Electricity</h1>
       {error && <Alert status="error" message={errorMessage} />}
+      {isErrorInitialize && (
+        <Alert
+          status="error"
+          message={errorInitializeData.response.data.message}
+        />
+      )}
       <div className="wrapper">
         <main>
           <div className="header">
@@ -439,7 +446,7 @@ const Electricity = () => {
                 size="md"
                 colorScheme="red"
                 onClick={handleSubmit}
-                isLoading={isLoadingInitialize ? true : false}
+                isLoading={isLoadingInitialize}
               >
                 Proceed
               </Button>

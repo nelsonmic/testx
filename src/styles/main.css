@@ -185,15 +185,11 @@ input {
   z-index: 3;
   position: absolute;
   top: 0;
-  margin: 1em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   place-items: center;
   gap: 20px;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
   min-width: 220px;
   padding: .35em .5em;
   background: #fff;
@@ -1862,6 +1858,103 @@ input {
 }
 
 .password-settings main form .submit-button button {
+  width: 100%;
+  border: none;
+  padding: 1.5em 0;
+}
+
+.pin-settings main {
+  margin-top: 4em;
+  margin-bottom: 5em;
+  padding: 1em;
+}
+
+.pin-settings main .header-text {
+  color: #4A5568;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.pin-settings main p {
+  margin-top: .35em;
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.pin-settings main form {
+  margin-top: 2em;
+}
+
+.pin-settings main form .inputs {
+  margin-bottom: 1em;
+}
+
+.pin-settings main form .inputs label {
+  display: block;
+  margin-bottom: .35em;
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.pin-settings main form .inputs input {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.pin-settings main form .pin-inputs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  place-items: center;
+}
+
+.pin-settings main form .pin-inputs p {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+  margin-bottom: 1em;
+}
+
+.pin-settings main form .pin-inputs .inputs {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.pin-settings main form .pin-inputs .inputs input {
+  margin-right: 10px;
+  text-align: center;
+}
+
+.pin-settings main form .submit-button {
+  margin: 3em 0 5em 0;
+  width: 100%;
+}
+
+.pin-settings main form .submit-button button {
+  width: 100%;
+  border: none;
+  padding: 1.5em 0;
+}
+
+.pin-settings main .request .submit-button {
+  margin: 3em 0 5em 0;
+  width: 100%;
+}
+
+.pin-settings main .request .submit-button button {
   width: 100%;
   border: none;
   padding: 1.5em 0;

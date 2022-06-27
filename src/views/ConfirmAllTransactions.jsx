@@ -42,6 +42,8 @@ const ConfirmAllTransactions = ({ transactionType }) => {
     description,
   ] = useOutletContext();
 
+  console.log(useOutletContext());
+
   const [pin, setPin] = useState("");
   const handleChange = (e) => {
     setPin(e);
@@ -79,6 +81,10 @@ const ConfirmAllTransactions = ({ transactionType }) => {
               <span>Description:</span>
               {description}
             </p>
+            {/* <p>
+              <span>Fee:</span>
+              {fee}
+            </p> */}
             <p>
               <span>{transactionType}:</span>
               <svg width="24" height="24" viewBox="0 0 43 43" fill="none">

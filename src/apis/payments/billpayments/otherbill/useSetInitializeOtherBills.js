@@ -6,9 +6,10 @@ const setInitializeOtherBills = async ({
   finalAmount,
   customerId,
   paymentCode,
-  itemfee,
+  itemFee,
   customername,
 }) => {
+  console.log(itemFee);
   return await axios.post(
     `${process.env.REACT_APP_BASE}/billers/others/initialize`,
     {
@@ -16,7 +17,7 @@ const setInitializeOtherBills = async ({
       amount: finalAmount,
       customerid: customerId,
       payment_code: paymentCode,
-      itemfee: itemfee,
+      itemfee: itemFee,
       customername: customername,
     }
   );
