@@ -15,4 +15,13 @@
             @include styletext($xsm-font-size, $color-tertiary-300, 400, left);
         }
     }
+
+    .submit-button {
+        margin: 3em 0;
+
+        button {
+            border: none;
+            width: 100%;
+        }
+    }
 }

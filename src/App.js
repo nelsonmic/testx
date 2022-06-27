@@ -69,6 +69,8 @@ function App() {
       "*",
     ];
 
+    const topRoutes = ["/", "/payments", "/transactions", "/settings"];
+
     axios.interceptors.request.use(
       (config) => {
         config.timeout = 60000;
@@ -112,7 +114,11 @@ function App() {
 
     const allViews = (
       <>
-        {!authRoutes.includes(location.pathname) && <BottomNav />}
+        {authRoutes.includes(location.pathname) ||
+        !topRoutes.includes(location.pathname) ? null : (
+          <BottomNav />
+        )}
+
         {interceptorError ? (
           <Alert status="error" message={errorMessage} />
         ) : null}

@@ -1913,7 +1913,7 @@ input {
 
 .kyc-settings main .kyc-status .status-done {
   border: none;
-  background: #4A5568;
+  background: #0ACF83;
 }
 
 .kyc-settings main .kyc-status .status-done p {
@@ -1944,6 +1944,45 @@ input {
   text-align: left;
 }
 
+.level-1 .inputs select {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+  padding: .85em 2em .85em 2.5em;
+}
+
+.level-1 .inputs select option {
+  font-size: 12px;
+}
+
+.level-1 .id-image {
+  position: relative;
+  margin-top: 1em;
+  border: 1px solid #A0AEC0;
+  border-radius: 8px;
+  width: 100px;
+  height: 100px;
+}
+
+.level-1 .id-image img {
+  width: 100%;
+  height: 100% !important;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 50% 50%;
+     object-position: 50% 50%;
+}
+
+.level-1 .submit-button {
+  margin: 3em 0;
+}
+
+.level-1 .submit-button button {
+  border: none;
+  width: 100%;
+}
+
 .level-2 {
   margin-top: 2em;
 }
@@ -1966,6 +2005,15 @@ input {
   font-size: 14px;
   font-weight: 400;
   text-align: left;
+}
+
+.level-2 .submit-button {
+  margin: 3em 0;
+}
+
+.level-2 .submit-button button {
+  border: none;
+  width: 100%;
 }
 
 .password-settings main {
