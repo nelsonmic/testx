@@ -34,8 +34,12 @@ import AllBankBeneficiaryList from "./views/payments/AllBankBeneficiaryList";
 import AllWalletBeneficiaryList from "./views/payments/AllWalletBeneficiaryList";
 
 //settings routes
-import KycSettings from "./views/settings/KycSettings";
-import PinSettings from "./views/settings/PinSettings";
+// >> Kyc Settings
+import KycSettings from "./views/settings/kyc/KycSettings";
+import LvOne from "./views/settings/kyc/LvOne";
+import LvTwo from "./views/settings/kyc/LvTwo";
+// >> Pin Settings
+import PinSettings from "./views/settings/pin/PinSettings";
 import PasswordSettings from "./views/settings/PasswordSettings";
 import BankSettings from "./views/settings/BankSettings";
 
@@ -185,7 +189,10 @@ function App() {
             </Route>
 
             {/* settings routes */}
-            <Route path="/settings/kyc" element={<KycSettings />} />
+            <Route path="/settings/kyc" element={<KycSettings />}>
+              <Route index element={<LvOne />} />
+              <Route path="lv2" element={<LvTwo />} />
+            </Route>
             <Route path="/settings/pin" element={<PinSettings />} />
             <Route path="/settings/password" element={<PasswordSettings />}>
               <Route

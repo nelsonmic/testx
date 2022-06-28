@@ -11,36 +11,24 @@
 
         p {
             margin-top: .35em;
-            @include styletext($xxsm-font-size, $color-tertiary-300, 400, center);
+            @include styletext($xxsm-font-size, $color-tertiary-300, 400, left);
         }
 
 
         form {
             margin-top: 2em;
-
-            .inputs {
-                margin-bottom: 1em;
-
-                label {
-                    display: block;
-                    margin-bottom: .35em;
-                    @include styletext($xxsm-font-size, $color-tertiary-300, 400, left);
-                }
-
-
-                input {
-                    @include styletext($xsm-font-size, $color-tertiary-300, 400, left);
-                }
-            }
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            place-items: center;
+            justify-content: space-between;
 
             .pin-inputs {
-                display: flex;
-                flex-direction: column;
-                place-items: center;
 
                 p {
                     @include styletext($xsm-font-size, $color-tertiary-300, 400, left);
-                    margin-bottom: 1em;
+                    margin-bottom: .75em;
+                    margin-top: 2em;
                 }
 
                 .inputs {

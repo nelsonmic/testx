@@ -1880,6 +1880,94 @@ input {
   padding: 1.5em 0;
 }
 
+.kyc-settings main {
+  margin-top: 4em;
+  margin-bottom: 5em;
+  padding: 1em;
+}
+
+.kyc-settings main .kyc-status {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 10px;
+}
+
+.kyc-settings main .kyc-status .status {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  border: 1px solid #4A5568;
+  padding: .5em 2em;
+}
+
+.kyc-settings main .kyc-status .status p {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.kyc-settings main .kyc-status .status-done {
+  border: none;
+  background: #4A5568;
+}
+
+.kyc-settings main .kyc-status .status-done p {
+  color: #ffffff;
+}
+
+.level-1 {
+  margin-top: 2em;
+}
+
+.level-1 .inputs {
+  margin-bottom: 1em;
+}
+
+.level-1 .inputs label {
+  display: block;
+  margin-bottom: .35em;
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.level-1 .inputs input {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.level-2 {
+  margin-top: 2em;
+}
+
+.level-2 .inputs {
+  margin-bottom: 1em;
+}
+
+.level-2 .inputs label {
+  display: block;
+  margin-bottom: .35em;
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.level-2 .inputs input {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+}
+
 .password-settings main {
   margin-top: 4em;
   margin-bottom: 5em;
@@ -1954,34 +2042,12 @@ input {
   color: #4A5568;
   font-size: 12px;
   font-weight: 400;
-  text-align: center;
+  text-align: left;
 }
 
 .pin-settings main form {
   margin-top: 2em;
-}
-
-.pin-settings main form .inputs {
-  margin-bottom: 1em;
-}
-
-.pin-settings main form .inputs label {
-  display: block;
-  margin-bottom: .35em;
-  color: #4A5568;
-  font-size: 12px;
-  font-weight: 400;
-  text-align: left;
-}
-
-.pin-settings main form .inputs input {
-  color: #4A5568;
-  font-size: 14px;
-  font-weight: 400;
-  text-align: left;
-}
-
-.pin-settings main form .pin-inputs {
+  height: 60vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1990,6 +2056,9 @@ input {
       -ms-flex-direction: column;
           flex-direction: column;
   place-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .pin-settings main form .pin-inputs p {
@@ -1997,7 +2066,8 @@ input {
   font-size: 14px;
   font-weight: 400;
   text-align: left;
-  margin-bottom: 1em;
+  margin-bottom: .75em;
+  margin-top: 2em;
 }
 
 .pin-settings main form .pin-inputs .inputs {
