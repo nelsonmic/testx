@@ -42,8 +42,6 @@ const ConfirmAllTransactions = ({ transactionType }) => {
     description,
   ] = useOutletContext();
 
-  console.log(useOutletContext());
-
   const [pin, setPin] = useState("");
   const handleChange = (e) => {
     setPin(e);

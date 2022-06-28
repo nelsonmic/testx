@@ -41,6 +41,8 @@ import BankSettings from "./views/settings/BankSettings";
 
 //confirm all transactions route
 import ConfirmAllTransactions from "./views/ConfirmAllTransactions";
+//Pin screens for handling settings
+import PinScreen from "./views/PinScreen";
 
 //404 route
 import ErrorPage from "./views/Error";
@@ -185,9 +187,18 @@ function App() {
             {/* settings routes */}
             <Route path="/settings/kyc" element={<KycSettings />} />
             <Route path="/settings/pin" element={<PinSettings />} />
-            <Route path="/settings/password" element={<PasswordSettings />} />
+            <Route path="/settings/password" element={<PasswordSettings />}>
+              <Route
+                path="pin"
+                element={<PinScreen back="/settings/password/" />}
+              />
+            </Route>
             <Route path="/settings/bank" element={<BankSettings />}>
               <Route path="bank-list" element={<BankList />} />
+              <Route
+                path="pin"
+                element={<PinScreen back="/settings/bank/" />}
+              />
             </Route>
 
             {/* auth routes */}
