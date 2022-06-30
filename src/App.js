@@ -17,8 +17,11 @@ import ConfirmEmail from "./views/auth/ConfirmEmail";
 import Overview from "./views/Overview";
 import Profile from "./views/Profile";
 import Payments from "./views/Payments";
-import Transactions from "./views/Transactions";
+import Transactions from "./views/transactions/Transactions";
 import Settings from "./views/Settings";
+//Transactions >> Summary
+import TransactionsSummary from "./views/transactions/TransactionsSummary";
+
 //Payment >> payment routes
 import BankTransfer from "./views/payments/BankTransfer";
 import WalletTransfer from "./views/payments/WalletTransfer";
@@ -129,6 +132,12 @@ function App() {
             <Route path="/payments" element={<Payments />} />
             <Route path="/transactions" element={<Transactions />} />
             <Route path="/settings" element={<Settings />} />
+
+            {/* Transaction routes */}
+            <Route
+              path="/t/:receipient/:date/:referenceno/:desc/:amount/:fee/:curbalance/:prevbalance"
+              element={<TransactionsSummary />}
+            />
 
             {/* payment routes */}
             {/* bank payment routes */}
