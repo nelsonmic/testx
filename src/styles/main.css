@@ -1428,13 +1428,55 @@ input {
           justify-content: space-between;
 }
 
-.transactions-summary main .send {
+.transactions-summary main .share-container {
   position: fixed;
-  top: 85vh;
-  left: 85%;
+  top: 75vh;
+  left: 75%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  place-items: center;
+  gap: 25px;
+}
+
+.transactions-summary main .share-container .share-items {
+  padding: 1em;
+  background: #fff;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 8px 8px 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+}
+
+.transactions-summary main .share-container .share-items span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  place-items: center;
+}
+
+.transactions-summary main .share-container .share-items span p {
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.transactions-summary main .share-container .send {
   background: #fff;
   border-radius: 8px;
-  padding: .75em;
+  padding: .5em;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
@@ -1443,9 +1485,14 @@ input {
           box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.transactions-summary main .send svg {
+.transactions-summary main .share-container .send svg {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
+}
+
+.transactions-summary main .re-position {
+  top: 66vh;
+  left: 50%;
 }
 
 .airtime-purchase {
