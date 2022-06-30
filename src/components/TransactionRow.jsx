@@ -82,7 +82,7 @@ const TransactionRow = ({ transactions, children }) => {
                 )}
               </p>
             </HStack>
-            <p
+            {/* <p
               className={`status ${
                 transaction.status === "Confirmed"
                   ? "success-state credit-text"
@@ -92,7 +92,7 @@ const TransactionRow = ({ transactions, children }) => {
               }`}
             >
               {transaction.status}
-            </p>
+            </p> */}
           </span>
         </HStack>
       );
