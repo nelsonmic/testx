@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate, useOutletContext } from "react-router-dom";
-import { Button, InputGroup, InputLeftElement } from "@chakra-ui/react";
+import { Button, InputGroup } from "@chakra-ui/react";
 import AnimatedComponent from "../../components/AnimatedComponent";
 import NumberFormat from "react-number-format";
 
