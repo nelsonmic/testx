@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { useRecoilState } from "recoil";
+import { Avatar } from "@chakra-ui/react";
 
 //state
 import userState from "../recoil/userRecoil";
-import userProfileImageState from "../recoil/userProfileImageRecoil";
+// import userProfileImageState from "../recoil/userProfileImageRecoil";
 
 //api
 import useGetUserInfo from "../apis/profile/useGetUserInfo";
@@ -14,7 +15,7 @@ import naira from ".././assets/naira.svg";
 //components
 import TransactionRow from "../components/TransactionRow";
 import CardSkeleton from "../components/CardSkeleton";
-import ImageFormatter from ".././components/ImageFormatter";
+// import ImageFormatter from ".././components/ImageFormatter";
 //utils
 import * as utils from "../utils";
 import AnimatedPage from "../components/AnimatedPage";
@@ -23,7 +24,7 @@ import AnimatedPage from "../components/AnimatedPage";
 const Overview = () => {
   //   let navigate = useNavigate();
   const [user, setUser] = useRecoilState(userState);
-  const [userProfileImage] = useRecoilState(userProfileImageState);
+  // const [userProfileImage] = useRecoilState(userProfileImageState);
   const [overviewHistory, setOverviewHistory] = useState([]);
   const { isSuccess: isSuccessUser, data: dataUser } = useGetUserInfo();
   const {
@@ -83,7 +84,12 @@ const Overview = () => {
             !
           </h1>
           <Link to="/profile">
-            <ImageFormatter
+            <Avatar
+              name={user && user.name}
+              src={user && user.profile_photo}
+              size="sm"
+            />
+            {/* <ImageFormatter
               source={
                 user && user.profile_photo !== null
                   ? user.profile_photo
@@ -92,7 +98,7 @@ const Overview = () => {
               width="40px"
               height="40px"
               alt="User display profile"
-            />
+            /> */}
           </Link>
         </div>
       </header>
@@ -111,23 +117,26 @@ const Overview = () => {
               </p>
 
               <div className="balance-ctrls">
-                <div>
-                  <svg
-                    width="30"
-                    height="30"
-                    viewBox="0 0 30 30"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <rect width="30" height="30" rx="8" fill="white" />
-                    <path
-                      d="M21.9535 11.093H17.0698C15.9596 11.093 14.8948 11.5341 14.1098 12.3191C13.3247 13.1041 12.8837 14.1689 12.8837 15.2791C12.8837 16.3893 13.3247 17.454 14.1098 18.2391C14.8948 19.0241 15.9596 19.4651 17.0698 19.4651H21.9535V20.8605C21.9535 21.0455 21.88 21.223 21.7491 21.3538C21.6183 21.4846 21.4408 21.5581 21.2558 21.5581H8.69767C8.51264 21.5581 8.33518 21.4846 8.20434 21.3538C8.0735 21.223 8 21.0455 8 20.8605V9.69767C8 9.51264 8.0735 9.33518 8.20434 9.20434C8.33518 9.0735 8.51264 9 8.69767 9H21.2558C21.4408 9 21.6183 9.0735 21.7491 9.20434C21.88 9.33518 21.9535 9.51264 21.9535 9.69767V11.093ZM17.0698 12.4884H22.6512V18.0698H17.0698C16.3296 18.0698 15.6198 17.7757 15.0964 17.2524C14.5731 16.729 14.2791 16.0192 14.2791 15.2791C14.2791 14.5389 14.5731 13.8291 15.0964 13.3057C15.6198 12.7824 16.3296 12.4884 17.0698 12.4884ZM17.0698 14.5814V15.9767H19.1628V14.5814H17.0698Z"
-                      fill="#FF0000"
-                    />
-                  </svg>
+                <Link to="/fund">
+                  <div>
+                    <svg
+                      width="30"
+                      height="30"
+                      viewBox="0 0 30 30"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <rect width="30" height="30" rx="8" fill="white" />
+                      <path
+                        d="M21.9535 11.093H17.0698C15.9596 11.093 14.8948 11.5341 14.1098 12.3191C13.3247 13.1041 12.8837 14.1689 12.8837 15.2791C12.8837 16.3893 13.3247 17.454 14.1098 18.2391C14.8948 19.0241 15.9596 19.4651 17.0698 19.4651H21.9535V20.8605C21.9535 21.0455 21.88 21.223 21.7491 21.3538C21.6183 21.4846 21.4408 21.5581 21.2558 21.5581H8.69767C8.51264 21.5581 8.33518 21.4846 8.20434 21.3538C8.0735 21.223 8 21.0455 8 20.8605V9.69767C8 9.51264 8.0735 9.33518 8.20434 9.20434C8.33518 9.0735 8.51264 9 8.69767 9H21.2558C21.4408 9 21.6183 9.0735 21.7491 9.20434C21.88 9.33518 21.9535 9.51264 21.9535 9.69767V11.093ZM17.0698 12.4884H22.6512V18.0698H17.0698C16.3296 18.0698 15.6198 17.7757 15.0964 17.2524C14.5731 16.729 14.2791 16.0192 14.2791 15.2791C14.2791 14.5389 14.5731 13.8291 15.0964 13.3057C15.6198 12.7824 16.3296 12.4884 17.0698 12.4884ZM17.0698 14.5814V15.9767H19.1628V14.5814H17.0698Z"
+                        fill="#FF0000"
+                      />
+                    </svg>
 
-                  <p>fund</p>
-                </div>
+                    <p>fund</p>
+                  </div>
+                </Link>
+
                 <div>
                   <svg
                     width="35"
@@ -250,6 +259,7 @@ const Overview = () => {
               </div>
             </div>
           </main>
+          <Outlet context={[user]} />
         </div>
       </AnimatedPage>
     </div>

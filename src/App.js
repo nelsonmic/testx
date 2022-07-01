@@ -19,6 +19,9 @@ import Profile from "./views/Profile";
 import Payments from "./views/Payments";
 import Transactions from "./views/transactions/Transactions";
 import Settings from "./views/Settings";
+
+//Overview >> fund, withdraw and Xpoints
+import Fund from "./views/fund/Fund";
 //Transactions >> Summary
 import TransactionsSummary from "./views/transactions/TransactionsSummary";
 
@@ -127,7 +130,9 @@ function App() {
         ) : null}
         <AnimatePresence>
           <Routes>
-            <Route path="/" element={<Overview />} />
+            <Route path="/" element={<Overview />}>
+              <Route path="fund" element={<Fund />} />
+            </Route>
             <Route path="/profile" element={<Profile />} />
             <Route path="/payments" element={<Payments />} />
             <Route path="/transactions" element={<Transactions />} />
