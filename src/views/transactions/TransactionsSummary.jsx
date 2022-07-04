@@ -1,10 +1,12 @@
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import AnimatedPage from "../../components/AnimatedPage";
 import BackButton from "../../components/BackButton";
+import AnimatedComponent from "../../components/AnimatedComponent";
 import * as utils from "../../utils";
 
 const TransactionsSummary = () => {
-  console.log(useParams());
+  const [show, setShow] = useState(false);
   const {
     receipient,
     date,
@@ -15,6 +17,23 @@ const TransactionsSummary = () => {
     curbalance,
     prevbalance,
   } = useParams();
+
+  const share = async () => {
+    const shareData = {
+      title: "Xtrapay Receipt",
+      text: "Your Xtrapay Transaction Summary!",
+      url: `https://api.xtrapay.ng/api/user/Transaction/${referenceno}/receipt`,
+    };
+
+    try {
+      await navigator.share(shareData);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  const ctrlShow = () => {
+    setShow(!show);
+  };
   return (
     <div className="transactions-summary">
       <BackButton />
@@ -84,18 +103,64 @@ const TransactionsSummary = () => {
                 <p>{referenceno}</p>
               </div>
             </div>
-            <div className="send">
-              <svg
-                width="24"
-                height="24"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                color="#ff0000"
-              >
-                <path d="M0 0h24v24H0z" fill="none"></path>
-                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
-              </svg>
+
+            <div
+              className={
+                show ? "share-container re-position" : "share-container"
+              }
+            >
+              {show && (
+                <AnimatedComponent>
+                  <div className="share-items">
+                    <span>
+                      <a
+                        href={`https://api.xtrapay.ng/api/user/Transaction/${referenceno}/receipt`}
+                        download="xtrapay-transaction-receipt.pdf"
+                      >
+                        <svg
+                          width="20"
+                          height="20"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          color="#000"
+                        >
+                          <path d="M4.97 11.03a.75.75 0 111.06-1.06L11 14.94V2.75a.75.75 0 011.5 0v12.19l4.97-4.97a.75.75 0 111.06 1.06l-6.25 6.25a.75.75 0 01-1.06 0l-6.25-6.25zm-.22 9.47a.75.75 0 000 1.5h14.5a.75.75 0 000-1.5H4.75z"></path>
+                        </svg>
+                      </a>
+                      <p>Download</p>
+                    </span>
+                    <span onClick={share}>
+                      <svg
+                        width="20"
+                        height="20"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        color="#ff0000"
+                      >
+                        <path d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+                      </svg>
+                      <p>Share</p>
+                    </span>
+                  </div>
+                </AnimatedComponent>
+              )}
+
+              <button className="send" onClick={ctrlShow}>
+                <svg
+                  width="16"
+                  height="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  color="#ff0000"
+                >
+                  <path d="M0 0h24v24H0z" fill="none"></path>
+                  <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+                </svg>
+              </button>
             </div>
           </main>
         </div>
