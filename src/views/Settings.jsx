@@ -8,16 +8,16 @@ import useGetUserInfo from "../apis/profile/useGetUserInfo";
 //state
 import { useRecoilState } from "recoil";
 import userState from "../recoil/userRecoil";
-import userProfileImageState from "../recoil/userProfileImageRecoil";
+// import userProfileImageState from "../recoil/userProfileImageRecoil";
 import AnimatedPage from "../components/AnimatedPage";
 
 //components
-import { HStack } from "@chakra-ui/react";
-import ImageFormatter from "../components/ImageFormatter";
+import { HStack, Avatar } from "@chakra-ui/react";
+// import ImageFormatter from "../components/ImageFormatter";
 
 const Settings = () => {
   const [user, setUser] = useRecoilState(userState);
-  const [userProfileImage] = useRecoilState(userProfileImageState);
+  // const [userProfileImage] = useRecoilState(userProfileImageState);
   const { isSuccess: isSuccessInfo, data: info } = useGetUserInfo();
 
   useEffect(() => {
@@ -38,12 +38,17 @@ const Settings = () => {
                 <p>{user && user.name.toUpperCase()}</p>
               </span>
               <Link to="/profile">
-                <ImageFormatter
+                <Avatar
+                  name={user && user.name}
+                  src={user && user.profile_photo}
+                  size="md"
+                />
+                {/* <ImageFormatter
                   source={user ? user.profile_photo : userProfileImage}
                   height="60px"
                   width="60px"
                   alt="profile"
-                />
+                /> */}
               </Link>
             </HStack>
 
