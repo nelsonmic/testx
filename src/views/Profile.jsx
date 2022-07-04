@@ -9,7 +9,6 @@ import useGetProfileSettings from "../apis/settings/profile/useGetProfileSetting
 import useSetProfileSettings from "../apis/settings/profile/useSetProfileSettings";
 
 //state
-import userProfileImageState from "../recoil/userProfileImageRecoil";
 import userState from "../recoil/userRecoil";
 //utilities
 import UploadImagesToServer from "../utils/UploadImage";
@@ -20,12 +19,11 @@ import AlertMessage from "../components/Alert";
 import BackButton from "../components/BackButton";
 import { Input, Button } from "@chakra-ui/react";
 import AnimatedPage from "../components/AnimatedPage";
+import defaultimage from "../assets/defaultImage.jpg";
 
 const Profile = () => {
   //state
-  const [userProfileImage, setUserProfileImage] = useRecoilState(
-    userProfileImageState
-  );
+  const [userProfileImage, setUserProfileImage] = useState(defaultimage);
 
   const [user, setUser] = useRecoilState(userState);
   const [profileSettings, setProfileSettings] = useState(null);
@@ -47,6 +45,7 @@ const Profile = () => {
   useEffect(() => {
     if (isSuccessUser) {
       setUser(dataUser.data.data);
+      setUserProfileImage(dataUser.data.data.profile_photo);
     }
 
     if (isSuccessSettings) {
@@ -69,10 +68,7 @@ const Profile = () => {
     initialValues: {
       editProfileFirstName: user ? user.name.split(" ")[0] : "",
       editProfileLastName: user ? user.name.split(" ")[1] : "",
-      editProfilePhoto:
-        profileSettings && profileSettings.photo !== null
-          ? profileSettings.photo
-          : userProfileImage,
+      editProfilePhoto: userProfileImage,
       editProfileAddress:
         profileSettings && profileSettings.home_address !== null
           ? profileSettings.home_address
@@ -122,11 +118,7 @@ const Profile = () => {
             <header>
               <div className="profile-image">
                 <ImageFormatter
-                  source={
-                    profileSettings && profileSettings.photo !== null
-                      ? profileSettings.photo
-                      : userProfileImage
-                  }
+                  source={userProfileImage}
                   height="80px"
                   width="80px"
                   alt="profile"
