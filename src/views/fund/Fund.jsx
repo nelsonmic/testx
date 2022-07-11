@@ -6,7 +6,6 @@ import NumberFormat from "react-number-format";
 
 const Fund = () => {
   const [user] = useOutletContext();
-  console.log(user);
   const navigate = useNavigate();
   const [showCardModal, setShowCardModal] = useState(false);
   const [showTransferModal, setShowTransferModal] = useState(false);
