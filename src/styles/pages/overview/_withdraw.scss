@@ -1,86 +1,130 @@
 .withdraw {
-    min-height: 100vh;
-    min-width: 100vw;
-    background: #01010190;
-    z-index: 5;
+min-height: 100vh;
+min-width: 100vw;
+background: #01010190;
+z-index: 5;
+position: fixed;
+top: 0;
+left: 0;
+
+
+
+  .wrapper {
+    max-height: 65vh;
+    border-radius: 20px 20px 0 0;
+    background: $color-tertiary-100;
     position: fixed;
-    top: 0;
-    left: 0;
+    bottom: 0;
+    min-width: 100vw;
 
-    .wrapper {
-        max-height: 65vh;
-        border-radius: 20px 20px 0 0;
-        background: $color-tertiary-100;
-        position: fixed;
-        bottom: 0;
-        min-width: 100vw;
+    .done {
+      position: absolute;
+      top: -40px;
+      margin: 0 1em;
+      padding: 0.5em 1em;
+      background: $color-success-fore;
+      @include styletext($xxsm-font-size, $color-tertiary-100, 600, center);
+    }
 
-        .done {
-            position: absolute;
-            top: -40px;
-            margin: 0 1em;
-            padding: .5em 1em;
-            background: $color-success-fore;
-            @include styletext($xxsm-font-size, $color-tertiary-100, 600, center);
+    main {
+      .pin-inputs {
+        margin: 2em auto;
+        display: flex;
+        place-items: center;
+        flex-direction: column;
+
+        p {
+          @include styletext($xsm-font-size, $color-tertiary-300, 600, center);
+          margin-bottom: 0.5em;
         }
 
-        main {
+        .inputs {
 
-            .pin-inputs {
-                margin: 2em auto;
-                display: flex;
-                place-items: center;
-                flex-direction: column;
+margin: 2em 0 1em 0;
 
-                p {
-                    @include styletext($xsm-font-size, $color-tertiary-300, 600, center);
-                    margin-bottom: 1.5em;
-                }
-
-
-                .inputs {
-                    margin: 2em 0 1em 0;
-                    border:1px solid red;
-
-
-                    label {
-                        display: block;
-                        margin-bottom: .35em;
-                        @include styletext($xxsm-font-size, $color-tertiary-300, 400, left);
-                    }
-
-                    #amount {
-                        color: $color-tertiary-300;
-                        padding: .5em 1em .5em 2.5em;
-                    }
-
-
-                    input {
-                        border: 1px solid $color-tertiary-200;
-                        border-radius: 8px;
-                        @include styletext($xsm-font-size, $color-tertiary-300, 400, left);
-                    }
-
-                }
-
-                .submit-button {
-                    margin-top: 2em;
-                    width: 80%;
+padding: 0 1em;
+width: 100%;
 
 
 
-                    button {
-                        width: 100%;
-                        max-width: 400px;
-                        border: none;
-                        padding: 1.5em 0;
-                        @include styletext($xxsm-font-size, $color-tertiary-100, 600, center);
-                    }
-                }
+          label {
+            display: block;
+            margin-bottom: 0.35em;
+            @include styletext($xxsm-font-size, $color-tertiary-300, 400, left);
+          }
 
+          #amount {
+            color: $color-tertiary-300;
+            padding: 0.5em 1em 0.5em 2.5em;
+          }
 
+          input {
+width: 100%;
+
+            border: 1px solid $color-tertiary-200;
+            border-radius: 8px;
+            @include styletext($xsm-font-size, $color-tertiary-300, 400, left);
+          }
+
+          .submit-button{
+            width:100%;
+          }
+        }
+
+        .accounts {
+          width: 100%;
+          padding: 0 1em;
+
+          .account {
+            border: 0.15px solid $color-tertiary-200;
+            border-radius: 8px;
+            display: flex;
+            place-items: center;
+            gap: 10px;
+            padding: 1em;
+            margin-bottom: 1em;
+
+            .account-name {
+              @include styletext(
+                $xxsm-font-size,
+                $color-tertiary-300,
+                600,
+                left
+              );
             }
 
+            span {
+              p {
+                margin: 0;
+                @include styletext(
+                  $xsm-font-size,
+                  $color-tertiary-300,
+                  400,
+                  left
+                );
+              }
+            }
+          }
         }
+
+        .submit-button {
+          margin-top: 2em;
+          width: 80%;
+
+          button {
+            width: 100%;
+            max-width: 400px;
+            border: none;
+            padding: 1.5em 0;
+            @include styletext(
+              $xxsm-font-size,
+              $color-tertiary-100,
+              600,
+              center
+            );
+          }
+        }
+      }
     }
+  }
 }
