@@ -14,14 +14,15 @@ import ResetPassword from "./views/auth/ResetPassword";
 import ConfirmEmail from "./views/auth/ConfirmEmail";
 
 //overview route
-import Overview from "./views/Overview";
+import Overview from "./views/overview/Overview";
 import Profile from "./views/Profile";
 import Payments from "./views/Payments";
 import Transactions from "./views/transactions/Transactions";
 import Settings from "./views/Settings";
 
 //Overview >> fund, withdraw and Xpoints
-import Fund from "./views/fund/Fund";
+import Fund from "./views/overview/Fund";
+import Withdraw from "./views/overview/Withdraw";
 //Transactions >> Summary
 import TransactionsSummary from "./views/transactions/TransactionsSummary";
 
@@ -132,6 +133,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Overview />}>
               <Route path="fund" element={<Fund />} />
+              <Route path="withdraw" element={<Withdraw />} />
             </Route>
             <Route path="/profile" element={<Profile />} />
             <Route path="/payments" element={<Payments />} />

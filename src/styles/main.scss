@@ -19,7 +19,7 @@
 
 
 //pages
-@import 'pages/overview';
+@import 'pages/overview/overview';
 @import 'pages/profile';
 @import 'pages/transactions';
 @import 'pages/settings';
@@ -30,7 +30,9 @@
 @import 'pages/payments/wallettransfer';
 @import 'pages/payments/banklist';
 //overview >> fund pages
-@import 'pages/fund/fund';
+@import 'pages/overview/fund';
+@import 'pages/overview/withdraw';
+@import 'pages/overview/xpoints';
 //transaction pages
 @import 'pages/transactions/transactionsummary';
 //bill payment pages

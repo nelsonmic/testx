@@ -133,6 +133,36 @@
                     }
                 }
 
+                .confirm-fund-wallet{
+                  margin-top:1em;
+                  padding:0 1em;
+
+                  p{
+                    text-align: center;
+
+                    span{
+                        @include styletext($sm-font-size, $color-primary-500, 600, center);
+                    }
+                  }
+
+                    form{
+                    .submit-button {
+                            margin: 1em auto;
+                            width: 80%;
+
+
+
+                    button {
+                        width: 100%;
+                        max-width: 400px;
+                        border: none;
+                        padding: 1.5em 0;
+                        @include styletext($xxsm-font-size, $color-tertiary-100, 600, center);
+                    }
+                    }
+                    }
+                }
+
                 .accounts {
                     padding: 1em;
 
