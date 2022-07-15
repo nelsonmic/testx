@@ -201,8 +201,8 @@ const Fund = () => {
                           id='amount'
                           value={
                             initializeFundSuccess &&
-                            initializeFundData.data.data.form_values.amount /
-                              100
+initializeFundData.data.data.form_values.amount
+
                           }
                         />
                         <Input
