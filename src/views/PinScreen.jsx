@@ -22,6 +22,7 @@ const PinScreen = ({ back }) => {
   const handleComplete = (pin) => {
     processSettings(pin);
   };
+
   return (
     <AnimatedComponent>
       <div className="pin-screen">
