@@ -1428,6 +1428,100 @@ input {
   text-align: center;
 }
 
+.xpoints {
+  min-height: 100vh;
+  min-width: 100vw;
+  background: rgba(1, 1, 1, 0.5647058824);
+  z-index: 5;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.xpoints .wrapper {
+  max-height: 65vh;
+  border-radius: 20px 20px 0 0;
+  background: #ffffff;
+  position: fixed;
+  bottom: 0;
+  min-width: 100vw;
+}
+.xpoints .wrapper .done {
+  position: absolute;
+  top: -40px;
+  margin: 0 1em;
+  padding: 0.5em 1em;
+  background: #0ACF83;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+.xpoints .wrapper main .pin-inputs {
+  margin: 2em auto;
+  display: flex;
+  place-items: center;
+  flex-direction: column;
+}
+.xpoints .wrapper main .pin-inputs .back {
+  position: absolute;
+  left: 0;
+  margin: 0 0 0 1em;
+  color: #4A5568;
+  font-size: 20px;
+  font-weight: 400;
+  text-align: left;
+}
+.xpoints .wrapper main .pin-inputs p {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1.5em;
+}
+.xpoints .wrapper main .pin-inputs .select-fund-type {
+  flex-grow: 1;
+  width: 100%;
+}
+.xpoints .wrapper main .pin-inputs .select-fund-type h3 {
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+.xpoints .wrapper main .pin-inputs .xpoint-earned {
+  padding: 1em;
+}
+.xpoints .wrapper main .pin-inputs .xpoint-earned h1 {
+  position: relative;
+  color: #4A5568;
+  font-size: 40px;
+  font-weight: 900;
+  text-align: center;
+}
+.xpoints .wrapper main .pin-inputs .xpoint-earned h1::before {
+  content: "You earned";
+  position: absolute;
+  margin-left: 20px;
+  color: #0ACF83;
+  font-size: 8px;
+  font-weight: 600;
+  text-align: center;
+}
+.xpoints .wrapper main .pin-inputs .submit-button {
+  margin: 2em auto;
+  width: 80%;
+}
+.xpoints .wrapper main .pin-inputs .submit-button button {
+  width: 100%;
+  max-width: 400px;
+  border: none;
+  padding: 1.5em 0;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+
 .transactions-summary main {
   position: relative;
   margin-top: 3.5em;

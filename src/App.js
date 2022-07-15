@@ -23,6 +23,7 @@ import Settings from "./views/Settings";
 //Overview >> fund, withdraw and Xpoints
 import Fund from "./views/overview/Fund";
 import Withdraw from "./views/overview/Withdraw";
+import Xpoints from "./views/overview/Xpoints";
 //Transactions >> Summary
 import TransactionsSummary from "./views/transactions/TransactionsSummary";
 
@@ -134,6 +135,7 @@ function App() {
             <Route path="/" element={<Overview />}>
               <Route path="fund" element={<Fund />} />
               <Route path="withdraw" element={<Withdraw />} />
+              <Route path="xpoints" element={<Xpoints />} />
             </Route>
             <Route path="/profile" element={<Profile />} />
             <Route path="/payments" element={<Payments />} />
