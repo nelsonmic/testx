@@ -24,6 +24,8 @@ import Settings from "./views/Settings";
 import Fund from "./views/overview/Fund";
 import Withdraw from "./views/overview/Withdraw";
 import Xpoints from "./views/overview/Xpoints";
+import Royalties from "./views/overview/Royalties";
+import Dokitor from "./views/overview/Dokitor";
 //Transactions >> Summary
 import TransactionsSummary from "./views/transactions/TransactionsSummary";
 
@@ -137,6 +139,8 @@ function App() {
               <Route path="withdraw" element={<Withdraw />} />
               <Route path="xpoints" element={<Xpoints />} />
             </Route>
+            <Route path="/royalties" element={<Royalties />} />
+            <Route path="/dokitor" element={<Dokitor />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/payments" element={<Payments />} />
             <Route path="/transactions" element={<Transactions />} />

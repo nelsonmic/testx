@@ -10,6 +10,7 @@
 
 
     header {
+        padding-top: 1em;
         display: flex;
         justify-content: space-between;
         place-items: center;
@@ -23,7 +24,7 @@
                 overflow: hidden;
                 white-space: nowrap;
                 margin-right: 10px;
-                @include styletext($sm-font-size, $color-tertiary-300, 800, left);
+                @include styletext($sm-font-size, $color-tertiary-300, 600, left);
             }
         }
     }
@@ -33,65 +34,69 @@
 
         .balance-container {
             background: url('../assets/balance-bg.png') repeat center,
-                linear-gradient(178.88deg, #323232 -6.81%, #282828 295.48%);
-            ;
-            text-align: center;
+                linear-gradient(178.88deg, #010101 -6.81%, #d40000 295.48%);
+                    text-align: left;
             border-radius: 10px;
             position: sticky;
             top: 0;
-            padding: 1.5em 1em;
+            padding: 1.5em 2em;
             display: flex;
             flex-direction: column;
-            place-items: center;
+
             justify-content: space-between;
             z-index: 2;
 
-            h2 {
-                @include styletext($xxsm-font-size, $color-tertiary-100, 400, center);
+            .total-balance {
+                    display: flex;
+                    gap: 20px;
+                    place-items: center;
+                h2 {
+                    @include styletext($xsm-font-size, $color-tertiary-100, 600, left);
+                        margin: 0;
+                    }
             }
 
             .account-balance {
                 display: flex;
                 place-items: center;
-                margin: .5em 0 1em 0;
-                @include styletext($md-font-size, $color-tertiary-100, 800, center);
+                margin-bottom: .5em;
+                    @include styletext(34px, $color-tertiary-100, 600, left);
 
                 img {
-                    margin-right: .35em;
-                }
-            }
-
-            .balance-ctrls {
-                width: 80%;
+                    margin-right: .15em;
+                    }
+                    }
+                                        .wallet-address {
+                                            @include styletext($xxsm-font-size, $color-tertiary-100, 400, left);
+                                            display: flex;
+                                            gap: 10px;
+                                        }
+                                        }
+                    
+                                        .quick-action-container {
+                                            margin-top: 2em;
+                    
+                                            .desc {
+                                                @include styletext($xsm-font-size, $color-tertiary-300, 600, left);
+                                            }
+                                                                                                                                                                                                .balance-ctrls {
                 display: flex;
                 justify-content: space-between;
-
-                div {
-                    width: 50px;
-                    height: 50px;
+                margin: 1em 0;
+                    gap: 10px;
 
 
-                    svg {
-                        margin: auto;
-                        position: relative;
-                        top: 50%;
-                        transform: translateY(-50%);
-                    }
+                span {
+                        background: $color-fail-back;
+                        padding: .5em 1.2em;
+                        flex: 1;
+                        border-radius: 10px;
 
                     p {
-                        margin-top: 1.5em;
-                        @include styletext($xxxsm-font-size, $color-tertiary-200, 400, center);
-                    }
-                }
-            }
-        }
-
-        .quick-action-container {
-            margin-top: 2em;
-
-            .desc {
-                @include styletext($xsm-font-size, $color-tertiary-300, 600, left);
-            }
+                        @include styletext($xxsm-font-size, $color-primary-500, 400, center);
+                        }
+                        }
+                                                                                                }
 
             .quick-action-items {
                 margin-top: 1em;
@@ -100,11 +105,11 @@
 
                 div {
                     background: #FFFFFF;
-                    border: 1px solid #C4C4C4;
+                    border: 1px solid $color-fail-back;
                     box-sizing: border-box;
                     box-shadow: 0px 3.45918px 25.9439px rgba(82, 81, 81, 0.15);
-                    border-radius: 5px;
-                    padding: .5em;
+                    border-radius: 10px;
+                        padding: .5em 1.2em;
                     width: 50%;
                     display: flex;
                     flex-wrap: wrap;
