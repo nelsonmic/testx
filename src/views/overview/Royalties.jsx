@@ -51,7 +51,7 @@ const Royalties = () => {
                                     <Alert status="success" message={"You have successfully withdrawn your royalties"} />
                               )}
                               <main>
-                                    <div className="royalty">
+                                    <div className={user.royalties.agent_royalty || user.royalties.agent_royalty >= 0 ? `royalty` : `royalty blur`}>
                                           <p onClick={() => {
                                                 setShowAgentButton(!showAgentButton)
                                                 setShowAggButton(false)
@@ -66,7 +66,7 @@ const Royalties = () => {
                                           )}
                                     </div>
 
-                                    <div className="royalty">
+                                    <div className={user.royalties.aggregator_royalty || user.royalties.aggregator_royalty >= 0 ? `royalty` : `royalty blur`}>
                                           <p
                                                 onClick={() => {
                                                       setShowAggButton(!showAggButton)
@@ -83,7 +83,7 @@ const Royalties = () => {
                                           )}
                                     </div>
 
-                                    <div className="royalty">
+                                    <div className={user.royalties.state_head_royalty || user.royalties.state_head_royalty >= 0 ? `royalty` : `royalty blur`}>
                                           <p onClick={() => {
                                                 setShowShButton(!showShButton)
                                                 setShowAggButton(false)
@@ -97,7 +97,8 @@ const Royalties = () => {
                                                 </AnimatedComponent>
                                           )}
                                     </div>
-                                    <div className="royalty">
+
+                                    <div className="royalty blur">
                                           <p>Member <span></span></p>
                                           {showMButton && (
                                                 <AnimatedComponent>
