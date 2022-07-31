@@ -1,5 +1,7 @@
-import AnimatedPage from "../../components/AnimatedPage";
-import BackButton from "../../components/BackButton";
+//router
+import { Outlet } from "react-router-dom";
+import AnimatedPage from "../../../components/AnimatedPage";
+import BackButton from "../../../components/BackButton";
 
 const Dokitor = () => {
 
@@ -11,7 +13,7 @@ const Dokitor = () => {
                   <AnimatedPage>
                         <div className="wrapper">
                               <main>
-
+                                    <Outlet />
                               </main>
                         </div>
                   </AnimatedPage>

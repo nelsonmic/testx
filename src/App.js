@@ -25,7 +25,12 @@ import Fund from "./views/overview/Fund";
 import Withdraw from "./views/overview/Withdraw";
 import Xpoints from "./views/overview/Xpoints";
 import Royalties from "./views/overview/Royalties";
-import Dokitor from "./views/overview/Dokitor";
+//Overview >> Dokitor
+import Dokitor from "./views/overview/dokitor/Dokitor";
+import DokitorMenu from "./views/overview/dokitor/DokitorMenu";
+import FollowUp from "./views/overview/dokitor/FollowUp"
+import PhoneCall from "./views/overview/dokitor/Phonecall";
+import Sms from "./views/overview/dokitor/Sms";
 //Transactions >> Summary
 import TransactionsSummary from "./views/transactions/TransactionsSummary";
 
@@ -60,6 +65,7 @@ import PinScreen from "./views/PinScreen";
 
 //404 route
 import ErrorPage from "./views/Error";
+import DokitorOnboard from "./views/overview/dokitor/DokitorOnboard";
 
 function App() {
   const [interceptorError, setInterceptorError] = useState(false);
@@ -125,7 +131,7 @@ function App() {
     const allViews = (
       <>
         {authRoutes.includes(location.pathname) ||
-        !topRoutes.includes(location.pathname) ? null : (
+          !topRoutes.includes(location.pathname) ? null : (
           <BottomNav />
         )}
 
@@ -140,7 +146,13 @@ function App() {
               <Route path="xpoints" element={<Xpoints />} />
             </Route>
             <Route path="/royalties" element={<Royalties />} />
-            <Route path="/dokitor" element={<Dokitor />} />
+            <Route path="/dokitor" element={<Dokitor />} >
+              <Route index element={<DokitorOnboard />} />
+              <Route path="menu" element={<DokitorMenu />} />
+              <Route path="follow-up" element={<FollowUp />} />
+              <Route path="phone-call" element={<PhoneCall />} />
+              <Route path="sms" element={<Sms />} />
+            </Route>
             <Route path="/profile" element={<Profile />} />
             <Route path="/payments" element={<Payments />} />
             <Route path="/transactions" element={<Transactions />} />

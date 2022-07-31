@@ -5,7 +5,6 @@ import { Avatar } from '@chakra-ui/react'
 
 //state
 import userState from '../../recoil/userRecoil'
-// import userProfileImageState from "../recoil/userProfileImageRecoil";
 
 //api
 import useGetUserInfo from '../../apis/profile/useGetUserInfo'
@@ -15,7 +14,7 @@ import naira from '../../assets/naira.svg'
 //components
 import TransactionRow from '../../components/TransactionRow'
 import CardSkeleton from '../../components/CardSkeleton'
-// import ImageFormatter from ".././components/ImageFormatter";
+
 //utils
 import * as utils from '../../utils'
 import AnimatedPage from '../../components/AnimatedPage'
@@ -26,7 +25,7 @@ const Overview = () => {
   const [user, setUser] = useRecoilState(userState)
   const showBalanceInitial = localStorage.getItem('showBalance')
   const [showBalance, setShowBalance] = useState(showBalanceInitial);
-  console.log(showBalance)
+
   // const [userProfileImage] = useRecoilState(userProfileImageState);
   const [overviewHistory, setOverviewHistory] = useState([])
   const { isSuccess: isSuccessUser, data: dataUser } = useGetUserInfo()
