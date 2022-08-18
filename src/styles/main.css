@@ -591,47 +591,61 @@ input {
 }
 
 .all-transactions main {
-  border: 1px solid green;
-  margin-top: 4em;
+  margin-top: 3em;
   margin-bottom: 5em;
   padding: 1em;
+  position: relative;
 }
-.all-transactions main header h2 {
-  color: #4A5568;
-  font-size: 14px;
-  font-weight: 400;
-  text-align: center;
-}
-.all-transactions main ul {
-  margin-top: 2em;
-  flex-direction: column;
-}
-.all-transactions main ul a {
-  width: 100%;
-}
-.all-transactions main ul a li {
-  padding: 1em 0;
+.all-transactions main .search-wrapper {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 3em;
+  background: #fff;
   display: flex;
-  border-bottom: 0.5px solid #C4C4C4;
-  place-items: center;
-  justify-content: space-between;
-}
-.all-transactions main ul a li .payment-type {
-  display: flex;
-  place-items: center;
   gap: 10px;
 }
-.all-transactions main ul a li .payment-type span h3 {
-  color: #4A5568;
-  font-size: 14px;
-  font-weight: 600;
-  text-align: left;
+.all-transactions main .search-wrapper .date-search {
+  max-width: 50px;
 }
-.all-transactions main ul a li .payment-type span p {
+.all-transactions main .refetching {
+  background: #fff;
+  padding: 1em;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 25;
+}
+.all-transactions main .recent-transaction-history {
+  margin-top: 2em;
+  margin-bottom: 4em;
+}
+.all-transactions main .pagination-button {
+  z-index: 25;
+  border: 0.5px solid #A0AEC0;
+  border-radius: 5px;
+  background: #fff;
+  padding: 0.5em 1em;
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 5em;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  place-items: center;
   color: #4A5568;
-  font-size: 12px;
-  font-weight: 400;
-  text-align: left;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+.all-transactions main .pagination-button button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: #4A5568;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
 }
 
 .settings main {

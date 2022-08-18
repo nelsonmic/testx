@@ -3,11 +3,11 @@ import { HStack } from "@chakra-ui/react";
 import NoRecentTransactions from "./NoRecentTransactions";
 import * as utils from ".././utils";
 
-const TransactionRow = ({ transactions, children }) => {
+const TransactionRow = ({ transactions, slice, children }) => {
   return transactions.length === 0 ? (
     <NoRecentTransactions />
   ) : (
-    transactions.slice(0, 6).map((transaction, index) => {
+      transactions.slice(0, slice).map((transaction, index) => {
       const {
         receiver,
         time_created,
