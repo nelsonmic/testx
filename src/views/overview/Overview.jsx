@@ -204,7 +204,7 @@ const Overview = () => {
                 {isOverviewHistoryLoader ? (
                   <CardSkeleton amount={5} />
                 ) : (
-                  <TransactionRow transactions={overviewHistory}>
+                    <TransactionRow transactions={overviewHistory} slice={6}>
                     <svg
                       width='10'
                       height='10'

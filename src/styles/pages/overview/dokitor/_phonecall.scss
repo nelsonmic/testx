@@ -1,0 +1,33 @@
+.phone-call {
+
+      @include styletext($xxsm-font-size, $color-tertiary-400, 400, left);
+
+      .inputs {
+            margin: 1.5em 0;
+
+            input {
+                  margin-top: .75em;
+            }
+
+            select {
+                  margin-top: .75em;
+            }
+      }
+
+      .checkbox {
+            margin: 2em 0;
+            @include styletext($xxxsm-font-size, $color-tertiary-400, 400, left);
+      }
+
+      .btn {
+            margin-top: 3em;
+
+            button {
+                  width: 100%;
+                  padding: .75em 0;
+                  border: none;
+                  color: $color-tertiary-100;
+                  background: $color-primary-500;
+            }
+      }
+}
