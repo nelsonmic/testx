@@ -1,0 +1,197 @@
+.fund {
+    min-height: 100vh;
+    min-width: 100vw;
+    background: #01010190;
+    z-index: 5;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    .wrapper {
+        max-height: 65vh;
+        border-radius: 20px 20px 0 0;
+        background: $color-tertiary-100;
+        position: fixed;
+        bottom: 0;
+        min-width: 100vw;
+
+        .done {
+            position: absolute;
+            top: -40px;
+            margin: 0 1em;
+            padding: .5em 1em;
+            background: $color-success-fore;
+            @include styletext($xxsm-font-size, $color-tertiary-100, 600, center);
+        }
+
+        main {
+
+            .pin-inputs {
+                margin: 2em auto;
+                display: flex;
+                place-items: center;
+                flex-direction: column;
+
+                .back {
+                    position: absolute;
+                    left: 0;
+                    margin: 0 0 0 1em;
+                    @include styletext($md-font-size, $color-tertiary-300, 400, left);
+                }
+
+                p {
+                    @include styletext($xsm-font-size, $color-tertiary-300, 600, left);
+                    margin-bottom: 1.5em;
+                }
+
+                .select-fund-type {
+                    flex-grow: 1;
+                    width: 100%;
+
+
+                    h3 {
+                        @include styletext($xxsm-font-size, $color-tertiary-300, 600, center);
+                    }
+
+                    .type {
+                        display: flex;
+                        justify-content: space-around;
+                        margin: 3em 0;
+
+                        div {
+                            position: relative;
+                            width: 40%;
+                            max-width: 100px;
+                            min-width: 100px;
+                            height: 100px;
+                            background: rgba(212, 0, 0, 1);
+                            border-radius: 8px;
+                            transition: transform .3s linear;
+
+                            p {
+                                @include styletext($xxsm-font-size, $color-tertiary-100, 600, center);
+                                position: relative;
+                                margin: 0;
+                                top: 50%;
+                                transform: translateY(-50%);
+                            }
+
+                            svg {
+                                position: absolute;
+                                right: 0;
+                            }
+
+                            svg:last-child {
+                                left: 0;
+                                bottom: 0;
+                                transform: rotate(-180deg);
+                            }
+                        }
+
+                        div:hover {
+                            transform: rotate(25deg);
+                        }
+                    }
+                }
+
+                .inputs {
+                    margin: 2em 0 1em 0;
+
+
+                    label {
+                        display: block;
+                        margin-bottom: .35em;
+                        @include styletext($xxsm-font-size, $color-tertiary-300, 400, left);
+                    }
+
+                    #amount {
+                        color: $color-tertiary-300;
+                        padding: .5em 1em .5em 2.5em;
+                    }
+
+
+                    input {
+                        border: 1px solid $color-tertiary-200;
+                        border-radius: 8px;
+                        @include styletext($xsm-font-size, $color-tertiary-300, 400, left);
+                    }
+
+                }
+
+                .submit-button {
+                    margin-top: 2em;
+                    width: 80%;
+
+
+
+                    button {
+                        width: 100%;
+                        max-width: 400px;
+                        border: none;
+                        padding: 1.5em 0;
+                        @include styletext($xxsm-font-size, $color-tertiary-100, 600, center);
+                    }
+                }
+
+                .confirm-fund-wallet{
+                  margin-top:1em;
+                  padding:0 1em;
+
+                  p{
+                    text-align: center;
+
+                    span{
+                        @include styletext($sm-font-size, $color-primary-500, 600, center);
+                    }
+                  }
+
+                    form{
+                    .submit-button {
+                            margin: 1em auto;
+                            width: 80%;
+
+
+
+                    button {
+                        width: 100%;
+                        max-width: 400px;
+                        border: none;
+                        padding: 1.5em 0;
+                        @include styletext($xxsm-font-size, $color-tertiary-100, 600, center);
+                    }
+                    }
+                    }
+                }
+
+                .accounts {
+                    padding: 1em;
+
+                    .account {
+                        border: .15px solid $color-tertiary-200;
+                        border-radius: 8px;
+                        display: flex;
+                        place-items: center;
+                        gap: 10px;
+                        padding: 1em;
+                        margin-bottom: 1em;
+
+                        .account-name {
+                            @include styletext($xxsm-font-size, $color-tertiary-300, 600, left);
+                        }
+
+                        span {
+                            p {
+                                margin: 0;
+                                @include styletext($xsm-font-size, $color-tertiary-300, 400, left);
+                            }
+                        }
+                    }
+                }
+
+
+
+            }
+
+        }
+    }
+}

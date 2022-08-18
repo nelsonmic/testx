@@ -34,8 +34,41 @@
             }
         }
 
+        .beneficiary-container {
+            margin: 1em 0;
+
+            .beneficiary-header,
+            .see-more {
+                place-items: center;
+                align-items: center;
+                justify-items: center;
+
+                p {
+                    margin-bottom: .35em;
+                    @include styletext($xxxsm-font-size, $color-tertiary-400, 600, left);
+                }
+            }
+
+            .beneficiaries {
+                display: flex;
+                justify-content: space-between;
+                gap: 10px;
+                margin: .75em 0;
+                overflow-x: scroll;
+                // padding: 0 0 0 20em;
+
+                .beneficiary {
+                    width: 60px;
+
+                    p {
+                        margin-top: .35em;
+                        @include styletext($xxxxsm-font-size, $color-tertiary-300, 400, left);
+                    }
+                }
+            }
+        }
+
         form {
-            margin-top: 3em;
 
             .inputs {
                 margin-bottom: 1em;

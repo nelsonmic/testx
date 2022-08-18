@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;600;800;900&display=swap");
-*, *::before, *::after {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 * {
@@ -9,7 +10,8 @@
   padding: 0;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   position: relative;
   width: 100vw;
@@ -20,23 +22,35 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
 
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   overflow-wrap: break-word;
 }
 
-ol, ul {
+ol,
+ul {
   list-style: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   place-items: center;
 }
@@ -55,11 +69,15 @@ button:hover {
   margin: 0 auto;
 }
 
+input {
+  font-size: 16px !important;
+}
+
 .back-button {
   position: fixed;
   top: 0;
   z-index: 3;
-  margin: .5em 1.5em;
+  margin: 0.5em 1.5em;
 }
 
 .page-name {
@@ -75,9 +93,8 @@ button:hover {
 }
 
 .formik-error {
-  -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
-  margin-top: .5em;
+  margin-top: 0.5em;
   color: #FF190B;
   font-size: 12px;
   font-weight: 400;
@@ -92,7 +109,6 @@ button:hover {
   border: 1px solid #A0AEC0;
   border-radius: 50%;
 }
-
 .image-formatter-container img {
   width: 100%;
   height: 100%;
@@ -105,36 +121,24 @@ button:hover {
 
 .bottom-nav {
   z-index: 5;
-  padding: .5em 1em;
+  padding: 0.5em 1em;
   position: fixed;
   bottom: 0;
   width: 100vw;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   background: white !important;
 }
-
 .bottom-nav svg {
   stroke: black;
   fill: #4A5568;
 }
-
 .bottom-nav .no {
   fill: none;
 }
-
 .bottom-nav a {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   place-items: center;
   text-align: center svg;
   text-align-border: 1px solid red;
@@ -142,29 +146,57 @@ button:hover {
   text-align-stroke: black;
   text-align-fill: #4A5568;
 }
-
 .bottom-nav a p {
-  margin-top: .5em;
+  margin-top: 0.5em;
   color: #4A5568;
   font-size: 10px;
   font-weight: 400;
   text-align: center;
 }
-
 .bottom-nav .active svg {
   fill: #FF0000;
 }
-
 .bottom-nav .active .no {
   stroke: #FF0000;
   fill: none;
 }
 
 .alert-message {
-  z-index: 3;
-  position: absolute;
+  z-index: 99;
+  position: fixed;
   top: 0;
   margin: 1em;
+  display: flex;
+  place-items: center;
+  gap: 20px;
+  min-width: 220px;
+  padding: 0.35em 0.5em;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+.alert-message span {
+  flex-grow: 1;
+}
+.alert-message span h2 {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 800;
+  text-align: left;
+}
+.alert-message span p {
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.success {
+  border-left: 3px solid #0ACF83;
+}
+
+.fail {
+  border-left: 3px solid #FF0000;
 }
 
 .image-uploader {
@@ -172,24 +204,15 @@ button:hover {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  display: -webkit-box;
-  display: -ms-flexbox;
+  transform: translate(-50%, -50%);
   display: flex;
   place-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
-
 .image-uploader svg {
   position: absolute;
 }
-
 .image-uploader input {
   opacity: 0;
   z-index: 2;
@@ -201,14 +224,11 @@ button:hover {
 
 .view-bank {
   border-bottom: 0.15px solid #4A5568;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   place-items: center;
   gap: 10px;
   padding: 1em;
 }
-
 .view-bank p {
   color: #4A5568;
   font-size: 14px;
@@ -229,88 +249,144 @@ button:hover {
   background: rgba(0, 0, 0, 0.4);
   z-index: 6;
 }
-
 .loading-screen svg {
   position: relative;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .success-screen {
   position: absolute;
   height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   top: 0;
   background: #ffffff;
   z-index: 6;
 }
-
 .success-screen .desc {
   margin-top: 5em;
   text-align: center;
 }
-
 .success-screen .desc h2 {
   color: #4A5568;
   font-size: 20px;
   font-weight: 600;
   text-align: center;
 }
-
 .success-screen .desc p {
   color: #4A5568;
   font-size: 14px;
   font-weight: 400;
   text-align: center;
 }
-
 .success-screen .desc p span {
   color: #4A5568;
   font-size: 16px;
   font-weight: 600;
   text-align: center;
 }
-
 .success-screen .btn {
   width: 80%;
   margin: 0 auto;
   padding-top: 2em;
 }
-
 .success-screen .btn button {
   width: 100%;
   border: none;
 }
 
-.overview {
-  padding: .5em 1em;
+.transaction-row {
+  margin-bottom: 0.75em;
+  padding: 0.5em;
+  border: 1px solid #E2E8F0;
+  border-radius: 5px;
+  color: #4A5568;
+}
+.transaction-row .info p {
+  color: #A0AEC0;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+.transaction-row .info p:first-child {
+  font-weight: 400;
+  color: #4A5568;
+}
+.transaction-row .amount-value {
+  color: 400;
+  font-size: 14px;
+  font-weight: right;
+  text-align: center;
+}
+.transaction-row .amount .status {
+  color: 400;
+  font-size: 10px;
+  font-weight: center;
+  text-align: center;
+  padding: 0.25em;
+  margin-top: 0.15em;
+  border-radius: 5px;
 }
 
+.credit-text {
+  color: #0ACF83;
+}
+
+.debit-text {
+  color: #FF0000;
+}
+
+.pending-text {
+  color: #FF6E1D;
+}
+
+.success-state {
+  background: rgba(9, 216, 92, 0.1254901961);
+}
+
+.pending-state {
+  background: rgba(241, 132, 3, 0.2156862745);
+}
+
+.failed-state {
+  background: rgba(255, 58, 58, 0.1254901961);
+}
+
+.card-skeleton {
+  padding: 0.35rem;
+  margin-bottom: 0.75em;
+  padding: 0.5em;
+  border: 1px solid #E2E8F0;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  z-index: -1;
+}
+.card-skeleton div:first-child {
+  flex-grow: 1;
+}
+
+.overview {
+  padding: 0.5em 1em;
+}
 .overview .page-name {
   position: relative;
   padding: 0;
   margin-bottom: 2em;
 }
-
 .overview header {
-  display: -webkit-box;
-  display: -ms-flexbox;
+  padding-top: 1em;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   place-items: center;
 }
-
 .overview header .user-greet {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   place-items: center;
 }
-
 .overview header .user-greet h1 {
   text-overflow: ellipsis;
   overflow: hidden;
@@ -318,150 +394,115 @@ button:hover {
   margin-right: 10px;
   color: #4A5568;
   font-size: 16px;
-  font-weight: 800;
+  font-weight: 600;
   text-align: left;
 }
-
 .overview main {
   margin-top: 1.5em;
 }
-
 .overview main .balance-container {
-  background: url("../assets/balance-bg.png") repeat center, linear-gradient(178.88deg, #323232 -6.81%, #282828 295.48%);
-  text-align: center;
+  background: url("../assets/balance-bg.png") repeat center, linear-gradient(178.88deg, #010101 -6.81%, #d40000 295.48%);
+  text-align: left;
   border-radius: 10px;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  padding: 1.5em 1em;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  padding: 1.5em 2em;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  place-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 2;
 }
-
-.overview main .balance-container h2 {
+.overview main .balance-container .total-balance {
+  display: flex;
+  gap: 20px;
+  place-items: center;
+}
+.overview main .balance-container .total-balance h2 {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+  margin: 0;
+}
+.overview main .balance-container .account-balance {
+  display: flex;
+  place-items: center;
+  margin-bottom: 0.5em;
+  color: #ffffff;
+  font-size: 34px;
+  font-weight: 600;
+  text-align: left;
+}
+.overview main .balance-container .account-balance img {
+  margin-right: 0.15em;
+}
+.overview main .balance-container .wallet-address {
   color: #ffffff;
   font-size: 12px;
   font-weight: 400;
-  text-align: center;
-}
-
-.overview main .balance-container .account-balance {
-  display: -webkit-box;
-  display: -ms-flexbox;
+  text-align: left;
   display: flex;
-  place-items: center;
-  margin: .5em 0 1em 0;
-  color: #ffffff;
-  font-size: 20px;
-  font-weight: 800;
-  text-align: center;
+  gap: 10px;
 }
-
-.overview main .balance-container .account-balance img {
-  margin-right: .35em;
-}
-
-.overview main .balance-container .balance-ctrls {
-  width: 80%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.overview main .balance-container .balance-ctrls div {
-  width: 50px;
-  height: 50px;
-}
-
-.overview main .balance-container .balance-ctrls div span {
-  background: #ffffff;
-  margin: 0 auto;
-  width: 40px;
-  height: 25px;
-  display: block;
-  border-radius: 2px;
-}
-
-.overview main .balance-container .balance-ctrls div span svg {
-  margin: auto;
-  position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-}
-
-.overview main .balance-container .balance-ctrls div p {
-  margin-top: .5em;
-  color: #A0AEC0;
-  font-size: 10px;
-  font-weight: 400;
-  text-align: center;
-}
-
 .overview main .quick-action-container {
   margin-top: 2em;
 }
-
 .overview main .quick-action-container .desc {
   color: #4A5568;
   font-size: 14px;
   font-weight: 600;
   text-align: left;
 }
-
+.overview main .quick-action-container .balance-ctrls {
+  display: flex;
+  justify-content: space-between;
+  margin: 1em 0;
+  gap: 10px;
+}
+.overview main .quick-action-container .balance-ctrls span {
+  background: rgba(255, 58, 58, 0.1254901961);
+  padding: 0.5em 1.2em;
+  flex: 1;
+  border-radius: 10px;
+}
+.overview main .quick-action-container .balance-ctrls span p {
+  color: #FF0000;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+}
 .overview main .quick-action-container .quick-action-items {
   margin-top: 1em;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   gap: 1em;
 }
-
 .overview main .quick-action-container .quick-action-items div {
   background: #FFFFFF;
-  border: 1px solid #C4C4C4;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  -webkit-box-shadow: 0px 3.45918px 25.9439px rgba(82, 81, 81, 0.15);
-          box-shadow: 0px 3.45918px 25.9439px rgba(82, 81, 81, 0.15);
-  border-radius: 5px;
-  padding: .5em;
+  border: 1px solid rgba(255, 58, 58, 0.1254901961);
+  box-sizing: border-box;
+  box-shadow: 0px 3.45918px 25.9439px rgba(82, 81, 81, 0.15);
+  border-radius: 10px;
+  padding: 0.5em 1.2em;
   width: 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
-
 .overview main .quick-action-container .quick-action-items div span {
   margin-right: 10px;
 }
-
 .overview main .quick-action-container .quick-action-items div p {
   color: #4A5568;
   font-size: 14px;
   font-weight: 400;
   text-align: left;
 }
-
 .overview main .recent-transaction-history {
   margin-top: 2em;
+  margin-bottom: 4em;
 }
-
 .overview main .recent-transaction-history .desc {
+  margin-bottom: 1em;
   color: #4A5568;
   font-size: 14px;
   font-weight: 600;
@@ -469,39 +510,31 @@ button:hover {
 }
 
 .profile {
-  padding: .5em 1em;
+  padding: 0.5em 1em;
 }
-
 .profile main {
   margin-top: 3em;
   margin-bottom: 5em;
 }
-
 .profile main header {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
-
 .profile main header .profile-image {
   position: relative;
 }
-
 .profile main header .user-details {
   margin-left: 20px;
   width: 60%;
   min-width: 160px;
   max-width: 200px;
 }
-
 .profile main header .user-details h2 {
   color: #4A5568;
   font-size: 16px;
   font-weight: 700;
   text-align: left;
-  margin: .25em 0 .05em 0;
+  margin: 0.25em 0 0.05em 0;
 }
-
 .profile main header .user-details p {
   text-overflow: ellipsis;
   color: #4A5568;
@@ -509,18 +542,13 @@ button:hover {
   font-weight: 400;
   text-align: left;
 }
-
 .profile main .account-details {
   margin-top: 1em;
 }
-
 .profile main .account-details div {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  margin-bottom: .25em;
+  margin-bottom: 0.25em;
 }
-
 .profile main .account-details div span {
   margin-right: 10px;
   color: #4A5568;
@@ -528,7 +556,6 @@ button:hover {
   font-weight: 700;
   text-align: left;
 }
-
 .profile main .account-details div p {
   text-overflow: ellipsis;
   color: #4A5568;
@@ -536,37 +563,143 @@ button:hover {
   font-weight: 400;
   text-align: left;
 }
-
 .profile main .update-profile {
   margin-top: 2em;
 }
-
 .profile main .update-profile .inputs {
-  margin-top: .75em;
+  margin-top: 0.75em;
 }
-
 .profile main .update-profile .inputs label {
-  margin-top: .35em;
+  margin-top: 0.35em;
   color: #4A5568;
   font-size: 12px;
   font-weight: 400;
   text-align: left;
 }
-
 .profile main .update-profile .inputs input {
   color: #4A5568;
   font-size: 14px;
   font-weight: 400;
   text-align: left;
 }
-
 .profile main .update-profile .submit-button {
   margin-top: 3em;
 }
-
 .profile main .update-profile .submit-button button {
   border: none;
   width: 100%;
+}
+
+.all-transactions main {
+  margin-top: 3em;
+  margin-bottom: 5em;
+  padding: 1em;
+  position: relative;
+}
+.all-transactions main .search-wrapper {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 3em;
+  background: #fff;
+  display: flex;
+  gap: 10px;
+}
+.all-transactions main .search-wrapper .date-search {
+  max-width: 50px;
+}
+.all-transactions main .refetching {
+  background: #fff;
+  padding: 1em;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 25;
+}
+.all-transactions main .recent-transaction-history {
+  margin-top: 2em;
+  margin-bottom: 4em;
+}
+.all-transactions main .pagination-button {
+  z-index: 25;
+  border: 0.5px solid #A0AEC0;
+  border-radius: 5px;
+  background: #fff;
+  padding: 0.5em 1em;
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 5em;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  place-items: center;
+  color: #4A5568;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+.all-transactions main .pagination-button button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: #4A5568;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.settings main {
+  margin-top: 4em;
+  margin-bottom: 5em;
+  padding: 1em;
+}
+.settings main .header {
+  place-items: center;
+}
+.settings main .header span h1 {
+  color: #4A5568;
+  font-size: 28px;
+  font-weight: 900;
+  text-align: left;
+}
+.settings main .header span p {
+  color: #3A3A3A;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: left;
+}
+.settings main ul {
+  margin: 2em 0;
+  flex-direction: column;
+}
+.settings main ul a {
+  width: 100%;
+}
+.settings main ul a li {
+  padding: 1em;
+  display: flex;
+  border: 0.5px solid #C4C4C4;
+  place-items: center;
+  justify-content: space-between;
+  margin-bottom: 1em;
+  border-radius: 8px;
+}
+.settings main ul a li .settings-type {
+  display: flex;
+  place-items: center;
+  gap: 10px;
+}
+.settings main ul a li .settings-type span h3 {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+}
+.settings main ul a li .settings-type span p {
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
 }
 
 .confirm-all-transactions {
@@ -577,49 +710,37 @@ button:hover {
   position: absolute;
   top: 0;
 }
-
 .confirm-all-transactions .wrapper {
   background: #ffffff;
   min-height: 600px;
 }
-
 .confirm-all-transactions .wrapper main .info {
   border-radius: 5px;
-  padding: .75em;
+  padding: 0.75em;
   color: #ffffff;
   text-align: center;
-  background: #FF3A3A98;
+  background: rgba(255, 58, 58, 0.5960784314);
 }
-
 .confirm-all-transactions .wrapper main .info p {
   color: #ffffff;
   font-size: 14px;
   font-weight: 400;
   text-align: center;
 }
-
 .confirm-all-transactions .wrapper main .info h2 {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   place-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   color: #ffffff;
   font-size: 20px;
   font-weight: 600;
   text-align: center;
 }
-
 .confirm-all-transactions .wrapper main .desc {
   margin-top: 2em;
 }
-
 .confirm-all-transactions .wrapper main .desc p {
   margin-bottom: 1em;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   place-items: center;
   color: #4A5568;
@@ -627,11 +748,9 @@ button:hover {
   font-weight: 400;
   text-align: left;
 }
-
 .confirm-all-transactions .wrapper main .desc p svg {
   margin-right: 1em;
 }
-
 .confirm-all-transactions .wrapper main .desc p span {
   margin-right: 10px;
   color: #4A5568;
@@ -639,19 +758,12 @@ button:hover {
   font-weight: 600;
   text-align: left;
 }
-
 .confirm-all-transactions .wrapper main .pin-inputs {
   margin-top: 5em;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   place-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
-
 .confirm-all-transactions .wrapper main .pin-inputs p {
   color: #4A5568;
   font-size: 14px;
@@ -659,15 +771,72 @@ button:hover {
   text-align: center;
   margin-bottom: 1.5em;
 }
-
 .confirm-all-transactions .wrapper main .pin-inputs .inputs {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
 }
-
 .confirm-all-transactions .wrapper main .pin-inputs .inputs input {
   margin-right: 10px;
+}
+
+.pin-screen {
+  min-height: 100vh;
+  width: 100vw;
+  background: rgba(1, 1, 1, 0.5647058824);
+  z-index: 5;
+  position: fixed;
+  top: 0;
+}
+.pin-screen .wrapper {
+  max-height: 65vh;
+  border-radius: 20px 20px 0 0;
+  background: #ffffff;
+  position: fixed;
+  bottom: 0;
+  min-width: 100vw;
+}
+.pin-screen .wrapper .done {
+  position: absolute;
+  top: -40px;
+  margin: 0 1em;
+  padding: 0.5em 1em;
+  background: #0ACF83;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+.pin-screen .wrapper main .pin-inputs {
+  margin: 2em auto;
+  display: flex;
+  place-items: center;
+  flex-direction: column;
+}
+.pin-screen .wrapper main .pin-inputs p {
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: left;
+  margin-bottom: 1.5em;
+}
+.pin-screen .wrapper main .pin-inputs .inputs {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+.pin-screen .wrapper main .pin-inputs .inputs input {
+  margin-right: 10px;
+}
+.pin-screen .wrapper main .pin-inputs .submit-button {
+  margin-top: 2em;
+  width: 100%;
+}
+.pin-screen .wrapper main .pin-inputs .submit-button button {
+  width: 100%;
+  max-width: 400px;
+  border: none;
+  padding: 1.5em 0;
 }
 
 .payments main {
@@ -675,53 +844,39 @@ button:hover {
   margin-bottom: 5em;
   padding: 1em;
 }
-
 .payments main header h2 {
   color: #4A5568;
   font-size: 14px;
   font-weight: 400;
   text-align: center;
 }
-
 .payments main ul {
   margin-top: 2em;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
-
 .payments main ul a {
   width: 100%;
 }
-
 .payments main ul a li {
-  padding: 1em 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  padding: 1em;
   display: flex;
-  border-bottom: .5px solid #C4C4C4;
+  border: 0.5px solid #C4C4C4;
   place-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
+  margin-bottom: 1em;
+  border-radius: 8px;
 }
-
 .payments main ul a li .payment-type {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   place-items: center;
   gap: 10px;
 }
-
 .payments main ul a li .payment-type span h3 {
   color: #4A5568;
   font-size: 14px;
   font-weight: 600;
   text-align: left;
 }
-
 .payments main ul a li .payment-type span p {
   color: #4A5568;
   font-size: 12px;
@@ -732,42 +887,34 @@ button:hover {
 .bank-transfer {
   position: relative;
 }
-
 .bank-transfer main {
   margin-top: 2em;
   margin-bottom: 5em;
   padding: 1em;
 }
-
 .bank-transfer main .header {
   z-index: 2;
   position: -webkit-sticky;
   position: sticky;
   top: 7vh;
   border-radius: 10px;
-  padding: .75em 1em;
+  padding: 0.75em 1em;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   margin: 0 auto;
-  background: #FF3A3A80;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  background: rgba(255, 58, 58, 0.5019607843);
   display: flex;
   place-items: center;
   gap: 20px;
 }
-
 .bank-transfer main .header p {
   color: #ffffff;
   font-size: 12px;
   font-weight: 400;
   text-align: center;
 }
-
 .bank-transfer main .header h2 {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   place-items: center;
   gap: 3px;
@@ -776,46 +923,69 @@ button:hover {
   font-weight: 600;
   text-align: center;
 }
-
 .bank-transfer main .header h2 img {
   width: 12px;
   height: 12px;
 }
-
-.bank-transfer main form {
-  margin-top: 3em;
+.bank-transfer main .beneficiary-container {
+  margin: 1em 0;
 }
-
+.bank-transfer main .beneficiary-container .beneficiary-header,
+.bank-transfer main .beneficiary-container .see-more {
+  place-items: center;
+  align-items: center;
+  justify-items: center;
+}
+.bank-transfer main .beneficiary-container .beneficiary-header p,
+.bank-transfer main .beneficiary-container .see-more p {
+  margin-bottom: 0.35em;
+  color: #2D3748;
+  font-size: 10px;
+  font-weight: 600;
+  text-align: left;
+}
+.bank-transfer main .beneficiary-container .beneficiaries {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 0.75em 0;
+  overflow-x: scroll;
+}
+.bank-transfer main .beneficiary-container .beneficiaries .beneficiary {
+  width: 60px;
+}
+.bank-transfer main .beneficiary-container .beneficiaries .beneficiary p {
+  margin-top: 0.35em;
+  color: #4A5568;
+  font-size: 8px;
+  font-weight: 400;
+  text-align: left;
+}
 .bank-transfer main form .inputs {
   margin-bottom: 1em;
 }
-
 .bank-transfer main form .inputs label {
   display: block;
-  margin-bottom: .35em;
+  margin-bottom: 0.35em;
   color: #4A5568;
   font-size: 12px;
   font-weight: 400;
   text-align: left;
 }
-
 .bank-transfer main form .inputs #amount {
   color: #4A5568;
-  padding: .85em 1em .85em 2.5em;
+  padding: 0.85em 1em 0.85em 2.5em;
 }
-
 .bank-transfer main form .inputs input {
   color: #4A5568;
   font-size: 14px;
   font-weight: 400;
   text-align: left;
 }
-
 .bank-transfer main form .submit-button {
   margin: 3em 0 5em 0;
   width: 100%;
 }
-
 .bank-transfer main form .submit-button button {
   width: 100%;
   border: none;
@@ -827,36 +997,29 @@ button:hover {
   margin-bottom: 5em;
   padding: 1em;
 }
-
 .wallet-transfer main .header {
   z-index: 2;
   position: -webkit-sticky;
   position: sticky;
   top: 7vh;
   border-radius: 10px;
-  padding: .75em 1em;
+  padding: 0.75em 1em;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   margin: 0 auto;
-  background: #FF3A3A80;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  background: rgba(255, 58, 58, 0.5019607843);
   display: flex;
   place-items: center;
   gap: 20px;
 }
-
 .wallet-transfer main .header p {
   color: #ffffff;
   font-size: 12px;
   font-weight: 400;
   text-align: center;
 }
-
 .wallet-transfer main .header h2 {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   place-items: center;
   gap: 3px;
@@ -865,46 +1028,69 @@ button:hover {
   font-weight: 600;
   text-align: center;
 }
-
 .wallet-transfer main .header h2 img {
   width: 12px;
   height: 12px;
 }
-
-.wallet-transfer main form {
-  margin-top: 3em;
+.wallet-transfer main .beneficiary-container {
+  margin: 1em 0;
 }
-
+.wallet-transfer main .beneficiary-container .beneficiary-header,
+.wallet-transfer main .beneficiary-container .see-more {
+  place-items: center;
+  align-items: center;
+  justify-items: center;
+}
+.wallet-transfer main .beneficiary-container .beneficiary-header p,
+.wallet-transfer main .beneficiary-container .see-more p {
+  margin-bottom: 0.35em;
+  color: #2D3748;
+  font-size: 10px;
+  font-weight: 600;
+  text-align: left;
+}
+.wallet-transfer main .beneficiary-container .beneficiaries {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 0.75em 0;
+  overflow-x: scroll;
+}
+.wallet-transfer main .beneficiary-container .beneficiaries .beneficiary {
+  width: 60px;
+}
+.wallet-transfer main .beneficiary-container .beneficiaries .beneficiary p {
+  margin-top: 0.35em;
+  color: #4A5568;
+  font-size: 8px;
+  font-weight: 400;
+  text-align: left;
+}
 .wallet-transfer main form .inputs {
   margin-bottom: 1em;
 }
-
 .wallet-transfer main form .inputs label {
   display: block;
-  margin-bottom: .35em;
+  margin-bottom: 0.35em;
   color: #4A5568;
   font-size: 12px;
   font-weight: 400;
   text-align: left;
 }
-
 .wallet-transfer main form .inputs #amount {
   color: #4A5568;
-  padding: .85em 1em .85em 2.5em;
+  padding: 0.85em 1em 0.85em 2.5em;
 }
-
 .wallet-transfer main form .inputs input {
   color: #4A5568;
   font-size: 14px;
   font-weight: 400;
   text-align: left;
 }
-
 .wallet-transfer main form .submit-button {
   margin: 3em 0 5em 0;
   width: 100%;
 }
-
 .wallet-transfer main form .submit-button button {
   width: 100%;
   border: none;
@@ -919,11 +1105,9 @@ button:hover {
   position: absolute;
   top: 0;
 }
-
 .bank-list .wrapper {
   background: #ffffff;
 }
-
 .bank-list .wrapper main .bank-list-header {
   background: #ffffff;
   z-index: 2;
@@ -931,27 +1115,1308 @@ button:hover {
   position: sticky;
   top: 7vh;
 }
-
 .bank-list .wrapper main .bank-list-header input {
   font-size: 14px;
 }
-
 .bank-list .wrapper main .bank-list-body {
   height: 600px;
   overflow: auto;
   padding: 1em;
 }
 
+.fund {
+  min-height: 100vh;
+  min-width: 100vw;
+  background: rgba(1, 1, 1, 0.5647058824);
+  z-index: 5;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.fund .wrapper {
+  max-height: 65vh;
+  border-radius: 20px 20px 0 0;
+  background: #ffffff;
+  position: fixed;
+  bottom: 0;
+  min-width: 100vw;
+}
+.fund .wrapper .done {
+  position: absolute;
+  top: -40px;
+  margin: 0 1em;
+  padding: 0.5em 1em;
+  background: #0ACF83;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+.fund .wrapper main .pin-inputs {
+  margin: 2em auto;
+  display: flex;
+  place-items: center;
+  flex-direction: column;
+}
+.fund .wrapper main .pin-inputs .back {
+  position: absolute;
+  left: 0;
+  margin: 0 0 0 1em;
+  color: #4A5568;
+  font-size: 20px;
+  font-weight: 400;
+  text-align: left;
+}
+.fund .wrapper main .pin-inputs p {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+  margin-bottom: 1.5em;
+}
+.fund .wrapper main .pin-inputs .select-fund-type {
+  flex-grow: 1;
+  width: 100%;
+}
+.fund .wrapper main .pin-inputs .select-fund-type h3 {
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+.fund .wrapper main .pin-inputs .select-fund-type .type {
+  display: flex;
+  justify-content: space-around;
+  margin: 3em 0;
+}
+.fund .wrapper main .pin-inputs .select-fund-type .type div {
+  position: relative;
+  width: 40%;
+  max-width: 100px;
+  min-width: 100px;
+  height: 100px;
+  background: rgb(212, 0, 0);
+  border-radius: 8px;
+  transition: transform 0.3s linear;
+}
+.fund .wrapper main .pin-inputs .select-fund-type .type div p {
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  position: relative;
+  margin: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.fund .wrapper main .pin-inputs .select-fund-type .type div svg {
+  position: absolute;
+  right: 0;
+}
+.fund .wrapper main .pin-inputs .select-fund-type .type div svg:last-child {
+  left: 0;
+  bottom: 0;
+  transform: rotate(-180deg);
+}
+.fund .wrapper main .pin-inputs .select-fund-type .type div:hover {
+  transform: rotate(25deg);
+}
+.fund .wrapper main .pin-inputs .inputs {
+  margin: 2em 0 1em 0;
+}
+.fund .wrapper main .pin-inputs .inputs label {
+  display: block;
+  margin-bottom: 0.35em;
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+.fund .wrapper main .pin-inputs .inputs #amount {
+  color: #4A5568;
+  padding: 0.5em 1em 0.5em 2.5em;
+}
+.fund .wrapper main .pin-inputs .inputs input {
+  border: 1px solid #A0AEC0;
+  border-radius: 8px;
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+}
+.fund .wrapper main .pin-inputs .submit-button {
+  margin-top: 2em;
+  width: 80%;
+}
+.fund .wrapper main .pin-inputs .submit-button button {
+  width: 100%;
+  max-width: 400px;
+  border: none;
+  padding: 1.5em 0;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+.fund .wrapper main .pin-inputs .confirm-fund-wallet {
+  margin-top: 1em;
+  padding: 0 1em;
+}
+.fund .wrapper main .pin-inputs .confirm-fund-wallet p {
+  text-align: center;
+}
+.fund .wrapper main .pin-inputs .confirm-fund-wallet p span {
+  color: #FF0000;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+.fund .wrapper main .pin-inputs .confirm-fund-wallet form .submit-button {
+  margin: 1em auto;
+  width: 80%;
+}
+.fund .wrapper main .pin-inputs .confirm-fund-wallet form .submit-button button {
+  width: 100%;
+  max-width: 400px;
+  border: none;
+  padding: 1.5em 0;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+.fund .wrapper main .pin-inputs .accounts {
+  padding: 1em;
+}
+.fund .wrapper main .pin-inputs .accounts .account {
+  border: 0.15px solid #A0AEC0;
+  border-radius: 8px;
+  display: flex;
+  place-items: center;
+  gap: 10px;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+.fund .wrapper main .pin-inputs .accounts .account .account-name {
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: left;
+}
+.fund .wrapper main .pin-inputs .accounts .account span p {
+  margin: 0;
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.withdraw {
+  min-height: 100vh;
+  min-width: 100vw;
+  background: rgba(1, 1, 1, 0.5647058824);
+  z-index: 5;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.withdraw .wrapper {
+  max-height: 65vh;
+  border-radius: 20px 20px 0 0;
+  background: #ffffff;
+  position: fixed;
+  bottom: 0;
+  min-width: 100vw;
+}
+.withdraw .wrapper .done {
+  position: absolute;
+  top: -40px;
+  margin: 0 1em;
+  padding: 0.5em 1em;
+  background: #0ACF83;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+.withdraw .wrapper main .pin-inputs {
+  margin: 2em auto;
+  display: flex;
+  place-items: center;
+  flex-direction: column;
+}
+.withdraw .wrapper main .pin-inputs p {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+.withdraw .wrapper main .pin-inputs .inputs {
+  margin: 1em 0 1em 0;
+  padding: 0 1em;
+  width: 100%;
+}
+.withdraw .wrapper main .pin-inputs .inputs label {
+  display: block;
+  margin-bottom: 0.35em;
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+.withdraw .wrapper main .pin-inputs .inputs #amount {
+  color: #4A5568;
+  padding: 0.5em 1em 0.5em 2.5em;
+}
+.withdraw .wrapper main .pin-inputs .inputs .input {
+  width: 100%;
+  border: 1px solid #A0AEC0;
+  border-radius: 8px;
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+}
+.withdraw .wrapper main .pin-inputs .inputs .submit-button {
+  width: 100%;
+}
+.withdraw .wrapper main .pin-inputs .pin-inputs {
+  margin: 2em auto;
+  display: flex;
+  place-items: center;
+  flex-direction: column;
+}
+.withdraw .wrapper main .pin-inputs .pin-inputs p {
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: left;
+  margin-bottom: 1.5em;
+}
+.withdraw .wrapper main .pin-inputs .pin-inputs .inputs {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+.withdraw .wrapper main .pin-inputs .pin-inputs .inputs input {
+  margin-right: 10px;
+}
+.withdraw .wrapper main .pin-inputs .pin-inputs .submit-button {
+  margin-top: 2em;
+  width: 100%;
+}
+.withdraw .wrapper main .pin-inputs .pin-inputs .submit-button button {
+  width: 100%;
+  max-width: 400px;
+  border: none;
+  padding: 1.5em 0;
+}
+.withdraw .wrapper main .pin-inputs .accounts {
+  width: 100%;
+  margin-top: 1em;
+  padding: 0 1em;
+}
+.withdraw .wrapper main .pin-inputs .accounts .account {
+  border: 0.15px solid #A0AEC0;
+  border-radius: 8px;
+  display: flex;
+  place-items: center;
+  gap: 10px;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+.withdraw .wrapper main .pin-inputs .accounts .account .account-name {
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: left;
+}
+.withdraw .wrapper main .pin-inputs .accounts .account span p {
+  margin: 0;
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+}
+.withdraw .wrapper main .pin-inputs .submit-button {
+  margin-top: 2em;
+  width: 80%;
+}
+.withdraw .wrapper main .pin-inputs .submit-button button {
+  width: 100%;
+  max-width: 400px;
+  border: none;
+  padding: 1.5em 0;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.xpoints {
+  min-height: 100vh;
+  min-width: 100vw;
+  background: rgba(1, 1, 1, 0.5647058824);
+  z-index: 5;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.xpoints .wrapper {
+  max-height: 65vh;
+  border-radius: 20px 20px 0 0;
+  background: #ffffff;
+  position: fixed;
+  bottom: 0;
+  min-width: 100vw;
+}
+.xpoints .wrapper .done {
+  position: absolute;
+  top: -40px;
+  margin: 0 1em;
+  padding: 0.5em 1em;
+  background: #0ACF83;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+.xpoints .wrapper main .pin-inputs {
+  margin: 2em auto;
+  display: flex;
+  place-items: center;
+  flex-direction: column;
+}
+.xpoints .wrapper main .pin-inputs .back {
+  position: absolute;
+  left: 0;
+  margin: 0 0 0 1em;
+  color: #4A5568;
+  font-size: 20px;
+  font-weight: 400;
+  text-align: left;
+}
+.xpoints .wrapper main .pin-inputs p {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1.5em;
+}
+.xpoints .wrapper main .pin-inputs .select-fund-type {
+  flex-grow: 1;
+  width: 100%;
+}
+.xpoints .wrapper main .pin-inputs .select-fund-type h3 {
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+.xpoints .wrapper main .pin-inputs .xpoint-earned {
+  padding: 1em;
+}
+.xpoints .wrapper main .pin-inputs .xpoint-earned h1 {
+  position: relative;
+  color: #4A5568;
+  font-size: 40px;
+  font-weight: 900;
+  text-align: center;
+}
+.xpoints .wrapper main .pin-inputs .xpoint-earned h1::before {
+  content: "You earned";
+  position: absolute;
+  margin-left: 20px;
+  color: #0ACF83;
+  font-size: 8px;
+  font-weight: 600;
+  text-align: center;
+}
+.xpoints .wrapper main .pin-inputs .submit-button {
+  margin: 2em auto;
+  width: 80%;
+}
+.xpoints .wrapper main .pin-inputs .submit-button button {
+  width: 100%;
+  max-width: 400px;
+  border: none;
+  padding: 1.5em 0;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.royalties main {
+  position: relative;
+  margin-top: 5em;
+  margin-bottom: 5em;
+  padding: 1em;
+}
+.royalties main .royalty {
+  border: 0.5px solid #4A5568;
+  margin: 1em 0;
+  border-radius: 10px;
+  padding: 1.2em 2em;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+.royalties main .royalty p {
+  background: rgba(255, 58, 58, 0.1254901961);
+  display: inline;
+  padding: 0.75em 1.5em;
+  border-radius: 8px;
+  color: #FF0000;
+  font-size: 10px;
+  font-weight: 600;
+  text-align: left;
+}
+.royalties main .royalty p span {
+  margin-left: 10px;
+  font-size: 14px;
+  font-weight: 900;
+}
+.royalties main .royalty button {
+  border: none;
+  background: #FF0000;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 600;
+  text-align: center;
+}
+.royalties main .royalty::before {
+  content: url("data:image/svg+xml, %3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30' fill='currentColor' color='%23000' %3E%3Cpath d='M5.37 16.18c.65-.03 1.2-.28 1.65-.75.45-.47.68-1.03.68-1.68 0 .65.22 1.21.67 1.68.45.47 1 .72 1.65.75-.65.03-1.2.28-1.65.75a2.34 2.34 0 00-.67 1.68c0-.65-.22-1.21-.68-1.68-.45-.47-1-.72-1.65-.75zm2.33-7.2c1.26-.06 2.33-.55 3.21-1.47.88-.92 1.32-2.01 1.32-3.28 0 1.27.44 2.36 1.32 3.28s1.95 1.4 3.22 1.47c-.83.04-1.59.27-2.29.71-.69.43-1.24 1.01-1.65 1.73-.4.72-.6 1.49-.6 2.33 0-1.27-.44-2.37-1.32-3.29-.88-.93-1.95-1.42-3.21-1.48zm3.32 10.77c.95-.04 1.76-.41 2.42-1.1.66-.69.99-1.51.99-2.47 0 .96.33 1.78.99 2.47.66.69 1.46 1.06 2.41 1.1-.95.04-1.75.41-2.41 1.1-.66.69-.99 1.51-.99 2.47 0-.96-.33-1.78-.99-2.47a3.503 3.503 0 00-2.42-1.1zm6.81-4.74c.95-.04 1.75-.41 2.41-1.1.66-.69.98-1.51.98-2.48 0 .96.33 1.78.99 2.47s1.47 1.06 2.42 1.1c-.95.04-1.76.41-2.42 1.1-.66.69-.99 1.51-.99 2.47 0-.96-.33-1.78-.98-2.47-.66-.68-1.46-1.05-2.41-1.09z' %3E%3C/path%3E%3C/svg%3E");
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.royalties main .blur {
+  opacity: 0.5;
+}
+
+.dokitor-menu h1 {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+}
+.dokitor-menu ul {
+  margin-top: 2em;
+  flex-direction: column;
+}
+.dokitor-menu ul a {
+  width: 100%;
+}
+.dokitor-menu ul a li {
+  padding: 1em;
+  display: flex;
+  border: 0.5px solid #C4C4C4;
+  place-items: center;
+  justify-content: space-between;
+  margin-bottom: 1em;
+  border-radius: 8px;
+}
+.dokitor-menu ul a li .payment-type {
+  display: flex;
+  place-items: center;
+  gap: 10px;
+}
+.dokitor-menu ul a li .payment-type span h3 {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+}
+.dokitor-menu ul a li .payment-type span p {
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.phone-call {
+  color: #2D3748;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+.phone-call .inputs {
+  margin: 1.5em 0;
+}
+.phone-call .inputs input {
+  margin-top: 0.75em;
+}
+.phone-call .inputs select {
+  margin-top: 0.75em;
+}
+.phone-call .checkbox {
+  margin: 2em 0;
+  color: #2D3748;
+  font-size: 10px;
+  font-weight: 400;
+  text-align: left;
+}
+.phone-call .btn {
+  margin-top: 3em;
+}
+.phone-call .btn button {
+  width: 100%;
+  padding: 0.75em 0;
+  border: none;
+  color: #ffffff;
+  background: #FF0000;
+}
+
+.transactions-summary main {
+  position: relative;
+  margin-top: 3.5em;
+  margin-bottom: 5em;
+  padding: 1em;
+}
+.transactions-summary main .summary-icon {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 1em;
+  background: #FF0000;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+.transactions-summary main .header-text {
+  margin: 1em 0;
+  color: #4A5568;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+.transactions-summary main .summary-container {
+  margin-top: 3em;
+  padding: 0 1em;
+}
+.transactions-summary main .summary-container .summary-item {
+  padding: 0 0 0.5em 0;
+  margin-bottom: 1em;
+  border-bottom: 1px solid #4A5568;
+}
+.transactions-summary main .summary-container .summary-item p:first-child {
+  margin-bottom: 0.5em;
+  color: #4A5568;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
+}
+.transactions-summary main .summary-container .summary-item p:last-child {
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+.transactions-summary main .summary-container .flex {
+  display: flex;
+  justify-content: space-between;
+}
+.transactions-summary main .share-container {
+  position: fixed;
+  top: 75vh;
+  left: 75%;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  gap: 25px;
+}
+.transactions-summary main .share-container .share-items {
+  padding: 1em;
+  background: #fff;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 8px 8px 0 0;
+  display: flex;
+  gap: 20px;
+}
+.transactions-summary main .share-container .share-items span {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+}
+.transactions-summary main .share-container .share-items span p {
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+.transactions-summary main .share-container .send {
+  background: #fff;
+  border-radius: 8px;
+  padding: 0.5em;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.transactions-summary main .share-container .send svg {
+  transform: rotate(-45deg);
+}
+.transactions-summary main .re-position {
+  top: 66vh;
+  left: 50%;
+}
+
+.airtime-purchase {
+  position: relative;
+}
+.airtime-purchase main {
+  margin-top: 2em;
+  margin-bottom: 5em;
+  padding: 1em;
+}
+.airtime-purchase main .header {
+  z-index: 2;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 7vh;
+  border-radius: 10px;
+  padding: 0.75em 1em;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 0 auto;
+  background: rgba(255, 58, 58, 0.5019607843);
+  display: flex;
+  place-items: center;
+  gap: 20px;
+}
+.airtime-purchase main .header p {
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+}
+.airtime-purchase main .header h2 {
+  display: flex;
+  place-items: center;
+  gap: 3px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+.airtime-purchase main .header h2 img {
+  width: 12px;
+  height: 12px;
+}
+.airtime-purchase main form {
+  margin-top: 3em;
+}
+.airtime-purchase main form .inputs {
+  margin-bottom: 1em;
+}
+.airtime-purchase main form .inputs label {
+  display: block;
+  margin-bottom: 0.35em;
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+.airtime-purchase main form .inputs #airtimeAmount {
+  width: 100%;
+  border: 1px solid #E2E8F0;
+  border-radius: 5px;
+  color: #4A5568;
+  padding: 0.85em 1em 0.85em 2.5em;
+}
+.airtime-purchase main form .inputs input {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+}
+.airtime-purchase main form .billers label {
+  padding-bottom: 0;
+}
+.airtime-purchase main form .billers span {
+  display: inline;
+}
+.airtime-purchase main form .billers span img {
+  display: inline;
+}
+.airtime-purchase main form .submit-button {
+  margin: 3em 0 5em 0;
+  width: 100%;
+}
+.airtime-purchase main form .submit-button button {
+  width: 100%;
+  border: none;
+  padding: 1.5em 0;
+}
+
+.data-purchase {
+  position: relative;
+}
+.data-purchase main {
+  margin-top: 2em;
+  margin-bottom: 5em;
+  padding: 1em;
+}
+.data-purchase main .header {
+  z-index: 2;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 7vh;
+  border-radius: 10px;
+  padding: 0.75em 1em;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 0 auto;
+  background: rgba(255, 58, 58, 0.5019607843);
+  display: flex;
+  place-items: center;
+  gap: 20px;
+}
+.data-purchase main .header p {
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+}
+.data-purchase main .header h2 {
+  display: flex;
+  place-items: center;
+  gap: 3px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+.data-purchase main .header h2 img {
+  width: 12px;
+  height: 12px;
+}
+.data-purchase main form {
+  margin-top: 3em;
+}
+.data-purchase main form .inputs {
+  margin-bottom: 1em;
+}
+.data-purchase main form .inputs label {
+  display: block;
+  margin-bottom: 0.35em;
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+.data-purchase main form .inputs input {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+}
+.data-purchase main form .inputs select {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+  padding: 0.85em 2em 0.85em 2.5em;
+}
+.data-purchase main form .inputs select option {
+  font-size: 12px;
+}
+.data-purchase main form .billers label {
+  padding-bottom: 0;
+}
+.data-purchase main form .billers span {
+  display: inline;
+}
+.data-purchase main form .billers span img {
+  display: inline;
+}
+.data-purchase main form .submit-button {
+  margin: 3em 0 5em 0;
+  width: 100%;
+}
+.data-purchase main form .submit-button button {
+  width: 100%;
+  border: none;
+  padding: 1.5em 0;
+}
+
+.electricity-purchase {
+  position: relative;
+}
+.electricity-purchase main {
+  margin-top: 2em;
+  margin-bottom: 5em;
+  padding: 1em;
+}
+.electricity-purchase main .header {
+  z-index: 2;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 7vh;
+  border-radius: 10px;
+  padding: 0.75em 1em;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 0 auto;
+  background: rgba(255, 58, 58, 0.5019607843);
+  display: flex;
+  place-items: center;
+  gap: 20px;
+}
+.electricity-purchase main .header p {
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+}
+.electricity-purchase main .header h2 {
+  display: flex;
+  place-items: center;
+  gap: 3px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+.electricity-purchase main .header h2 img {
+  width: 12px;
+  height: 12px;
+}
+.electricity-purchase main form {
+  margin-top: 3em;
+}
+.electricity-purchase main form .inputs {
+  margin-bottom: 1em;
+}
+.electricity-purchase main form .inputs label {
+  display: block;
+  margin-bottom: 0.35em;
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+.electricity-purchase main form .inputs #electricityAmount {
+  width: 100%;
+  border: 1px solid #E2E8F0;
+  border-radius: 5px;
+  color: #4A5568;
+  padding: 0.85em 1em 0.85em 2.5em;
+}
+.electricity-purchase main form .inputs input {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+}
+.electricity-purchase main form .inputs select {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+  padding: 0.85em 2em 0.85em 2.5em;
+}
+.electricity-purchase main form .inputs select option {
+  font-size: 12px;
+}
+.electricity-purchase main form .submit-button {
+  margin: 3em 0 5em 0;
+  width: 100%;
+}
+.electricity-purchase main form .submit-button button {
+  width: 100%;
+  border: none;
+  padding: 1.5em 0;
+}
+
+.others-purchase {
+  position: relative;
+}
+.others-purchase main {
+  margin-top: 2em;
+  margin-bottom: 5em;
+  padding: 1em;
+}
+.others-purchase main .header {
+  z-index: 2;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 7vh;
+  border-radius: 10px;
+  padding: 0.75em 1em;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 0 auto;
+  background: rgba(255, 58, 58, 0.5019607843);
+  display: flex;
+  place-items: center;
+  gap: 20px;
+}
+.others-purchase main .header p {
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+}
+.others-purchase main .header h2 {
+  display: flex;
+  place-items: center;
+  gap: 3px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+.others-purchase main .header h2 img {
+  width: 12px;
+  height: 12px;
+}
+.others-purchase main form {
+  margin-top: 3em;
+}
+.others-purchase main form .inputs {
+  margin-bottom: 1em;
+}
+.others-purchase main form .inputs label {
+  display: block;
+  margin-bottom: 0.35em;
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+.others-purchase main form .inputs #otherbillsAmount {
+  width: 100%;
+  border: 1px solid #E2E8F0;
+  border-radius: 5px;
+  color: #4A5568;
+  padding: 0.85em 1em 0.85em 2.5em;
+}
+.others-purchase main form .inputs input {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+}
+.others-purchase main form .inputs select {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+  padding: 0.85em 2em 0.85em 2.5em;
+}
+.others-purchase main form .inputs select option {
+  font-size: 12px;
+}
+.others-purchase main form .submit-button {
+  margin: 3em 0 5em 0;
+  width: 100%;
+}
+.others-purchase main form .submit-button button {
+  width: 100%;
+  border: none;
+  padding: 1.5em 0;
+}
+
+.bank-settings main {
+  margin-top: 4em;
+  margin-bottom: 5em;
+  padding: 1em;
+}
+.bank-settings main .header-text {
+  margin-bottom: 1em;
+  color: #4A5568;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
+}
+.bank-settings main .header-text:nth-child(3) {
+  margin-top: 3em;
+}
+.bank-settings main .account-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.bank-settings main .account-details div {
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+  padding: 0.5em 1em;
+}
+.bank-settings main .account-details div h2 {
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: left;
+}
+.bank-settings main .account-details div p {
+  color: #4A5568;
+  font-size: 10px;
+  font-weight: 400;
+  text-align: left;
+}
+.bank-settings main form .inputs {
+  margin-bottom: 1em;
+}
+.bank-settings main form .inputs label {
+  display: block;
+  margin-bottom: 0.35em;
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+.bank-settings main form .inputs input {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+}
+.bank-settings main form .submit-button {
+  margin: 3em 0 5em 0;
+  width: 100%;
+}
+.bank-settings main form .submit-button button {
+  width: 100%;
+  border: none;
+  padding: 1.5em 0;
+}
+
+.kyc-settings main {
+  margin-top: 4em;
+  margin-bottom: 5em;
+  padding: 1em;
+}
+.kyc-settings main .kyc-status {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.kyc-settings main .kyc-status .status {
+  flex-grow: 1;
+  border: 1px solid #4A5568;
+  padding: 0.5em 2em;
+}
+.kyc-settings main .kyc-status .status p {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+.kyc-settings main .kyc-status .status-done {
+  border: none;
+  background: #0ACF83;
+}
+.kyc-settings main .kyc-status .status-done p {
+  color: #ffffff;
+}
+
+.level-1 {
+  margin-top: 2em;
+}
+.level-1 .inputs {
+  margin-bottom: 1em;
+}
+.level-1 .inputs label {
+  display: block;
+  margin-bottom: 0.35em;
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+.level-1 .inputs input {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+}
+.level-1 .inputs select {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+  padding: 0.85em 2em 0.85em 2.5em;
+}
+.level-1 .inputs select option {
+  font-size: 12px;
+}
+.level-1 .id-image {
+  position: relative;
+  margin-top: 1em;
+  border: 1px solid #A0AEC0;
+  border-radius: 8px;
+  width: 100px;
+  height: 100px;
+}
+.level-1 .id-image img {
+  width: 100%;
+  height: 100% !important;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 50% 50%;
+     object-position: 50% 50%;
+}
+.level-1 .submit-button {
+  margin: 3em 0;
+}
+.level-1 .submit-button button {
+  border: none;
+  width: 100%;
+}
+
+.level-2 {
+  margin-top: 2em;
+}
+.level-2 .inputs {
+  margin-bottom: 1em;
+}
+.level-2 .inputs label {
+  display: block;
+  margin-bottom: 0.35em;
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+.level-2 .inputs input {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+}
+.level-2 .submit-button {
+  margin: 3em 0;
+}
+.level-2 .submit-button button {
+  border: none;
+  width: 100%;
+}
+
+.password-settings main {
+  margin-top: 4em;
+  margin-bottom: 5em;
+  padding: 1em;
+}
+.password-settings main .header-text {
+  color: #4A5568;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
+}
+.password-settings main p {
+  margin-top: 0.35em;
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+.password-settings main form {
+  margin-top: 3em;
+}
+.password-settings main form .inputs {
+  margin-bottom: 1em;
+}
+.password-settings main form .inputs label {
+  display: block;
+  margin-bottom: 0.35em;
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+.password-settings main form .inputs input {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+}
+.password-settings main form .submit-button {
+  margin: 3em 0 5em 0;
+  width: 100%;
+}
+.password-settings main form .submit-button button {
+  width: 100%;
+  border: none;
+  padding: 1.5em 0;
+}
+
+.pin-settings main {
+  margin-top: 4em;
+  margin-bottom: 5em;
+  padding: 1em;
+}
+.pin-settings main .header-text {
+  color: #4A5568;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+.pin-settings main p {
+  margin-top: 0.35em;
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+}
+.pin-settings main form {
+  margin-top: 2em;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  justify-content: space-between;
+}
+.pin-settings main form .pin-inputs p {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+  margin-bottom: 0.75em;
+  margin-top: 2em;
+}
+.pin-settings main form .pin-inputs .inputs {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+.pin-settings main form .pin-inputs .inputs input {
+  margin-right: 10px;
+  text-align: center;
+}
+.pin-settings main form .submit-button {
+  margin: 3em 0 5em 0;
+  width: 100%;
+}
+.pin-settings main form .submit-button button {
+  width: 100%;
+  border: none;
+  padding: 1.5em 0;
+}
+.pin-settings main .request .submit-button {
+  margin: 3em 0 5em 0;
+  width: 100%;
+}
+.pin-settings main .request .submit-button button {
+  width: 100%;
+  border: none;
+  padding: 1.5em 0;
+}
+
 .signin {
   padding: 1em 2em;
 }
-
 .signin__welcome .logo {
   width: 150px;
   height: 150px;
   margin: 0 auto;
 }
-
 .signin__welcome .logo img {
   width: 100%;
   height: 100%;
@@ -960,7 +2425,6 @@ button:hover {
   -o-object-position: 50% 50%;
      object-position: 50% 50%;
 }
-
 .signin__welcome h1 {
   margin-bottom: 2em;
   color: #4A5568;
@@ -968,7 +2432,6 @@ button:hover {
   font-weight: 700;
   text-align: center;
 }
-
 @media (max-width: 500px) {
   .signin__welcome h1 {
     color: #4A5568;
@@ -977,7 +2440,6 @@ button:hover {
     text-align: center;
   }
 }
-
 @media (max-width: 300px) {
   .signin__welcome h1 {
     color: #4A5568;
@@ -986,24 +2448,20 @@ button:hover {
     text-align: center;
   }
 }
-
 .signin__form {
   max-width: 400px;
   margin: 0 auto;
 }
-
 .signin__form .inputs {
   position: relative;
   margin-bottom: 1em;
 }
-
 .signin__form .inputs input {
   color: #171923;
   font-size: 14px;
   font-weight: 400;
   text-align: left;
 }
-
 @media (max-width: 300px) {
   .signin__form .inputs input {
     color: #4A5568;
@@ -1012,21 +2470,14 @@ button:hover {
     text-align: left;
   }
 }
-
 @media (max-width: 300px) {
-  .signin__form .inputs input::-webkit-input-placeholder {
+  .signin__form .inputs input::-moz-placeholder {
     color: #A0AEC0;
     font-size: 12px;
     font-weight: 400;
     text-align: left;
   }
   .signin__form .inputs input:-ms-input-placeholder {
-    color: #A0AEC0;
-    font-size: 12px;
-    font-weight: 400;
-    text-align: left;
-  }
-  .signin__form .inputs input::-ms-input-placeholder {
     color: #A0AEC0;
     font-size: 12px;
     font-weight: 400;
@@ -1039,14 +2490,12 @@ button:hover {
     text-align: left;
   }
 }
-
 .signin__form .inputs label {
   color: #4A5568;
   font-size: 14px;
   font-weight: 400;
   text-align: left;
 }
-
 @media (max-width: 300px) {
   .signin__form .inputs label {
     color: #4A5568;
@@ -1055,18 +2504,15 @@ button:hover {
     text-align: left;
   }
 }
-
 .signin__form a {
   color: #F18403;
   font-size: 12px;
   font-weight: 400;
   text-align: left;
 }
-
 .signin__form .submit-button {
   margin-top: 5em;
 }
-
 .signin__form .submit-button button {
   width: 100%;
   border: none;
@@ -1075,7 +2521,6 @@ button:hover {
   font-weight: 400;
   text-align: center;
 }
-
 .signin__form .no-account {
   margin-top: 1em;
   color: #171923;
@@ -1083,7 +2528,6 @@ button:hover {
   font-weight: 600;
   text-align: center;
 }
-
 .signin__form .no-account a {
   color: #FF190B;
   font-size: 12px;
@@ -1094,20 +2538,17 @@ button:hover {
 .signup {
   padding: 1em 2em;
 }
-
 .signup__desc {
   margin-bottom: 2em;
 }
-
 .signup__desc h1 {
   margin-top: 2em;
-  margin-bottom: .35em;
+  margin-bottom: 0.35em;
   color: #4A5568;
   font-size: 28px;
   font-weight: 700;
   text-align: center;
 }
-
 @media (max-width: 500px) {
   .signup__desc h1 {
     color: #4A5568;
@@ -1116,7 +2557,6 @@ button:hover {
     text-align: left;
   }
 }
-
 @media (max-width: 300px) {
   .signup__desc h1 {
     color: #4A5568;
@@ -1125,7 +2565,6 @@ button:hover {
     text-align: left;
   }
 }
-
 .signup__desc p {
   color: #A0AEC0;
   font-size: 16px;
@@ -1134,7 +2573,6 @@ button:hover {
   width: 50%;
   margin: 0 auto;
 }
-
 @media (max-width: 500px) {
   .signup__desc p {
     width: 100%;
@@ -1144,7 +2582,6 @@ button:hover {
     text-align: left;
   }
 }
-
 @media (max-width: 300px) {
   .signup__desc p {
     width: 100%;
@@ -1154,24 +2591,20 @@ button:hover {
     text-align: left;
   }
 }
-
 .signup__form {
   max-width: 400px;
   margin: 0 auto;
 }
-
 .signup__form .inputs {
   position: relative;
   margin-bottom: 1em;
 }
-
 .signup__form .inputs input {
   color: #171923;
   font-size: 14px;
   font-weight: 400;
   text-align: left;
 }
-
 @media (max-width: 300px) {
   .signup__form .inputs input {
     color: #4A5568;
@@ -1180,21 +2613,14 @@ button:hover {
     text-align: left;
   }
 }
-
 @media (max-width: 300px) {
-  .signup__form .inputs input::-webkit-input-placeholder {
+  .signup__form .inputs input::-moz-placeholder {
     color: #A0AEC0;
     font-size: 12px;
     font-weight: 400;
     text-align: left;
   }
   .signup__form .inputs input:-ms-input-placeholder {
-    color: #A0AEC0;
-    font-size: 12px;
-    font-weight: 400;
-    text-align: left;
-  }
-  .signup__form .inputs input::-ms-input-placeholder {
     color: #A0AEC0;
     font-size: 12px;
     font-weight: 400;
@@ -1207,14 +2633,12 @@ button:hover {
     text-align: left;
   }
 }
-
 .signup__form .inputs label {
   color: #4A5568;
   font-size: 14px;
   font-weight: 400;
   text-align: left;
 }
-
 @media (max-width: 300px) {
   .signup__form .inputs label {
     color: #4A5568;
@@ -1223,36 +2647,30 @@ button:hover {
     text-align: left;
   }
 }
-
 .signup__form .inputs .chakra-radio span {
   color: #A0AEC0;
   font-size: 14px;
   font-weight: 400;
   text-align: left;
 }
-
 .signup__form .inputs .chakra-checkbox {
   margin-top: 1em;
 }
-
 .signup__form .inputs .chakra-checkbox span {
   color: #A0AEC0;
   font-size: 12px;
   font-weight: 400;
   text-align: left;
 }
-
 .signup__form a {
   color: #F18403;
   font-size: 14px;
   font-weight: 400;
   text-align: left;
 }
-
 .signup__form .submit-button {
   margin-top: 5em;
 }
-
 .signup__form .submit-button button {
   width: 100%;
   border: none;
@@ -1261,7 +2679,6 @@ button:hover {
   font-weight: 400;
   text-align: center;
 }
-
 .signup__form .no-account {
   margin-top: 1em;
   color: #171923;
@@ -1269,11 +2686,9 @@ button:hover {
   font-weight: 600;
   text-align: center;
 }
-
 .signup__form .no-account a {
   color: #FF190B;
   font-size: 12px;
   font-weight: 600;
   text-align: center;
-}
-/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */

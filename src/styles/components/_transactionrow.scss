@@ -1,0 +1,59 @@
+.transaction-row {
+    margin-bottom: .75em;
+    padding: .5em;
+    border: 1px solid #E2E8F0;
+    border-radius: 5px;
+    color: $color-tertiary-300;
+
+    .info {
+
+        p {
+            @include styletext($xxsm-font-size, $color-tertiary-200, 400, left);
+        }
+
+        p:first-child {
+            font-weight: 400;
+            color: $color-tertiary-300;
+        }
+    }
+
+    .amount {
+
+
+        &-value {
+            @include styletext($xsm-font-size, 400, right);
+        }
+
+        .status {
+            @include styletext($xxxsm-font-size, 400, center);
+            padding: .25em;
+            margin-top: .15em;
+            border-radius: 5px;
+
+        }
+    }
+}
+
+.credit-text {
+    color: $color-success-fore;
+}
+
+.debit-text {
+    color: $color-primary-500;
+}
+
+.pending-text {
+    color: $color-pending-fore;
+}
+
+.success-state {
+    background: $color-success-back;
+}
+
+.pending-state {
+    background: $color-pending-back;
+}
+
+.failed-state {
+    background: $color-fail-back;
+}

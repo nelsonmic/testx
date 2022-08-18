@@ -1,6 +1,6 @@
 import { Input, InputGroup, InputRightElement, Button } from "@chakra-ui/react";
 import logo from "../../assets/logo.png";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -14,8 +14,15 @@ const SignIn = () => {
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
 
-  const { mutate: loginUser, isError, error, isSuccess, data, isLoading } = useLoginUser();
-if(isError) console.log(error.response)
+  const {
+    mutate: loginUser,
+    isError,
+    error,
+    isSuccess,
+    data,
+    isLoading,
+  } = useLoginUser();
+
   useEffect(() => {
     if (isSuccess) {
       let timer = setTimeout(() => {
@@ -27,7 +34,7 @@ if(isError) console.log(error.response)
       }, 3000);
       return () => clearTimeout(timer);
     }
-  }, [isSuccess,data, navigate]);
+  }, [isSuccess, data, navigate]);
 
   const formik = useFormik({
     initialValues: {

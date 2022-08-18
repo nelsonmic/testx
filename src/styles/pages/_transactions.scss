@@ -1,0 +1,60 @@
+.all-transactions {
+
+    main {
+        margin-top: 3em;
+        margin-bottom: 5em;
+        padding: 1em;
+        position: relative;
+
+        .search-wrapper {
+                position: sticky;
+                top: 3em;
+                background: #fff;
+                display: flex;
+                gap: 10px;
+        
+                .date-search {
+                    max-width: 50px;
+            }
+        }
+
+                                                                .refetching {
+                                                                    background: #fff;
+                                                                    padding: 1em;
+                                                                    position: absolute;
+                                                                    top: 20%;
+                                                                    left: 50%;
+                                                                    transform: translate(-50%, -50%);
+                                                                    z-index: 25;
+                                                                }
+                                
+                                                                .recent-transaction-history {
+            margin-top: 2em;
+            margin-bottom: 4em;
+            }
+
+                                                                .pagination-button {
+                                                                    z-index: 25;
+                                                                    border: .5px solid $color-tertiary-200;
+                                                                    border-radius: 5px;
+                                                                    background: #fff;
+                                                                    padding: .5em 1em;
+                                                                    position: fixed;
+                                                                    bottom: 0;
+                                                                    margin-bottom: 5em;
+                    display: flex;
+            gap: 20px;
+                justify-content: center;
+                place-items: center;
+            @include styletext($sm-font-size, $color-tertiary-300, 600, center);
+
+            button {
+                    width: 40px;
+                    height: 40px;
+
+                border-radius: 50%;
+                    @include styletext($md-font-size, $color-tertiary-300, 600, center);
+            }
+        }
+    }
+}

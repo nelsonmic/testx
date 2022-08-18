@@ -1,0 +1,93 @@
+.xpoints {
+      min-height: 100vh;
+      min-width: 100vw;
+      background: #01010190;
+      z-index: 5;
+      position: fixed;
+      top: 0;
+      left: 0;
+
+      .wrapper {
+            max-height: 65vh;
+            border-radius: 20px 20px 0 0;
+            background: $color-tertiary-100;
+            position: fixed;
+            bottom: 0;
+            min-width: 100vw;
+
+            .done {
+                  position: absolute;
+                  top: -40px;
+                  margin: 0 1em;
+                  padding: .5em 1em;
+                  background: $color-success-fore;
+                  @include styletext($xxsm-font-size, $color-tertiary-100, 600, center);
+            }
+
+            main {
+
+                  .pin-inputs {
+                        margin: 2em auto;
+                        display: flex;
+                        place-items: center;
+                        flex-direction: column;
+
+                        .back {
+                              position: absolute;
+                              left: 0;
+                              margin: 0 0 0 1em;
+                              @include styletext($md-font-size, $color-tertiary-300, 400, left);
+                        }
+
+                        p {
+                              @include styletext($xsm-font-size, $color-tertiary-300, 600, center);
+                              margin-bottom: 1.5em;
+                        }
+
+                        .select-fund-type {
+                              flex-grow: 1;
+                              width: 100%;
+
+
+                              h3 {
+                                    @include styletext($xxsm-font-size, $color-tertiary-300, 600, center);
+                              }
+                        }
+
+                        .xpoint-earned {
+                              padding: 1em;
+
+                              h1 {
+                                    position: relative;
+                                    @include styletext(40px, $color-tertiary-300, 900, center);
+                              }
+
+                              h1::before {
+                                    content: "You earned";
+                                    position: absolute;
+                                    margin-left: 20px;
+
+                                    @include styletext(8px, $color-success-fore, 600, center);
+                              }
+                        }
+
+                        .submit-button {
+                              margin: 2em auto;
+                              width: 80%;
+
+
+
+                              button {
+                                    width: 100%;
+                                    max-width: 400px;
+                                    border: none;
+                                    padding: 1.5em 0;
+                                    @include styletext($xxsm-font-size, $color-tertiary-100, 600, center);
+                              }
+                        }
+
+                  }
+
+            }
+      }
+}

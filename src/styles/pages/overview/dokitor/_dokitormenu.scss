@@ -1,0 +1,40 @@
+.dokitor-menu {
+      h1 {
+            @include styletext($xsm-font-size, $color-tertiary-300, 400, center);
+      }
+
+      ul {
+            margin-top: 2em;
+            flex-direction: column;
+
+            a {
+                  width: 100%;
+
+                  li {
+                        padding: 1em;
+                        display: flex;
+                        border: .5px solid #C4C4C4;
+                        place-items: center;
+                        justify-content: space-between;
+                        margin-bottom: 1em;
+                              border-radius: 8px;
+
+                        .payment-type {
+                              display: flex;
+                              place-items: center;
+                              gap: 10px;
+
+                              span {
+                                    h3 {
+                                          @include styletext($xsm-font-size, $color-tertiary-300, 600, left);
+                                    }
+
+                                    p {
+                                          @include styletext($xxsm-font-size, $color-tertiary-300, 400, left);
+                                    }
+                              }
+                        }
+                  }
+            }
+      }
+}

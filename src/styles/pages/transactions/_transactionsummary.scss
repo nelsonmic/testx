@@ -1,0 +1,97 @@
+.transactions-summary {
+
+    main {
+        position: relative;
+        margin-top: 3.5em;
+        margin-bottom: 5em;
+        padding: 1em;
+
+        .summary-icon {
+            width: max-content;
+            padding: 1em;
+            background: $color-primary-500;
+            margin: 0 auto;
+            border-radius: 8px;
+        }
+
+        .header-text {
+            margin: 1em 0;
+            @include styletext($sm-font-size, $color-tertiary-300, 600, center);
+        }
+
+        .summary-container {
+            margin-top: 3em;
+            padding: 0 1em;
+
+            .summary-item {
+                padding: 0 0 .5em 0;
+                margin-bottom: 1em;
+                border-bottom: 1px solid $color-tertiary-300;
+
+                p:first-child {
+                    margin-bottom: .5em;
+                    @include styletext($sm-font-size, $color-tertiary-300, 600, left);
+
+                }
+
+                p:last-child {
+                    @include styletext($xxsm-font-size, $color-tertiary-300, 400, left);
+                }
+            }
+
+            .flex {
+                display: flex;
+                justify-content: space-between;
+            }
+
+        }
+
+        .share-container {
+            position: fixed;
+            top: 75vh;
+            left: 75%;
+            display: flex;
+            flex-direction: column;
+            place-items: center;
+            gap: 25px;
+
+            .share-items {
+                padding: 1em;
+                background: #fff;
+                box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                border-radius: 8px 8px 0 0;
+                display: flex;
+                gap: 20px;
+
+                span {
+                    display: flex;
+                    flex-direction: column;
+                    place-items: center;
+
+                    p {
+                        @include styletext($xxsm-font-size, $color-tertiary-300, 600, center);
+                    }
+                }
+
+            }
+
+            .send {
+                background: #fff;
+                border-radius: 8px;
+                padding: .5em;
+                width: max-content;
+                border-radius: 50%;
+                box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+                svg {
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+
+        .re-position {
+            top: 66vh;
+            left: 50%;
+        }
+    }
+}

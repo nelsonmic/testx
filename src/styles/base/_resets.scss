@@ -1,76 +1,105 @@
-*, *::before, *::after {
-    box-sizing: border-box;
-  }
-  * {
-    margin: 0;
-    padding: 0;
-  }
-  html, body {
-    height: 100%;
-    position: relative;
-    width:100vw;
-  }
-  body {
-    // background: $color_tertiary-100;
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-  }
-  img, picture, video, canvas, svg {
-    display: block;
-    max-width: 100%;
-  }
-  input, button, textarea, select {
-    font: inherit;
-  }
-  p, h1, h2, h3, h4, h5, h6 {
-    overflow-wrap: break-word;
-  }
-
-  ol, ul{
-      list-style: none;
-      display:flex;
-      place-items: center;
-  }
-
-  a{
-    text-decoration: none;
-  }
-
-  button:hover{
-    cursor: pointer !important;
-  }
-
-  .wrapper{
-    width:100%;
-    max-width: 500px;
-    margin: 0 auto;
-  }
-
-  .back-button{
-    position:fixed;
-    top:0;
-    z-index:3;
-    margin:.5em 1.5em;
-  }
-
-  .page-name{
-    position:fixed;
-    top:0;
-    background: #fff;
-    width:100%;
-    padding:1em;
-    @include styletext($xxsm-font-size, $color-tertiary-300, 700, center);
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-  .formik-error{
-    transition: all 0.5s ease-in-out;
-    margin-top:.5em;
-   @include styletext($xxsm-font-size,$color-primary-600,400, left);
-  }
+* {
+  margin: 0;
+  padding: 0;
+}
 
-  // .active{
-  //   color:$color_primary-500;
-  // }
-  // #root{
-  //   isolation: isolate;
-  // }
+html,
+body {
+  height: 100%;
+  position: relative;
+  width: 100vw;
+}
+
+body {
+  // background: $color_tertiary-100;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+ol,
+ul {
+  list-style: none;
+  display: flex;
+  place-items: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+button:hover {
+  cursor: pointer !important;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+//and that
+input {
+  font-size: 16px !important;
+}
+
+
+.back-button {
+  position: fixed;
+  top: 0;
+  z-index: 3;
+  margin: .5em 1.5em;
+}
+
+.page-name {
+  position: fixed;
+  top: 0;
+  background: #fff;
+  width: 100%;
+  padding: 1em;
+  @include styletext($xxsm-font-size, $color-tertiary-300, 700, center);
+}
+
+.formik-error {
+  transition: all 0.5s ease-in-out;
+  margin-top: .5em;
+  @include styletext($xxsm-font-size, $color-primary-600, 400, left);
+}
+
+// .active{
+//   color:$color_primary-500;
+// }
+// #root{
+//   isolation: isolate;
+// }

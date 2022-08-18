@@ -14,17 +14,44 @@
 @import 'components/viewbank';
 @import 'components/loadingscreen';
 @import 'components/successscreen';
+@import 'components/transactionrow';
+@import 'components/cardskeleton';
 
 
 //pages
-@import 'pages/overview';
+@import 'pages/overview/overview';
 @import 'pages/profile';
+@import 'pages/transactions';
+@import 'pages/settings';
 @import 'pages/confirmalltransactions';
+@import 'pages/pinscreen';
 @import 'pages/payments';
 @import 'pages/payments/banktransfer';
-@import 'pages/payments/wallettransfer';	
-@import 'pages/payments/banklist';	
+@import 'pages/payments/wallettransfer';
+@import 'pages/payments/banklist';
+//overview >> fund pages
+@import 'pages/overview/fund';
+@import 'pages/overview/withdraw';
+@import 'pages/overview/xpoints';
+@import 'pages/overview/royalties';
+//overview>> dokitor
+@import 'pages/overview/dokitor/dokitormenu';
+@import 'pages/overview/dokitor/phonecall';
+//transaction pages
+@import 'pages/transactions/transactionsummary';
+//bill payment pages
+@import 'pages/payments/billpayments/airtime';
+@import 'pages/payments/billpayments/data';
+@import 'pages/payments/billpayments/electricity';
+@import 'pages/payments/billpayments/others';
+//settings pages
+@import 'pages/settings/banksettings';
+@import 'pages/settings/kyc/kycsettings';
+@import 'pages/settings/kyc/lvone';
+@import 'pages/settings/kyc/lvtwo';
+@import 'pages/settings/passwordsettings';
+@import 'pages/settings/pin/pinsettings';
 
-    //auth pages
+//auth pages
 @import 'pages/auth/signin';
 @import 'pages/auth/signup'

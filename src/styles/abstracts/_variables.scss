@@ -1,5 +1,6 @@
 //fonts-family
-$font-primary : 'Poppins', sans-serif;
+$font-primary : 'Poppins',
+sans-serif;
 
 
 //font-sizes
@@ -10,12 +11,19 @@ $sm-font-size : 16px;
 $xsm-font-size : 14px;
 $xxsm-font-size : 12px;
 $xxxsm-font-size : 10px;
+$xxxxsm-font-size : 8px;
 
 //colors
 
-$color-primary-400: #F18403; 
+$color-primary-400: #F18403;
 $color-primary-500: #FF0000;
 $color-primary-600: #FF190B;
+
+$color-success-fore: #0ACF83;
+$color-success-back: #09D85C20;
+$color-fail-back: #FF3A3A20;
+$color-pending-back: #F1840337;
+$color-pending-fore: #FF6E1D;
 
 $color-tertiary-100 : #ffffff;
 $color-tertiary-200 : #A0AEC0;

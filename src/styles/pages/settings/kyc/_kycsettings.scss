@@ -1,0 +1,38 @@
+.kyc-settings {
+
+    main {
+        margin-top: 4em;
+        margin-bottom: 5em;
+        padding: 1em;
+
+        .kyc-status {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+
+            .status {
+                flex-grow: 1;
+
+                border: 1px solid $color-tertiary-300;
+
+                padding: .5em 2em;
+
+                p {
+                    @include styletext($xsm-font-size, $color-tertiary-300, 600, center);
+                }
+            }
+
+            .status-done {
+                border: none;
+                background: $color-success-fore;
+
+                p {
+                    color: $color-tertiary-100;
+                }
+            }
+        }
+
+
+
+    }
+}

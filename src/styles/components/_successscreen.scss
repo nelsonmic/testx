@@ -1,35 +1,37 @@
-.success-screen{
+.success-screen {
     position: absolute;
-    height:100vh;
-    width:100vw;
-    top:0;
+    height: 100vh;
+    min-height: 100vh;
+    width: 100vw;
+    top: 0;
     background: $color-tertiary-100;
     z-index: 6;
 
-    .desc{
-        margin-top:5em;
+    .desc {
+        margin-top: 5em;
         text-align: center;
 
-        h2{
+        h2 {
             @include styletext($md-font-size, $color-tertiary-300, 600, center);
         }
-        p{
+
+        p {
             @include styletext($xsm-font-size, $color-tertiary-300, 400, center);
 
-            span{
+            span {
                 @include styletext($sm-font-size, $color-tertiary-300, 600, center);
             }
         }
     }
 
-    .btn{
-        width:80%;
-        margin:0 auto;
-        padding-top:2em;
+    .btn {
+        width: 80%;
+        margin: 0 auto;
+        padding-top: 2em;
 
-        button{
-            width:100%;
-            border:none;
+        button {
+            width: 100%;
+            border: none;
         }
     }
 }
