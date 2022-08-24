@@ -14,11 +14,11 @@ import naira from '../../assets/naira.svg'
 //components
 import TransactionRow from '../../components/TransactionRow'
 import CardSkeleton from '../../components/CardSkeleton'
+import SideMenu from '../../components/SideMenu'
 
 //utils
 import * as utils from '../../utils'
 import AnimatedPage from '../../components/AnimatedPage'
-// import AlertMessage from "../components/Alert";
 
 const Overview = () => {
   //   let navigate = useNavigate();
@@ -28,6 +28,7 @@ const Overview = () => {
 
   // const [userProfileImage] = useRecoilState(userProfileImageState);
   const [overviewHistory, setOverviewHistory] = useState([])
+  const [showSideMenu, setShowSideMenu] = useState(false)
   const { isSuccess: isSuccessUser, data: dataUser } = useGetUserInfo()
   const {
     isSuccess: isSuccessHistory,
@@ -66,6 +67,7 @@ const Overview = () => {
             viewBox='0 0 24 24'
             stroke='currentColor'
             color='#d40000'
+            onClick={() => setShowSideMenu(true)}
           >
             <path
               strokeLinecap='round'
@@ -98,6 +100,7 @@ const Overview = () => {
           </Link>
         </div>
       </header>
+      {showSideMenu && <SideMenu close={setShowSideMenu} />}
       <AnimatedPage>
         <div className='wrapper'>
           <main>
@@ -127,7 +130,7 @@ const Overview = () => {
                   )
                   : '0' : '****'}
               </p>
-              <p className='wallet-address'>Wallet Address: {" "}<span>{user && utils.truncateTextWithAsterix(user.wallet_address, 4)}</span></p>
+              <p className='wallet-address'>Wallet Address: {" "}<span>{user.wallet_address}</span></p>
             </div>
 
             <div className='quick-action-container'>
@@ -197,7 +200,6 @@ const Overview = () => {
                 </div>
               </div>
             </div>
-
             <div className='recent-transaction-history'>
               <p className='desc'>Recent Transactions</p>
               <div className='transaction-history-items'>

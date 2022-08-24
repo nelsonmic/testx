@@ -64,7 +64,7 @@ const Xpoints = () => {
                                                                   size="md"
                                                                   colorScheme="red"
                                                                   onClick={() => {
-                                                                        handleXpointmove("beans");
+                                                                        handleXpointmove("xpoints");
                                                                   }}
                                                                   isLoading={isLoading}
                                                             >
