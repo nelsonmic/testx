@@ -7,11 +7,13 @@ import TransactionRow from '../../components/TransactionRow'
 import CardSkeleton from '../../components/CardSkeleton'
 import AnimatedPage from "../../components/AnimatedPage";
 import { Input } from '@chakra-ui/react';
+import PaginationButton from '../../components/PaginationButton';
 
 
 const Transactions = () => {
   const [overviewHistory, setOverviewHistory] = useState([])
   const [page, setPage] = useState(1);
+  const [total, setTotal] = useState(0)
 
   const {
     isSuccess: isSuccessHistory,
@@ -24,6 +26,7 @@ const Transactions = () => {
 
     if (isSuccessHistory) {
       setOverviewHistory(dataHistory.data.data.transfers)
+      setTotal(dataHistory.data.data.pagination.total_pages)
     }
   }, [
     isSuccessHistory,
@@ -137,22 +140,7 @@ const Transactions = () => {
                 )}
               </div>
             </div>
-            <div className="pagination-button">
-              <span> {page}</span>
-              <button
-                onClick={() => setPage(old => Math.max(old - 1, 0))}
-                disabled={page === 1}
-              >
-                {"<"}
-              </button>{' '}
-              <button
-                onClick={() => {
-                  setPage(old => old + 1)
-                }}
-              >
-                {">"}
-              </button>
-            </div>
+            <PaginationButton page={page} setPage={setPage} total={total} />
           </main>
         </div>
       </AnimatedPage>

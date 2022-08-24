@@ -48,6 +48,13 @@ import BankList from "./views/payments/BankList";
 import AllBankBeneficiaryList from "./views/payments/AllBankBeneficiaryList";
 import AllWalletBeneficiaryList from "./views/payments/AllWalletBeneficiaryList";
 
+//Terminal Pages
+import Agent from "./views/Terminals/Agent";
+import Aggregator from "./views/Terminals/Aggregator";
+import Member from "./views/Terminals/Member";
+import Statehead from "./views/Terminals/Statehead";
+import TerminalSummary from "./views/Terminals/TerminalSummary";
+
 //settings routes
 // >> Kyc Settings
 import KycSettings from "./views/settings/kyc/KycSettings";
@@ -227,6 +234,17 @@ function App() {
                 element={<ConfirmAllTransactions transactionType="Biller" />}
               />
             </Route>
+
+            {/* Terminal routes */}
+            <Route path="/terminal/agent" element={<Agent />} />
+            <Route path="/terminal/aggregator" element={<Aggregator />} />
+            <Route path="/terminal/statehead" element={<Statehead />} />
+            <Route path="/terminal/member" element={<Member />} />
+            <Route
+              path="/terminal/summary/:agentname/:aggregatorname/:stateheadname/:serialnumber/:phone/:pos/:location/:today/:yesterday/:lsd"
+              element={<TerminalSummary />}
+            />
+
 
             {/* settings routes */}
             <Route path="/settings/kyc" element={<KycSettings />}>

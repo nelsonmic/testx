@@ -1,0 +1,20 @@
+.general-terminal {
+      position: relative;
+
+      main {
+            margin-top: 4em;
+            margin-bottom: 5em;
+            padding: 1em;
+
+
+            .refetching {
+                  background: #fff;
+                  padding: 1em;
+                  position: absolute;
+                  top: 20%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  z-index: 25;
+            }
+      }
+}

@@ -304,6 +304,9 @@ input {
   border-radius: 5px;
   color: #4A5568;
 }
+.transaction-row .transaction-row-content {
+  width: 100%;
+}
 .transaction-row .info p {
   color: #A0AEC0;
   font-size: 12px;
@@ -367,6 +370,70 @@ input {
 }
 .card-skeleton div:first-child {
   flex-grow: 1;
+}
+
+.pagination-button {
+  z-index: 25;
+  border: 0.5px solid #A0AEC0;
+  border-radius: 5px;
+  background: #fff;
+  padding: 0.5em 1em;
+  position: fixed;
+  bottom: 0;
+  margin-left: 1em;
+  margin-bottom: 5em;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  place-items: center;
+  color: #4A5568;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+.pagination-button button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: #4A5568;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.side-menu {
+  position: fixed;
+  z-index: 99;
+  background: #fff;
+  width: 80%;
+  height: 50vh;
+  top: 0;
+  left: 0;
+  border-radius: 0 10px 10px 0;
+  box-shadow: 0px 16px 40px rgba(37, 37, 37, 0.2);
+  overflow-y: auto;
+}
+.side-menu .close {
+  position: absolute;
+  right: 0;
+  margin: 2em;
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: left;
+}
+.side-menu ul {
+  display: block;
+  margin: 5em 1em;
+}
+.side-menu ul li {
+  margin-top: 2em;
+}
+.side-menu ul li a {
+  color: #4A5568;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
 }
 
 .overview {
@@ -1667,6 +1734,24 @@ input {
   border: none;
   color: #ffffff;
   background: #FF0000;
+}
+
+.general-terminal {
+  position: relative;
+}
+.general-terminal main {
+  margin-top: 4em;
+  margin-bottom: 5em;
+  padding: 1em;
+}
+.general-terminal main .refetching {
+  background: #fff;
+  padding: 1em;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 25;
 }
 
 .transactions-summary main {

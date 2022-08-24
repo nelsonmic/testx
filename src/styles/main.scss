@@ -16,6 +16,8 @@
 @import 'components/successscreen';
 @import 'components/transactionrow';
 @import 'components/cardskeleton';
+@import 'components/paginationbuttons';
+@import 'components/sidemenu';
 
 
 //pages
@@ -37,6 +39,8 @@
 //overview>> dokitor
 @import 'pages/overview/dokitor/dokitormenu';
 @import 'pages/overview/dokitor/phonecall';
+//Terminals
+@import 'pages/terminals/generalterminals';
 //transaction pages
 @import 'pages/transactions/transactionsummary';
 //bill payment pages
