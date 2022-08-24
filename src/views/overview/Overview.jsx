@@ -130,7 +130,7 @@ const Overview = () => {
                   )
                   : '0' : '****'}
               </p>
-              <p className='wallet-address'>Wallet Address: {" "}<span>{user.wallet_address}</span></p>
+              <p className='wallet-address'>Wallet Address: {" "}<span>{user && user.wallet_address}</span></p>
             </div>
 
             <div className='quick-action-container'>

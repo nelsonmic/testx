@@ -17,16 +17,45 @@
             @include styletext($xxsm-font-size, $color-tertiary-300, 600, left)
       }
 
-      ul {
-            display: block;
-            margin: 5em 1em;
+                                                                                                                                                                                                .accordion {
+                                                                                                                                                                                                      margin: 5em 1em;
+                                                                                                
+                                                                                                                                                                                                      button {
+                                                                                                                                                                                                            border: none;
+                                                                                                                                                                                                            background: none;
+                                                                                                                                                                                                            @include styletext($sm-font-size, $color-tertiary-300, 600, left)
+                                                                                                                                                                                                      }
+                                                                                                                                                                                                                                                                                                                                                                                                ul {
+                                                                                                                                                                                                                                                                                                                                                                                                      display: block;
 
-            li {
-                  margin-top: 2em;
+                  li {
+                        margin-top: 1em;
 
-                  a {
-                        @include styletext($xsm-font-size, $color-tertiary-300, 600, left)
-                  }
-            }
-      }
+                        a {
+                                    @include styletext($xsm-font-size, $color-tertiary-300, 600, left)
+                              }
+                        }
+                                                                                                                                                                                                                                                                                                                                                                                                .other-menus {
+                                                                                                                                                                                                                                                                                                                                                                                                      padding: 0 1em;
+                                                                                                                                                                                                                                                                                                                                                                                                      border: 1px solid red;
+                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                                                      ul {
+                                                                                                                                                                                                                                                                                                                                                                                                            li {
+                                                                                                                                                                                                                                                                                                                                                                                                                  @include styletext($sm-font-size, $color-tertiary-300, 600, left)
+                                                                                                                                                                                                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                                                                                                                                                                                                      }
+                                                                                                                                                                                                                                                                                                                                                                                                }
+                                                                                                                                                                                                                                                                                                                                                                                                }
+                                                                                                                                                                                                                                                                                                                                                                                                }
+                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                                                .other-menus {
+                                                                                                                                                                                                                                                                                                                                                                                                      padding: 0 1em;
+                                                                                                                                                                                                
+                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                                                      ul {
+                                                                                                                                                                                                                                                                                                                                                                                                            li {
+                                                                                                                                                                                                                                                                                                                                                                                                                  @include styletext($md-font-size, $color-tertiary-300, 600, left)
+                                                                                                                                                                                                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                                                                                                                                                                                                      }
+}
 }
