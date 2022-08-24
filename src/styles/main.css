@@ -422,16 +422,45 @@ input {
   font-weight: 600;
   text-align: left;
 }
-.side-menu ul {
-  display: block;
+.side-menu .accordion {
   margin: 5em 1em;
 }
-.side-menu ul li {
-  margin-top: 2em;
+.side-menu .accordion button {
+  border: none;
+  background: none;
+  color: #4A5568;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
 }
-.side-menu ul li a {
+.side-menu .accordion ul {
+  display: block;
+}
+.side-menu .accordion ul li {
+  margin-top: 1em;
+}
+.side-menu .accordion ul li a {
   color: #4A5568;
   font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+}
+.side-menu .accordion ul .other-menus {
+  padding: 0 1em;
+  border: 1px solid red;
+}
+.side-menu .accordion ul .other-menus ul li {
+  color: #4A5568;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
+}
+.side-menu .other-menus {
+  padding: 0 1em;
+}
+.side-menu .other-menus ul li {
+  color: #4A5568;
+  font-size: 20px;
   font-weight: 600;
   text-align: left;
 }
