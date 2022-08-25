@@ -3,18 +3,16 @@ import AnimatedPage from "../../components/AnimatedPage";
 import BackButton from "../../components/BackButton";
 
 
-const TerminalSummary = () => {
+const AgentTerminalSummary = () => {
       const {
-            agentname,
-            aggregatorname,
-            location,
-            lsd,
-            phone,
-            pos,
-            serialnumber,
-            stateheadname,
-            today,
-            yesterday
+            amount,
+            maskedpan,
+            payment_date,
+            sync_date,
+            rrn,
+            status_desc,
+            terminal_id,
+            transaction_ref,
       } = useParams();
 
       return (
@@ -41,55 +39,45 @@ const TerminalSummary = () => {
                                     <h1 className="header-text">Terminal Summary</h1>
                                     <div className="summary-container">
                                           <div className="summary-item">
-                                                <p>Agent name</p>
-                                                <p>{agentname}</p>
+                                                <p>Date</p>
+                                                <p>{sync_date}</p>
                                           </div>
                                           <div className="summary-item">
-                                                <p>Aggregator name</p>
-                                                <p>{aggregatorname}</p>
+                                                <p>RR Number</p>
+                                                <p>{rrn}</p>
                                           </div>
                                           <div className="summary-item">
-                                                <p>Statehead name</p>
-                                                <p>{stateheadname}</p>
+                                                <p>Amount</p>
+                                                <p>{amount}</p>
                                           </div>
                                           <div className="summary-item">
-                                                <p>Serial number</p>
-                                                <p>{serialnumber}</p>
+                                                <p>Masked Pan</p>
+                                                <p>{maskedpan}</p>
                                           </div>
                                           <div className="summary-item">
-                                                <p>Phone</p>
-                                                <p>{phone}</p>
+                                                <p>Paid on</p>
+                                                <p>{payment_date}</p>
                                           </div>
 
                                           <div className="summary-item flex">
                                                 <span>
-                                                      <p>POS</p>
+                                                      <p>Trans.Reference</p>
                                                       <p>
-                                                            {pos}
+                                                            {transaction_ref}
                                                       </p>
                                                 </span>
 
                                                 <span>
-                                                      <p>Location</p>
+                                                      <p>Terminal ID</p>
                                                       <p>
-                                                            {location}
+                                                            {terminal_id}
                                                       </p>
                                                 </span>
                                           </div>
 
                                           <div className="summary-item">
-                                                <p>Today</p>
-                                                <p>{today}</p>
-                                          </div>
-
-                                          <div className="summary-item">
-                                                <p>Yesterday</p>
-                                                <p>{yesterday}</p>
-                                          </div>
-
-                                          <div className="summary-item">
-                                                <p>Last seven days</p>
-                                                <p>{lsd}</p>
+                                                <p>Status</p>
+                                                <p>{status_desc}</p>
                                           </div>
                                     </div>
 
@@ -100,4 +88,4 @@ const TerminalSummary = () => {
       );
 };
 
-export default TerminalSummary;
+export default AgentTerminalSummary;

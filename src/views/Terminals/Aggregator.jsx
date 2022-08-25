@@ -10,7 +10,7 @@ const Aggregator = () => {
       const [aggregator, setAggregator] = useState([])
       const [page, setPage] = useState(1)
       const [total, setTotal] = useState(0)
-      const { data, isFetching } = useGetAggregator();
+      const { data, isFetching } = useGetAggregator(page);
 
       useEffect(() => {
             if (data) {
