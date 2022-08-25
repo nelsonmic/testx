@@ -440,7 +440,7 @@ input {
   margin-top: 1em;
 }
 .side-menu .accordion ul li a {
-  color: #4A5568;
+  color: #FF0000;
   font-size: 14px;
   font-weight: 600;
   text-align: left;
@@ -455,12 +455,12 @@ input {
   font-weight: 600;
   text-align: left;
 }
-.side-menu .other-menus {
+.side-menu .accordion .other-menus {
   padding: 0 1em;
 }
-.side-menu .other-menus ul li {
+.side-menu .accordion .other-menus li a {
   color: #4A5568;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
   text-align: left;
 }
@@ -1767,6 +1767,21 @@ input {
 
 .general-terminal {
   position: relative;
+}
+.general-terminal .select-serial-number {
+  height: 50px;
+  margin-bottom: 20px;
+}
+.general-terminal .select-serial-number .inputs {
+  margin-bottom: 1em;
+}
+.general-terminal .select-serial-number .inputs select {
+  display: block;
+  margin-bottom: 0.35em;
+  color: #4A5568;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
 }
 .general-terminal main {
   margin-top: 4em;

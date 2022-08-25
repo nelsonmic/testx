@@ -45,11 +45,11 @@ const SideMenu = ({ close }) => {
                                                 </AccordionButton>
                                           </h2>
                                           <AccordionPanel pb={4}>
-                                                <ul>
+                                                <ul className="sub-menu">
                                                       <li><Link to="/terminal/agent">Agent</Link></li>
-                                                      <li><Link to="/">StateHead</Link></li>
+                                                      <li><Link to="/terminal/statehead">StateHead</Link></li>
                                                       <li><Link to="terminal/aggregator">Aggregator</Link></li>
-                                                      <li><Link to="/">Member</Link></li>
+                                                      <li><Link to="/">Audit-log</Link></li>
                                                 </ul>
                                           </AccordionPanel>
                                     </>

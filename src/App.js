@@ -54,7 +54,7 @@ import Aggregator from "./views/Terminals/Aggregator";
 import Member from "./views/Terminals/Member";
 import Statehead from "./views/Terminals/Statehead";
 import TerminalSummary from "./views/Terminals/TerminalSummary";
-
+import AgentTerminalSummary from "./views/Terminals/AgentTerminalSummary";
 //settings routes
 // >> Kyc Settings
 import KycSettings from "./views/settings/kyc/KycSettings";
@@ -244,6 +244,7 @@ function App() {
               path="/terminal/summary/:agentname/:aggregatorname/:stateheadname/:serialnumber/:phone/:pos/:location/:today/:yesterday/:lsd"
               element={<TerminalSummary />}
             />
+            <Route path="/agent-terminal/summary/:amount/:maskedpan/:payment_date/:sync_date/:rrn/:status_desc/:terminal_id/:transaction_ref" element={<AgentTerminalSummary />} />
 
 
             {/* settings routes */}

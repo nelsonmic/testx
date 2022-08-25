@@ -1,6 +1,22 @@
 .general-terminal {
       position: relative;
 
+      .select-serial-number {
+      
+                  height: 50px;
+                  margin-bottom: 20px;
+      
+                  .inputs {
+                        margin-bottom: 1em;
+      
+                        select {
+                              display: block;
+                              margin-bottom: .35em;
+                              @include styletext($xxsm-font-size, $color-tertiary-300, 400, left);
+                        }
+      
+                  }
+            }
       main {
             margin-top: 4em;
             margin-bottom: 5em;

@@ -36,9 +36,9 @@ const WalletTransfer = () => {
     useGetWalletBeneficiary();
 
   //beneficiary data
-  const [walletBeneficiary, setWalletBeneficiary] = useState(null);
+  const [walletBeneficiary, setWalletBeneficiary] = useState([]);
   const [fullWalletBeneficiaryList, setFullWalletBeneficiaryList] =
-    useState(null);
+    useState([]);
 
   //all user enetered data
   const [receipientEmail, setReceipientEmail] = useState("");
