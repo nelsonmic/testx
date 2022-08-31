@@ -1,12 +1,12 @@
 import { useQuery } from "react-query";
 import axios from "axios";
 
-const getMember = async () => {
-      return await axios.get(`${process.env.REACT_APP_BASE}/Member/terminals`);
+const getMember = async (page) => {
+      return await axios.get(`${process.env.REACT_APP_BASE}/transactions/auditLog?page=${page}`);
 };
 
-const useGetMember = () => {
-      return useQuery("member-terminal", getMember);
+const useGetMember = (page) => {
+      return useQuery(["member-terminal", page], () => getMember(page), { keepPreviousData: true });
 };
 
 export default useGetMember;

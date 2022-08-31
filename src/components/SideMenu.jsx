@@ -49,7 +49,6 @@ const SideMenu = ({ close }) => {
                                                       <li><Link to="/terminal/agent">Agent</Link></li>
                                                       <li><Link to="/terminal/statehead">StateHead</Link></li>
                                                       <li><Link to="terminal/aggregator">Aggregator</Link></li>
-                                                      <li><Link to="/">Audit-log</Link></li>
                                                 </ul>
                                           </AccordionPanel>
                                     </>
@@ -57,7 +56,7 @@ const SideMenu = ({ close }) => {
                         </AccordionItem>
                         <ul className="other-menus">
                               <li><Link to="/">My cards</Link></li>
-                              <li><Link to="/">Request card</Link></li>
+                              <li className="last"><Link to="/">Request card</Link></li>
                         </ul>
                   </Accordion>
             </motion.div>

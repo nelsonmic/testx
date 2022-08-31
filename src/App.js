@@ -51,7 +51,7 @@ import AllWalletBeneficiaryList from "./views/payments/AllWalletBeneficiaryList"
 //Terminal Pages
 import Agent from "./views/Terminals/Agent";
 import Aggregator from "./views/Terminals/Aggregator";
-import Member from "./views/Terminals/Member";
+import AuditLog from "./views/Terminals/AuditLog";
 import Statehead from "./views/Terminals/Statehead";
 import TerminalSummary from "./views/Terminals/TerminalSummary";
 import AgentTerminalSummary from "./views/Terminals/AgentTerminalSummary";
@@ -239,7 +239,7 @@ function App() {
             <Route path="/terminal/agent" element={<Agent />} />
             <Route path="/terminal/aggregator" element={<Aggregator />} />
             <Route path="/terminal/statehead" element={<Statehead />} />
-            <Route path="/terminal/member" element={<Member />} />
+            <Route path="/terminal/audit-log" element={<AuditLog />} />
             <Route
               path="/terminal/summary/:agentname/:aggregatorname/:stateheadname/:serialnumber/:phone/:pos/:location/:today/:yesterday/:lsd"
               element={<TerminalSummary />}

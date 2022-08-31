@@ -37,16 +37,7 @@
                               }
                               }
 
-                                    .other-menus {
-                                          padding: 0 1em;
-                                          border: 1px solid red;
-                  
-                                          ul {
-                                                li {
-                                                      @include styletext($sm-font-size, $color-tertiary-300, 600, left)
-                                                }
-                                          }
-                                    }
+
                                     }
 .other-menus {
       padding: 0 1em;

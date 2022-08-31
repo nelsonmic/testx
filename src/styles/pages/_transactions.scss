@@ -11,12 +11,27 @@
                 top: 3em;
                 background: #fff;
                 display: flex;
+                place-items: center;
                 gap: 10px;
         
-                .date-search {
-                    max-width: 50px;
-            }
+                input {
+                        flex: 1;
+                    }
+                
+                    .audit-log {
+                        flex: 1;
+                        max-width: max-content;
+                        min-width: max-content;
+                        padding: .75em;
+                        background: $color-tertiary-300;
+                        border-radius: 8px;
+                
+                        a {
+                            @include styletext($xxsm-font-size, $color-tertiary-100, 400, center);
+                        }
+                    }
         }
+
 
                                                                 .refetching {
                                                                     background: #fff;
