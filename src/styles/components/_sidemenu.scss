@@ -1,0 +1,51 @@
+.side-menu {
+      position: fixed;
+      z-index: 99;
+      background: #fff;
+      width: 80%;
+      height: 50vh;
+      top: 0;
+      left: 0;
+      border-radius: 0 10px 10px 0;
+      box-shadow: 0px 16px 40px rgba(37, 37, 37, 0.2);
+      overflow-y: auto;
+
+      .close {
+            position: absolute;
+            right: 0;
+            margin: 2em;
+            @include styletext($xxsm-font-size, $color-tertiary-300, 600, left)
+      }
+
+            .accordion {
+                  margin: 5em 1em;
+      
+                  button {
+                        border: none;
+                        background: none;
+                        @include styletext($sm-font-size, $color-tertiary-300, 600, left)
+                  }
+
+                        ul {
+                              display: block;
+
+                  li {
+                        margin-top: 1em;
+
+                        a {
+                              @include styletext($xsm-font-size, $color-primary-500, 600, left)
+                              }
+                              }
+
+
+                                    }
+.other-menus {
+      padding: 0 1em;
+                  li {
+                        a {
+                                    @include styletext($sm-font-size, $color-tertiary-300, 600, left)
+                              }
+                        }
+                        }
+                        }
+}

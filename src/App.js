@@ -48,6 +48,13 @@ import BankList from "./views/payments/BankList";
 import AllBankBeneficiaryList from "./views/payments/AllBankBeneficiaryList";
 import AllWalletBeneficiaryList from "./views/payments/AllWalletBeneficiaryList";
 
+//Terminal Pages
+import Agent from "./views/Terminals/Agent";
+import Aggregator from "./views/Terminals/Aggregator";
+import AuditLog from "./views/Terminals/AuditLog";
+import Statehead from "./views/Terminals/Statehead";
+import TerminalSummary from "./views/Terminals/TerminalSummary";
+import AgentTerminalSummary from "./views/Terminals/AgentTerminalSummary";
 //settings routes
 // >> Kyc Settings
 import KycSettings from "./views/settings/kyc/KycSettings";
@@ -227,6 +234,18 @@ function App() {
                 element={<ConfirmAllTransactions transactionType="Biller" />}
               />
             </Route>
+
+            {/* Terminal routes */}
+            <Route path="/terminal/agent" element={<Agent />} />
+            <Route path="/terminal/aggregator" element={<Aggregator />} />
+            <Route path="/terminal/statehead" element={<Statehead />} />
+            <Route path="/terminal/audit-log" element={<AuditLog />} />
+            <Route
+              path="/terminal/summary/:agentname/:aggregatorname/:stateheadname/:serialnumber/:phone/:pos/:location/:today/:yesterday/:lsd"
+              element={<TerminalSummary />}
+            />
+            <Route path="/agent-terminal/summary/:amount/:maskedpan/:payment_date/:sync_date/:rrn/:status_desc/:terminal_id/:transaction_ref" element={<AgentTerminalSummary />} />
+
 
             {/* settings routes */}
             <Route path="/settings/kyc" element={<KycSettings />}>

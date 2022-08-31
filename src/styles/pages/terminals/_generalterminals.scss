@@ -1,0 +1,63 @@
+.general-terminal {
+      position: relative;
+
+      .select-serial-number {
+      
+                  height: 50px;
+                  margin-bottom: 20px;
+      
+                  .inputs {
+                        margin-bottom: 1em;
+      
+                        select {
+                              display: block;
+                              margin-bottom: .35em;
+                              @include styletext($xxsm-font-size, $color-tertiary-300, 400, left);
+                        }
+      
+                  }
+            }
+      main {
+            margin-top: 4em;
+            margin-bottom: 5em;
+            padding: 1em;
+
+                                          .header-details {
+                                                      position: sticky;
+                                                      top: 3em;
+                                                      background: #fff;
+                                                      display: flex;
+                                                      place-items: center;
+                                                      gap: 10px;
+                                                      margin-bottom: 1em;
+                                          
+                                                      input {
+                                                            flex: 1;
+                                                      }
+                                          
+                                                      .audit-log {
+                                                            flex: 1;
+                                          
+                                                            padding: .75em;
+                                                            border: 1px solid $color-tertiary-200;
+                                                            border-radius: 8px;
+                                          
+                                                            h3 {
+                                                                  @include styletext($xxxsm-font-size, $color-tertiary-300, 800, center);
+                                                            }
+                                          
+                                                            @include styletext($xxsm-font-size, $color-tertiary-300, 400, center);
+                                                      }
+                                                }
+
+            .refetching {
+                  background: #fff;
+                  padding: 1em;
+                  position: absolute;
+                  top: 20%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  z-index: 25;
+            }
+      }
+}
