@@ -8,6 +8,7 @@ import CardSkeleton from '../../components/CardSkeleton'
 import AnimatedPage from "../../components/AnimatedPage";
 import { Input } from '@chakra-ui/react';
 import PaginationButton from '../../components/PaginationButton';
+import { Link } from 'react-router-dom';
 
 
 const Transactions = () => {
@@ -41,7 +42,7 @@ const Transactions = () => {
         <div className="wrapper">
           <main>
             <div className="search-wrapper">
-              <Input type="date" className='date-search' />
+              <span className='audit-log'><Link to="/terminal/audit-log">Audit-log</Link></span>
               <Input placeholder="Search" type="search" />
             </div>
             {isFetching &&

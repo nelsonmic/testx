@@ -3,16 +3,20 @@
     padding: .5em;
     border: 1px solid #E2E8F0;
     border-radius: 5px;
-    color: $color-tertiary-300;
+
 
     .transaction-row-content {
             width: 100%;
         }
     .info {
+    
 
         p {
             @include styletext($xxsm-font-size, $color-tertiary-200, 400, left);
         }
+.right {
+    text-align: right;
+}
 
         p:first-child {
             font-weight: 400;

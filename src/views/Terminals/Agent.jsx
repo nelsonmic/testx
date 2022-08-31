@@ -25,7 +25,11 @@ const Agent = () => {
       useEffect(() => {
             if (dataSerial) {
                   setAgent(dataSerial.data.data)
+                  if (dataSerial.data.data[0]) {
                   setSelectSerialNumber(dataSerial.data.data[0].serial_number);
+                  } else {
+                        setSelectSerialNumber("");
+                  }
             };
 
             if (dataAgent) {

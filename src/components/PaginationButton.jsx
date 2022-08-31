@@ -1,4 +1,4 @@
-const PaginationButton = ({ page, setPage, total }) => {
+const PaginationButton = ({ page, end, setPage, total }) => {
       return (
             <div className="pagination-button">
                   <span> {page}</span>
@@ -17,6 +17,7 @@ const PaginationButton = ({ page, setPage, total }) => {
                   >
                         {">"}
                   </button>
+                  <span> {total}</span>
             </div>
       )
 }
